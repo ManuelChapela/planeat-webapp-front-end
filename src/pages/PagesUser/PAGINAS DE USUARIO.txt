@@ -1,0 +1,10 @@
+[] 1. [modal] Join
+[] 2.1. SignIn
+[] 2.2. SignUp
+[] 3. Profile
+[] 4. Camera
+[] 5. NameUser
+[] 6. MailUser
+[] 7.[I]. DontWant
+[] 8. DontWantOther
+[] 9.[II]. Preferencies

@@ -1,0 +1,7 @@
+[] <Join/> [Pantalla completa]
+[] <Login/> [Pantalla completa]
+[] <SignUp/> [Pantalla completa]
+[] <UserProfile/>
+[] <Camera/>
+[] <EditInput/>
+[] <Profile/>
