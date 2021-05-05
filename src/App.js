@@ -15,6 +15,7 @@ import { FavsPage } from './pages/PagesSearch/FavsPage';
 
 // Busqueda - Recetas
 import { DetailPage } from './pages/PagesSearch/DetailPage';
+import { MasterPage } from './pages/PagesSearch/MasterPage';
 
 
 import {
@@ -40,7 +41,8 @@ function App() {
               <Route exact path="/horario" component={ MainPage } />
               <Route exact path="/favoritos" component={ FavsPage } />
 
-              <Route exact path="/recetas" component={ DetailPage } />
+              <Route exact path="/recetas" component={ MasterPage } />
+              <Route exact path="/receta-detalle" component={ DetailPage } />
 
 
 

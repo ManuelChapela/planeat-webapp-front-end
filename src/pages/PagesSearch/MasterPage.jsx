@@ -10,6 +10,7 @@ import { useHistory } from 'react-router';
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Favs } from '../../components/Favs/Favs';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
+import { BtnBack } from '../../components/BtnBack/BtnBack';
 
 
 
@@ -23,11 +24,12 @@ export const MasterPage = () => {
         <div className='container'>
             <header>
                 <BtnBack textBtn="Volver" action={handleClickBack}/>
-                <HeaderNoLogo text='Recetas favoritas' />
+                <HeaderNoLogo text='Recetas sugeridas' />
             </header>
 
             <main>
-                <Favs/>
+                <h2>ESTA ES LA PÁGINA DEL CARROUSEL</h2>
+                {/* <Favs/> */}
             </main>
 
             {/* <div className="btn__box">
