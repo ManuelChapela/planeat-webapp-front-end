@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 
 export const BtnLike = ({action}) => {
     return (
-        <div>
-            <h1 onClick={action}>Raquel futbol club</h1>
+        <div className='icon__like' onClick={action}>
+            <FavoriteSharpIcon />
         </div>
     )
 }

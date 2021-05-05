@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export const BtnUser = ({action}) => {
+import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
+
+export const BtnUser = ( {action} ) => {
     return (
-        <div>
-            <h1 onClick={action}>La raqui user</h1>
+        <div className='icon__user' onClick={action}>
+            <AccountCircleSharpIcon />
         </div>
-    )
-}
+    );
+};

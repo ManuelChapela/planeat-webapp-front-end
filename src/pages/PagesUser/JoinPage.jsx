@@ -13,9 +13,9 @@ export const JoinPage = () => {
 
     let history = useHistory();
 
-    const handleClickGoogle = () => history.push("/1");
-    const handleClickLogIn = () => history.push("/2");
-    const handleClickSignUp = () => history.push("/3");
+    const handleClickGoogle = () => history.push("/profile");
+    const handleClickLogIn = () => history.push('/login');
+    const handleClickSignUp = () => history.push("/signup");
 
 
     return (
@@ -31,8 +31,8 @@ export const JoinPage = () => {
 
                 <div className='btn__box'>
                     <button className="btnGoogle" onClick={handleClickGoogle}>Continúa con Google</button>
-                    <button className="btnLogIn" onClick={handleClickLogIn}>Regístrate</button>
-                    <button className="btnSignUp" onClick={handleClickSignUp}>Iniciar sesión</button>
+                    <button className="btnLogIn" onClick={handleClickLogIn}>Iniciar sesión</button>
+                    <button className="btnSignUp" onClick={handleClickSignUp}>Regístrate</button>
                 </div>
 
             </main>

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import SearchIcon from '@material-ui/icons/Search';
 
 export const BtnSearch = ({action}) => {
     return (
-        <div>
-            <h1 onClick={action} >Btn Search</h1>
+        <div className='icon__search'>
+            <SearchIcon />
         </div>
     )
 }

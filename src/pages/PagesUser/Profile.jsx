@@ -1,6 +1,4 @@
-import React, {useState}from 'react';
-import { Header } from '../../components/Header/Header';
-import logo from './../../assets/logo.png';
+import React, {useState} from 'react';
 import img from './../../assets/img.png';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { EditUser } from '../../components/EditUser/EditUser';
@@ -39,8 +37,8 @@ export const Profile = () => {
             <header className="header__profile">
 
                 <div className="btn__back-box">
-                    <p> b </p>
-                    <BtnBack />
+                    <p> Back </p>
+                    <BtnBack textBtn="Volver"/>
                 </div>
 
                 <div className="green__img-box">
