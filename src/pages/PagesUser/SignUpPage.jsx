@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
 import useFetch from '../../Hooks/useFetch';
+import useLocalStorage from '../../Hooks/useLocalStorage'
 import logo from './../../assets/logo.png';
 
 
@@ -15,15 +17,20 @@ export const SignUpPage = () => {
   const [pass, setPass] = useState();
   const url = 'http://localhost:5000/signup';
   const method = 'POST';
-  const body = {
-    email: mail,
-    pass,
-    userName: user,
-    photo: '',
-    name: name,
-  };
+
+  // Hook useHistory
+  const history = useHistory();
   // Hook useFetch
   const [fetchState, fetchData] = useFetch();
+
+  //Hook useLocalStorage
+  const [token, setToken] = useLocalStorage("token", "");
+  
+  // Hook useEffect
+  useEffect (()=> {
+    fetchState.isSuccess && fetchState.data.OK && setToken(fetchState.data.token) && history.push('/profile');
+  }, [fetchState, history, setToken])
+
   const nameChange = (name) => {
     setName(name);
   };
