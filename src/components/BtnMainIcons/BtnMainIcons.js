@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 import { BtnSearch } from './BtnSearch/BtnSearch';
 import { BtnUser } from './BtnUser/BtnUser';
