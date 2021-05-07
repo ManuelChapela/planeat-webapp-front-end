@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import LoggedContext from './../../context/loggedContext';
 
 // CSS
 import './Main.css';
@@ -20,6 +21,8 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 
 export const SelectionPage = () => {
 
+    const {logged, setLogged} = useContext(LoggedContext);
+
     let history = useHistory();
     const handleClick = () => history.push("/horario");
     const handleBack = () => history.push("/noquiero");
@@ -28,7 +31,7 @@ export const SelectionPage = () => {
 
         <div className='container'>
             <header>
-                <BtnBack textBtn="Volver" action={handleBack}/>
+                <BtnBack textBtn="Volver" text="Volver" action={handleBack}/>
                 <HeaderNoLogo logo={logo} text='¿Qué te apetece?' />
                 <h2>Esta página falta por terminarla.</h2>
             </header>
@@ -42,7 +45,7 @@ export const SelectionPage = () => {
             </div>
 
             <footer className="icon__box">
-                <BtnMainIcons />
+                <BtnMainIcons context={logged} />
             </footer>
         
         </div>
