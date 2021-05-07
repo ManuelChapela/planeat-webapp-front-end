@@ -10,6 +10,7 @@ import { Painter } from '../../components/Painter/Painter';
 import {BtnMainIcons} from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
+import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
 import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
 
 
@@ -25,7 +26,20 @@ export const SayNotPage = () => {
     return (
         <div className='container'>
             <header className='header__not'>
-                <BtnBack textBtn="Volver" action={handleBack}/>
+                <div className="btn__box">
+
+                    <BtnBack 
+                        text="Volver" 
+                        action={handleBack}
+                    />
+
+                    <BtnSkip 
+                        text="Saltar"
+                        action={handleClick}
+                    />
+
+                </div>
+                
                 <HeaderNoLogo text='¿Hay algo que no quieras comer?'/>
             </header>
 
@@ -34,7 +48,7 @@ export const SayNotPage = () => {
             </main>
 
             <div className="btn__box">
-                <BtnNext action={handleClick} textBtn='Siguiente' /> 
+                <BtnNext action={handleClick}  textBtn='Siguiente'/> 
             </div>
 
             <footer className="icon__box">

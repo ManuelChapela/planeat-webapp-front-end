@@ -28,7 +28,7 @@ export const SelectionPage = () => {
 
         <div className='container'>
             <header>
-                <BtnBack textBtn="Volver" action={handleBack}/>
+                <BtnBack textBtn="Volver" text="Volver" action={handleBack}/>
                 <HeaderNoLogo logo={logo} text='¿Qué te apetece?' />
                 <h2>Esta página falta por terminarla.</h2>
             </header>
