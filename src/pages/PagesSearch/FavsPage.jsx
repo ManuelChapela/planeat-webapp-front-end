@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import LoggedContext from './../../context/loggedContext';
 
 // CSS
 import './Main.css';
@@ -12,13 +13,17 @@ import { Favs } from '../../components/Favs/Favs';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 
 
-
 export const FavsPage = () => {
+    
+    const {logged, setLogged} = useContext(LoggedContext);
+    console.log(logged);
 
     let history = useHistory();
     const handleClick = () => history.push("/");
 
     return (
+
+
 
         <div className='container'>
             <header>
