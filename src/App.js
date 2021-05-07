@@ -17,6 +17,8 @@ import { FavsPage } from './pages/PagesSearch/FavsPage';
 import { DetailPage } from './pages/PagesSearch/DetailPage';
 import { MasterPage } from './pages/PagesSearch/MasterPage';
 
+import { useState } from 'react'
+import { LoggedProvider } from './context/loggedContext'
 
 import {
   BrowserRouter as Router,
@@ -27,33 +29,40 @@ import {
 
 
 
+
+
+
 function App() {
+  const [logged, setLogged] = useState(false)
   return (
     <div className="App">
       
-      <Router>
-        <Switch>
-          {/* SEARCH */}
-              <Route exact path="/nevera" component={ FridgePage } />
-              <Route exact path="/noquiero" component={ SayNotPage } />
-              <Route exact path="/more" component={ MorePage } />
-              <Route exact path="/seleccion" component={ SelectionPage } />
-              <Route exact path="/horario" component={ MainPage } />
-              <Route exact path="/favoritos" component={ FavsPage } />
+      <LoggedProvider value={{logged, setLogged}}>
+          <Router>
+            <Switch>
+              {/* SEARCH */}
+                  <Route exact path="/nevera" component={ FridgePage } />
+                  <Route exact path="/noquiero" component={ SayNotPage } />
+                  <Route exact path="/more" component={ MorePage } />
+                  <Route exact path="/seleccion" component={ SelectionPage } />
+                  <Route exact path="/horario" component={ MainPage } />
+                  <Route exact path="/favoritos" component={ FavsPage } />
 
-              <Route exact path="/recetas" component={ MasterPage } />
-              <Route exact path="/receta-detalle" component={ DetailPage } />
+                  <Route exact path="/recetas" component={ MasterPage } />
+                  <Route exact path="/receta-detalle" component={ DetailPage } />
 
 
 
-          {/* USER */}
-              <Route exact path="/" component={ JoinPage } />
-              <Route exact path="/signup" component={ SignUpPage } />
-              <Route exact path="/login" component={ LogInPage } />
-              <Route exact path="/join" component={ JoinPage } />
-              <Route exact path="/profile" component={ Profile } />
-       </Switch>
-      </Router>
+              {/* USER */}
+                  <Route exact path="/" component={ JoinPage } />
+                  <Route exact path="/signup" component={ SignUpPage } />
+                  <Route exact path="/login" component={ LogInPage } />
+                  <Route exact path="/join" component={ JoinPage } />
+                  <Route exact path="/profile" component={ Profile } />
+          </Switch>
+          </Router>
+      </LoggedProvider>
+
 
 
     </div>
