@@ -12,6 +12,8 @@ import { MorePage } from './pages/PagesSearch/MorePage';
 import { SelectionPage } from './pages/PagesSearch/SelectionPage.jsx';
 import { MainPage } from './pages/PagesSearch/MainPage';
 import { FavsPage } from './pages/PagesSearch/FavsPage';
+import { InitPage } from './pages/PagesSearch/InitPage';
+
 
 // Busqueda - Recetas
 import { DetailPage } from './pages/PagesSearch/DetailPage';
@@ -41,6 +43,7 @@ function App() {
           <Router>
             <Switch>
               {/* SEARCH */}
+                  <Route exact path="/" component={ InitPage } />
                   <Route exact path="/nevera" component={ FridgePage } />
                   <Route exact path="/noquiero" component={ SayNotPage } />
                   <Route exact path="/more" component={ MorePage } />
@@ -54,7 +57,6 @@ function App() {
 
 
               {/* USER */}
-                  <Route exact path="/" component={ JoinPage } />
                   <Route exact path="/signup" component={ SignUpPage } />
                   <Route exact path="/login" component={ LogInPage } />
                   <Route exact path="/join" component={ JoinPage } />

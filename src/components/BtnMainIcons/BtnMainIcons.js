@@ -12,25 +12,22 @@ import './BtnMainIcons.css';
 
 
 // COMPONENT
-export const BtnMainIcons = () => {
+export const BtnMainIcons = ( {context} ) => {
+    // CONTEXT FALSE
+    let logged = context;
     let history = useHistory();
 
     // Lleva al input de búsqueda
-    const search = () => {
-        console.log('Search');
-        console.log(logged)
-    }
+    const search = () => history.push("/nevera");
 
     // Si estás logado te lleva a FAVORITOS
     // Si no, te lleva a    ++JOIN++
-    const like = () => { history.push("/favoritos")
-                         console.log("Que pasa crack")
-                        }
+    const like = () => logged ? history.push("/favoritos")  :  history.push("/join");
 
 
     // Si estás logado te lleva al perfil de usuario
     // Si no, al            ++JOIN++
-    const user = () => { history.push("/join") }
+    const user = () => logged ? history.push("/profile")  :  history.push("/join");
     
     return (
         <div className="icon__box">

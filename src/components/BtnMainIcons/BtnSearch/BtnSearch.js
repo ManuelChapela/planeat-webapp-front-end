@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 export const BtnSearch = ({action}) => {
     return (
-        <div className='icon__search'>
+        <div className='icon__search' onClick={action} >
             <SearchIcon />
         </div>
     )
