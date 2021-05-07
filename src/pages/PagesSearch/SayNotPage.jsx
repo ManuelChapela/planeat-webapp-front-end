@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import LoggedContext from './../../context/loggedContext';
 
 // HOOKS
 import { useHistory } from 'react-router';
@@ -11,12 +12,11 @@ import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
 
-// ASSETS
-import logo from './../../assets/logo.png';
-
 
 
 export const SayNotPage = () => {
+
+    const {logged, setLogged} = useContext(LoggedContext);
 
     let history = useHistory();
     const handleClick = () => history.push("/seleccion");
@@ -38,7 +38,7 @@ export const SayNotPage = () => {
             </div>
 
             <footer className="icon__box">
-                <BtnMainIcons />
+                <BtnMainIcons context={logged} />
             </footer>
         
         </div>
