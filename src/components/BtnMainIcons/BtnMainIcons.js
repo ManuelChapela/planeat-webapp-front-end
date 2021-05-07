@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 import { BtnSearch } from './BtnSearch/BtnSearch';
 import { BtnUser } from './BtnUser/BtnUser';
 import { BtnLike } from './BtnLike/BtnLike';
+
 
 
 import './BtnMainIcons.css';
@@ -17,6 +18,7 @@ export const BtnMainIcons = () => {
     // Lleva al input de búsqueda
     const search = () => {
         console.log('Search');
+        console.log(logged)
     }
 
     // Si estás logado te lleva a FAVORITOS
@@ -25,6 +27,7 @@ export const BtnMainIcons = () => {
                          console.log("Que pasa crack")
                         }
 
+
     // Si estás logado te lleva al perfil de usuario
     // Si no, al            ++JOIN++
     const user = () => { history.push("/join") }
@@ -32,9 +35,9 @@ export const BtnMainIcons = () => {
     return (
         <div className="icon__box">
             
-            <BtnSearch action={search} />
-            <BtnLike action={like} />
-            <BtnUser action={user} />
+            <BtnSearch action={ search } />
+            <BtnLike action={ like } />
+            <BtnUser action={ user } />
             
         </div>
         
