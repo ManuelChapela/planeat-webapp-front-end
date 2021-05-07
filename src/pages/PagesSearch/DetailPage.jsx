@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 
 // CSS
 import './Main.css';
@@ -13,13 +13,29 @@ import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { TimePrice } from '../../components/TimePrice/TimePrice';
 import { Ingredients } from '../../components/Ingredients/Ingredients';
 import { Elaboration } from '../../components/Elaboration/Elaboration';
+import LoggedContext from './../../context/loggedContext';
+import { BtnLikeDislike } from '../../components/BtnLikeDislike/BtnLikeDislike';
 
 
 
 export const DetailPage = () => {
 
+    const {logged, setLogged} = useContext(LoggedContext);
+
     let history = useHistory();
     const handleClickBack = () => history.push("/recetas");
+
+
+    // GESTION DE LIKE, DISLIKE y BANNEAR
+    const [ like, setLike ] = useState(false);
+    console.log(like)
+    const handleLikeState = () => { 
+                        setLike(!like)
+                        }
+
+    // const iconLike = () => { like ? <FavoriteBorderIcon/> :  <FavoriteIcon />}
+
+
 
     return (
 
@@ -29,8 +45,14 @@ export const DetailPage = () => {
             </header>
 
             <main>
-                <img src="" alt="IMAGEN DE CABECERA"/>
-                <HeaderNoLogo text='__ Título de la Receta __' />
+                <div>
+                    <img src="" alt="IMAGEN DE CABECERA"/>
+                    <HeaderNoLogo text='__ Título de la Receta __' />
+                        <div>
+                            <BtnLikeDislike action={handleLikeState} stateLike={like}/>
+                        </div>
+                </div>
+
                 <div>
                     <TimePrice mainText="Tiempo" secondaryText="20 minutos"/>
                     <TimePrice mainText="Precio" secondaryText="Barato"/>
