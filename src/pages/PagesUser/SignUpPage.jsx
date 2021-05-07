@@ -33,8 +33,13 @@ export const SignUpPage = () => {
   
   // Hook useEffect
   useEffect (()=> {
-    fetchState.isSuccess && fetchState.data.OK && setToken(fetchState.data.token) && setLogged(true) && history.push('/profile');
+    fetchState.isSuccess && fetchState.data.OK && logHistory();
   }, [fetchState, history, setToken])
+
+  const logHistory = () => { 
+                          setToken(fetchState.data.token) 
+                          setLogged(true) 
+                          history.push('/profile')}
 
   const nameChange = (name) => { setName(name);};
   const userChange = (user) => { setUser(user);};

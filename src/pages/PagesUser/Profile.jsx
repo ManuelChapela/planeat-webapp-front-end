@@ -68,7 +68,7 @@ export const Profile = () => {
                 <EditUser text="Contraseña" textBtn="..." action={handleClickPass}/>
                 <EditUser text="Preferencias" textBtn="..." action={handleClickPrefs}/>
                 
-                <button onClick={handleClickExit}>Salir</button>
+                <button onClick={handleClickExit}>Cerrar sesión</button>
 
             </main>
 
