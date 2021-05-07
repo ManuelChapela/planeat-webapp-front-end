@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import LoggedContext from './../../context/loggedContext';
 
 // Assets
 import logo from './../../assets/logo.png';
@@ -15,6 +16,8 @@ import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 
 export const MorePage = () => {
+
+    const {logged, setLogged} = useContext(LoggedContext);
 
     let history = useHistory();
     const handleClick = () => history.push("/seleccion");
@@ -50,7 +53,7 @@ export const MorePage = () => {
             </div>
 
             <footer className="icon__box">
-                <BtnMainIcons />
+                <BtnMainIcons context={logged} />
             </footer>
         
         </div>

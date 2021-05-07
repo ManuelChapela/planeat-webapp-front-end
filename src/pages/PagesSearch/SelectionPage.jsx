@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import LoggedContext from './../../context/loggedContext';
 
 // CSS
 import './Main.css';
@@ -19,6 +20,8 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 
 
 export const SelectionPage = () => {
+
+    const {logged, setLogged} = useContext(LoggedContext);
 
     let history = useHistory();
     const handleClick = () => history.push("/horario");
@@ -42,7 +45,7 @@ export const SelectionPage = () => {
             </div>
 
             <footer className="icon__box">
-                <BtnMainIcons />
+                <BtnMainIcons context={logged} />
             </footer>
         
         </div>
