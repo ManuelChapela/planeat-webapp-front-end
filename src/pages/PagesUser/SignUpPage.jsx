@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import {useHistory} from 'react-router-dom';
 import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
 import useFetch from '../../Hooks/useFetch';
+import useLocalStorage from '../../Hooks/useLocalStorage'
 import logo from './../../assets/logo.png';
+
+import loggedContext from './../../context/loggedContext'
 
 
 export const SignUpPage = () => {
+  
+  const {logged, setLogged} = useContext(loggedContext) 
+
   // Hook useState
   const [name, setName] = useState();
   const [user, setUser] = useState();
@@ -15,36 +22,39 @@ export const SignUpPage = () => {
   const [pass, setPass] = useState();
   const url = 'http://localhost:5000/signup';
   const method = 'POST';
-  const body = {
-    email: mail,
-    pass,
-    userName: user,
-    photo: '',
-    name: name,
-  };
+
+  // Hook useHistory
+  const history = useHistory();
   // Hook useFetch
   const [fetchState, fetchData] = useFetch();
-  const nameChange = (name) => {
-    setName(name);
-  };
-  const userChange = (user) => {
-    setUser(user);
-  };
-  const mailChange = (mail) => {
-    setMail(mail);
-  };
-  const passChange = (pass) => {
-    setPass(pass);
-  };
+
+  //Hook useLocalStorage
+  const [token, setToken] = useLocalStorage("token", "");
+  
+  // Hook useEffect
+  useEffect (()=> {
+    fetchState.isSuccess && fetchState.data.OK && logHistory();
+  }, [fetchState, history, setToken])
+
+  const logHistory = () => { 
+                          setToken(fetchState.data.token) 
+                          setLogged(true) 
+                          history.push('/profile')}
+
+  const nameChange = (name) => { setName(name);};
+  const userChange = (user) => { setUser(user);};
+  const mailChange = (mail) => { setMail(mail);};
+  const passChange = (pass) => { setPass(pass);};
+  
   const handleClick = () => {
     const object = { name, userName: user, email: mail, pass };
     console.log(object);
     fetchData(url, method, object);
   };
+
   return (
 
     <div className='container'>
-
       <header>
         <Header
           logo={logo}
