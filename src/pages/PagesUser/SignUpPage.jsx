@@ -1,19 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
 import useFetch from '../../Hooks/useFetch';
-import useLocalStorage from '../../Hooks/useLocalStorage'
+import useLocalStorage from '../../Hooks/useLocalStorage';
 import logo from './../../assets/logo.png';
 
-import loggedContext from './../../context/loggedContext'
-
+import loggedContext from './../../context/loggedContext';
 
 export const SignUpPage = () => {
-  
-  const {logged, setLogged} = useContext(loggedContext) 
+  const { logged, setLogged } = useContext(loggedContext);
 
   // Hook useState
   const [name, setName] = useState();
@@ -29,31 +27,39 @@ export const SignUpPage = () => {
   const [fetchState, fetchData] = useFetch();
 
   //Hook useLocalStorage
-  const [token, setToken] = useLocalStorage("token", "");
-  
+  const [token, setToken] = useLocalStorage('token', '');
+
   // Hook useEffect
-  useEffect (()=> {
+  useEffect(() => {
     fetchState.isSuccess && fetchState.data.OK && logHistory();
-  }, [fetchState, history, setToken])
+  }, [fetchState, history, setToken]);
 
-  const logHistory = () => { 
-                          setToken(fetchState.data.token) 
-                          setLogged(true) 
-                          history.push('/profile')}
+  const logHistory = () => {
+    setToken(fetchState.data.token);
+    setLogged(true);
+    history.push('/profile');
+  };
 
-  const nameChange = (name) => { setName(name);};
-  const userChange = (user) => { setUser(user);};
-  const mailChange = (mail) => { setMail(mail);};
-  const passChange = (pass) => { setPass(pass);};
-  
+  const nameChange = (name) => {
+    setName(name);
+  };
+  const userChange = (user) => {
+    setUser(user);
+  };
+  const mailChange = (mail) => {
+    setMail(mail);
+  };
+  const passChange = (pass) => {
+    setPass(pass);
+  };
+
   const handleClick = () => {
     const body = { name, userName: user, email: mail, pass };
-    fetchData({url, method, body});
+    fetchData({ url, method, body });
   };
 
   return (
-
-    <div className='container'>
+    <div className="container">
       <header>
         <Header
           logo={logo}
@@ -63,61 +69,51 @@ export const SignUpPage = () => {
       </header>
 
       <main>
-
         <InputMod
-          placeholder='Introduce tus datos'
+          placeholder="Introduce tus datos"
           type="text"
           text="Nombre y apellidos"
           inputChange={nameChange}
-          />
+        />
 
-        <InputMod 
-          placeholder='Introduce tu usuario' 
-          type="text" text="Nombre de usuario" 
-          inputChange={userChange} />
+        <InputMod
+          placeholder="Introduce tu usuario"
+          type="text"
+          text="Nombre de usuario"
+          inputChange={userChange}
+        />
 
         <div>
-
           <InputMod
-            placeholder='Introduce tu email'
+            placeholder="Introduce tu email"
             type="text"
             text="Email"
             inputChange={mailChange}
-            />
-            <small>nombre@servidor.es</small>
-
+          />
+          <small>nombre@servidor.es</small>
         </div>
-
 
         <div>
-
-          <InputMod 
-            placeholder='Introduce tu contraseña'
-            type="password" 
-            text="Contraseña" 
-            inputChange={passChange} />
+          <InputMod
+            placeholder="Introduce tu contraseña"
+            type="password"
+            text="Contraseña"
+            inputChange={passChange}
+          />
 
           <small>*Al menos 8 caracteres</small>
-
         </div>
-
-
 
         {fetchState.isFailed && (
           <div style={{ color: 'red' }} className="error">
-            {fetchState.error.messageUser}  {fetchState.error.messagePass}
+            {fetchState.error.messageUser} {fetchState.error.messagePass}
           </div>
         )}
         {fetchState.isSuccess && (
           <div className="error">{fetchState.data.message}</div>
-          )}
+        )}
         <BtnConfirm textBtn="Crear cuenta" action={handleClick} />
-
       </main>
-
-
     </div>
-
   );
-  
 };
