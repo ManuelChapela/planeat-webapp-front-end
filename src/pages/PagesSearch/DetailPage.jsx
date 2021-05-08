@@ -14,32 +14,45 @@ import { TimePrice } from '../../components/TimePrice/TimePrice';
 import { Ingredients } from '../../components/Ingredients/Ingredients';
 import { Elaboration } from '../../components/Elaboration/Elaboration';
 import LoggedContext from './../../context/loggedContext';
-import { BtnLikeDislike } from '../../components/BtnLikeDislike/BtnLikeDislike';
+import  BtnLikeDislike from '../../components/BtnLikeDislike/BtnLikeDislike';
+import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
 
 
 
 export const DetailPage = () => {
 
+    // Context de logged
     const {logged, setLogged} = useContext(LoggedContext);
-
+    
     let history = useHistory();
+    
+    // Redirect 
     const handleClickBack = () => history.push("/recetas");
 
-
-    // GESTION DE LIKE, DISLIKE y BANNEAR
+// GESTION DE LIKE, DISLIKE y BANNEAR. 
+    
+    // Estado del botón like. 
     const [ like, setLike ] = useState(false);
-    console.log(like)
-    const handleLikeState = () => { 
-                        setLike(!like)
-                        }
-
-    // const iconLike = () => { like ? <FavoriteBorderIcon/> :  <FavoriteIcon />}
+    const [ banned, setBanned ] = useState(true);
+    console.log(like);
+    
+    // Cambio de estado de encendido a apagado btnFav y btnBanned
+    const handleLikeState = () => { setLike(!like) 
+                                    // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
+                                }
+    const handleBannedState = () => { setBanned(!banned) }
+                                // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
+    
+    // click en fav sin estar logado
+    const handleClickJoin = () => { history.push('/join') }
+ 
 
 
 
     return (
 
         <div className='container'>
+           
             <header>
                 <BtnBack textBtn="Volver" action={handleClickBack}/>
             </header>
@@ -49,7 +62,8 @@ export const DetailPage = () => {
                     <img src="" alt="IMAGEN DE CABECERA"/>
                     <HeaderNoLogo text='__ Título de la Receta __' />
                         <div>
-                            <BtnLikeDislike action={handleLikeState} stateLike={like}/>
+                        { logged ? <BtnLikeDislike action={handleLikeState} stateLike={like}/> : <BtnLikeDislike action={handleClickJoin} /> }
+                        { logged ? <BtnBanned action={handleBannedState} stateBanned={banned}/> : <BtnBanned action={handleClickJoin} /> }
                         </div>
                 </div>
 
@@ -65,14 +79,13 @@ export const DetailPage = () => {
 
             </main>
 
-            {/* <div className="btn__box">
-                <BtnNext onClick={handleClick} textBtn='Siguiente' /> 
-            </div> */}
-
             <footer className="icon__box">
             </footer>
+
         
         </div>
 
+
     );
+
 };
