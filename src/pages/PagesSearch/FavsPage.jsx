@@ -11,6 +11,7 @@ import { useHistory } from 'react-router';
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Favs } from '../../components/Favs/Favs';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
+import { EmptyFav } from '../../components/EmptyFav/EmptyFav';
 
 
 export const FavsPage = () => {
@@ -27,27 +28,42 @@ export const FavsPage = () => {
     }, [logged])
 
     return (
+        <>
+            {/* si NO HAY Favoritos en base de datos */}
 
+            <div className='container'>
+                <header>
+                    <HeaderNoLogo text='Recetas favoritas' />
+                </header>
 
+                <main>
+                    <EmptyFav cssClass='icon__like-fav' />
+                </main>
 
-        <div className='container'>
-            <header>
-                <HeaderNoLogo text='Recetas favoritas' />
-            </header>
+                <footer className="icon__box">
+                    <BtnMainIcons />
+                </footer>
+            
+            </div>
 
-            <main>
-                <Favs/>
-            </main>
+            {/* si HAY Favoritos en base de datos */}
 
-            {/* <div className="btn__box">
-                <BtnNext onClick={handleClick} textBtn='Siguiente' /> 
+            {/* <div className='container'>
+                <header>
+                    <HeaderNoLogo text='Recetas favoritas' />
+                </header>
+
+                <main>
+                    <Favs/>
+                </main>
+
+                <footer className="icon__box">
+                    <BtnMainIcons />
+                </footer>
+            
             </div> */}
 
-            <footer className="icon__box">
-                <BtnMainIcons />
-            </footer>
-        
-        </div>
+        </>
 
     );
 };
