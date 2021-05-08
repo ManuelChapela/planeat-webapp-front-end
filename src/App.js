@@ -49,13 +49,13 @@ function App() {
 
               <Route exact path="/recetas" component={MasterPage} />
               <Route exact path="/receta-detalle" component={DetailPage} />
-            </PrefsProvider>
 
             {/* USER */}
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/login" component={LogInPage} />
             <Route exact path="/join" component={JoinPage} />
             <Route exact path="/profile" component={Profile} />
+            </PrefsProvider>
           </Switch>
         </Router>
       </LoggedProvider>

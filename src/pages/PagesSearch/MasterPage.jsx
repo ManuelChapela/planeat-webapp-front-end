@@ -21,7 +21,7 @@ export const MasterPage = () => {
     let history = useHistory();
         const handleClickBack = () => history.push("/horario");
 
-    const recetas = false
+    const recetas = true
 
     return (
 
@@ -33,7 +33,6 @@ export const MasterPage = () => {
 
             <main>
                 { recetas ? <Suggest /> : <NoSuggest/>}
-                {/* <Favs/> */}
             </main>
 
             {/* <div className="btn__box">
