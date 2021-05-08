@@ -22,6 +22,7 @@ export const FavsPage = () => {
     let history = useHistory();
     const handleClick = () => history.push("/");
 
+    const fav = false;
 
     useEffect(() => {
         !logged && history.push('/join');
@@ -30,14 +31,19 @@ export const FavsPage = () => {
     return (
         <>
             {/* si NO HAY Favoritos en base de datos */}
-
+            
             <div className='container'>
                 <header>
                     <HeaderNoLogo text='Recetas favoritas' />
                 </header>
 
                 <main>
-                    <EmptyFav cssClass='icon__like-fav' />
+
+                    {logged && fav 
+                        ?  <Favs/> 
+                        :  <EmptyFav cssClass='icon__like-fav' />
+                    }
+                    
                 </main>
 
                 <footer className="icon__box">
@@ -45,23 +51,6 @@ export const FavsPage = () => {
                 </footer>
             
             </div>
-
-            {/* si HAY Favoritos en base de datos */}
-
-            {/* <div className='container'>
-                <header>
-                    <HeaderNoLogo text='Recetas favoritas' />
-                </header>
-
-                <main>
-                    <Favs/>
-                </main>
-
-                <footer className="icon__box">
-                    <BtnMainIcons />
-                </footer>
-            
-            </div> */}
 
         </>
 
