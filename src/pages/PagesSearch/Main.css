@@ -38,6 +38,44 @@ html {
 }
 
 
+/* -------------------------------------------------------------------- */
+/* FRIDGE PAGE */
+.input__box input{
+    height: 40px;
+    width: 270px;
+    border-radius: 30px;
+    padding: 8px, 16px, 8px, 16px;
+    justify-content: space-between;  
+} 
+.input__box img {
+    width: 58px;
+    margin-left: 10px;
+}
+
+.input__box{
+    display: flex;
+    align-items: center;
+
+}
+
+.logo{
+    width: 64px;
+    height: 64px;
+    margin-top: 21px;
+    margin-bottom: 11px;
+}
+
+.text__box h3{
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
+
+
+
+
+
+/* -------------------------------------------------------------------- */
 /* Contenedor padre */
 .container {
     display: flex;

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import LoggedContext from './../../context/loggedContext';
 import PrefsContext from './../../context/prefsContext';
+import iconNevera from './../../assets/iconNevera.svg'
 // CSS
 import './Main.css';
 
@@ -50,9 +51,9 @@ export const FridgePage = () => {
   const handleClick = () => history.push('/noquiero');
 
   return (
-    <div className="container">
-      <header>
-        <Header logo={logo} text="¿Qué tienes en la nevera?" />
+    <div className="fidge__container-box">
+      <header className='fridge__header-box'>
+        <Header logo={iconNevera} text="¿Qué tienes en la nevera?" />
       </header>
 
       <main>
