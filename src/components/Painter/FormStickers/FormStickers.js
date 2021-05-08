@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import btnAdd from './../../../assets/btnAdd.svg'
 
 
 
@@ -20,10 +21,12 @@ export const FormStickers = ( {addSticker} ) => {
 
     return (
 
+        // FIX --> botón + no funciona al hacer clic
         <form className='input__form-box' onSubmit={addingSticker} >
             <div className="input__box">
                 <input onChange={manageSticker} type="text" id='clear' />
-                <button>ADD</button>
+                <img src={btnAdd} alt="Botón añadir"/>
+
             </div>
         </form>
 
