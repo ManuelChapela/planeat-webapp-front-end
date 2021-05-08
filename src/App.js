@@ -30,7 +30,7 @@ import {
 } from 'react-router-dom';
 
 function App() {
-  const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(false);
   const [prefs, setPrefs] = useState({});
   return (
     <div className="App">
