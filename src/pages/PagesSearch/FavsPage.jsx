@@ -17,9 +17,6 @@ export const FavsPage = () => {
     
     const {logged, setLogged} = useContext(LoggedContext);
     console.log(logged);
-
-    const {logged, setLogged} = useContext(LoggedContext);
-
     
     let history = useHistory();
     const handleClick = () => history.push("/");

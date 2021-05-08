@@ -47,9 +47,8 @@ export const SignUpPage = () => {
   const passChange = (pass) => { setPass(pass);};
   
   const handleClick = () => {
-    const object = { name, userName: user, email: mail, pass };
-    console.log(object);
-    fetchData(url, method, object);
+    const body = { name, userName: user, email: mail, pass };
+    fetchData({url, method, body});
   };
 
   return (
@@ -106,7 +105,7 @@ export const SignUpPage = () => {
 
         {fetchState.isFailed && (
           <div style={{ color: 'red' }} className="error">
-            {fetchState.error.message}
+            {fetchState.error.messageUser}  {fetchState.error.messagePass}
           </div>
         )}
         {fetchState.isSuccess && (

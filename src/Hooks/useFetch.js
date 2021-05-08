@@ -19,6 +19,7 @@ export default function useFetch() {
         error: null,
         data: null,
       });
+      console.log('TEST', url, method, body);
       const result = await sendRequest({ url, method, body });
       setFetchState({
         isLoading: false,

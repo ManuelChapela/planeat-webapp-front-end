@@ -45,9 +45,9 @@ export const LogInPage = () => {
                             }
 
   const handleClick = () => {
-    const object = { email: mail, pass };
-    console.log(object);
-    fetchData(url, method, object);
+    const body = { email: mail, pass };
+    console.log(body);
+    fetchData({url, method, body});
   };
 
 
