@@ -11,10 +11,11 @@ import { useHistory } from 'react-router';
 
 // Componentes
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
-import { Painter } from '../../components/Painter/Painter';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
+import { BtnThreeOptions } from '../../components/BtnThreeOptions/BtnThreeOptions';
+
 
 
 
@@ -33,9 +34,11 @@ export const MainPage = () => {
                 <h2>Esta es la página de las tres comidas en vertical</h2>
             </header>
 
-            {/* <main>
-                <Painter />
-            </main> */}
+            <main>
+                <div className="three__options-box">
+                    <BtnThreeOptions />
+                </div>
+            </main>
 
             <div className="btn__box">
                 <BtnNext onClick={handleClick} textBtn='Buscar' /> 

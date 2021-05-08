@@ -61,3 +61,10 @@ main {
 .sticker {
     margin: .2rem;
 }
+
+
+/* PANTALLA MAIN TRES OPCIONES */
+.three__options-box {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,16 +1,16 @@
-import React from 'react';
-
+import React, {useContext} from 'react';
+import LoggedContext from './../../context/loggedContext';
 // CSS
 import './Main.css';
 
-// Assets
+// assets
 import logo from './../../assets/logo.png';
 
 // Hooks
 import { useHistory } from 'react-router';
 
 // Componentes
-import { HeaderNoLogo } from './../../components/HeaderNoLogo/HeaderNoLogo';
+import { Header } from './../../components/Header/Header';
 import { Painter } from '../../components/Painter/Painter';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
@@ -19,6 +19,9 @@ import { BtnBack } from '../../components/BtnBack/BtnBack';
 
 
 export const FridgePage = () => {
+    
+    const {logged, setLogged} = useContext(LoggedContext);
+
 
     let history = useHistory();
     const handleClick = () => history.push("/noquiero");
@@ -27,7 +30,7 @@ export const FridgePage = () => {
 
         <div className='container'>
             <header>
-                <HeaderNoLogo text='¿Qué tienes en la nevera?'/>
+                <Header logo={logo} text='¿Qué tienes en la nevera?'/>
             </header>
 
             <main>
@@ -39,7 +42,7 @@ export const FridgePage = () => {
             </div>
 
             <footer className="icon__box">
-                <BtnMainIcons />
+                <BtnMainIcons context={logged} />
             </footer>
         
         </div>

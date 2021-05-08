@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {useHistory} from 'react-router-dom';
 import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
@@ -8,8 +8,13 @@ import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage'
 import logo from './../../assets/logo.png';
 
+import loggedContext from './../../context/loggedContext'
+
 
 export const SignUpPage = () => {
+  
+  const {logged, setLogged} = useContext(loggedContext) 
+
   // Hook useState
   const [name, setName] = useState();
   const [user, setUser] = useState();
@@ -28,30 +33,28 @@ export const SignUpPage = () => {
   
   // Hook useEffect
   useEffect (()=> {
-    fetchState.isSuccess && fetchState.data.OK && setToken(fetchState.data.token) && history.push('/profile');
+    fetchState.isSuccess && fetchState.data.OK && logHistory();
   }, [fetchState, history, setToken])
 
-  const nameChange = (name) => {
-    setName(name);
-  };
-  const userChange = (user) => {
-    setUser(user);
-  };
-  const mailChange = (mail) => {
-    setMail(mail);
-  };
-  const passChange = (pass) => {
-    setPass(pass);
-  };
+  const logHistory = () => { 
+                          setToken(fetchState.data.token) 
+                          setLogged(true) 
+                          history.push('/profile')}
+
+  const nameChange = (name) => { setName(name);};
+  const userChange = (user) => { setUser(user);};
+  const mailChange = (mail) => { setMail(mail);};
+  const passChange = (pass) => { setPass(pass);};
+  
   const handleClick = () => {
     const object = { name, userName: user, email: mail, pass };
     console.log(object);
     fetchData(url, method, object);
   };
+
   return (
 
     <div className='container'>
-
       <header>
         <Header
           logo={logo}
