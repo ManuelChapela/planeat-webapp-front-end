@@ -39,10 +39,8 @@ export const FridgePage = () => {
 
   useEffect(() => {
     const fetchSucess = () => {
-        console.log("PASA")
       setPrefs(fetchState.data.searchPreferences);
       setLogged(fetchState.data.logged);
-      console.log("TEST",fetchState.data.searchPreferences);
     };
     fetchState.isSuccess && fetchState.data.OK && fetchSucess();
   }, [fetchState, setLogged, setPrefs]);
