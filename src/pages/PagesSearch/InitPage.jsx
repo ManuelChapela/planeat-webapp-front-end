@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Assets
-import logo from './../../assets/logo.png';
+import logo from './../../assets/mainIcon.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -16,8 +16,8 @@ export const InitPage = () => {
     const handleClick = () => history.push("/nevera");
 
     return (
-        <div>
-            <Header action={handleClick} logo={logo} textBold='Recetas' text='al instante' />
+        <div className='init__page'>
+            <Header cssClass='init__title' action={handleClick} logo={logo} textBold='Recetas' text='al instante' />
         </div>
     );
 

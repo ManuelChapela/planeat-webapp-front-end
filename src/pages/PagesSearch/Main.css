@@ -1,6 +1,42 @@
 
 /* MAIN CSS GLOBAL */
+
+/* TIPOGRAFÍA APP */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --primary-color: #8BC53F;
+    --primary-color-light: #EFFFD9;
+    
+    --secondary-color: #c71000ff;
+    
+    --tertiary-color: #008da0e1;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: .79em;
+    font-family: 'Poppins', sans-serif;
+}
 /* -------------------------------------------------------------------- */
+
+/* INIT PAGE */
+.init__page {
+    background-color: var(--primary-color-light);
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 /* Contenedor padre */
 .container {

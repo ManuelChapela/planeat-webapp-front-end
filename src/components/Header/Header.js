@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css';
 
 
-export const Header = ({text, textBold, logo, action}) => {
+export const Header = ({cssClass, text, textBold, logo, action}) => {
 
 
     return (
@@ -12,7 +12,7 @@ export const Header = ({text, textBold, logo, action}) => {
             </div>
 
             <div className="text__box">
-                <h3> <span>{textBold}</span> {text} </h3>
+                <h3 className={cssClass}> <span>{textBold}</span> {text} </h3>
             </div>
 
         </>
