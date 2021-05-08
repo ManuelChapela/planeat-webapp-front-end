@@ -10,7 +10,7 @@ export default function useFetch() {
     error: null,
   });
 
-  const fetchData = useCallback(async function ({ url, method, body }) {
+  const fetchData = useCallback(async function ({ url, method, body, headers }) {
     try {
       setFetchState({
         isLoading: true,
@@ -19,8 +19,8 @@ export default function useFetch() {
         error: null,
         data: null,
       });
-      console.log('TEST', url, method, body);
-      const result = await sendRequest({ url, method, body });
+      console.log('TEST', url, method, body, headers);
+      const result = await sendRequest({ url, method, body, headers });
       setFetchState({
         isLoading: false,
         isSuccess: true,
