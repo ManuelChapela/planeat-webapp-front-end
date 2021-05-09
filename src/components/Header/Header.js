@@ -16,5 +16,5 @@ export const Header = ({cssClass, text, textBold, logo, action}) => {
             </div>
 
         </>
-    )
-}
+    );
+};

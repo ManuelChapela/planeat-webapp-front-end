@@ -13,9 +13,11 @@ import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
 import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
+import { NavBar } from '../../components/NavBar/NavBar';
 
 // ASSETS
 import btnNext from './../../assets/btnNext.svg';
+import backArrow from './../../assets/back__arrow.svg';
 
 export const SayNotPage = () => {
   const { logged, setLogged } = useContext(LoggedContext);
@@ -33,11 +35,14 @@ export const SayNotPage = () => {
   return (
     <div className="container">
       <header className="header__not">
-        <div className="btn__box">
+        <div className="nav__bar-box">
+          <NavBar cssClass='back__arrow' backArrow={backArrow} />
+        </div>
+        {/* <div className="btn__box">
           <BtnBack text="Volver" action={handleBack} />
 
           <BtnSkip text="Saltar" action={handleClick} />
-        </div>
+        </div> */}
 
         <HeaderNoLogo text="¿Hay algo que no quieras comer?" />
       </header>
