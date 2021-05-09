@@ -2,14 +2,14 @@ import React from 'react';
 
 import './BtnThreeOptions.css';
 
-export const BtnThreeOptions = ({iconBreakfast, iconLunch, iconDinner}) => {
+export const BtnThreeOptions = ({iconsFoodHours}) => {
 
 
     return (
         <>
-            <div className="icon__breakfast">{iconBreakfast} ICON 1</div>
-            <div className="icon__breakfast">{iconLunch} ICON 2</div>
-            <div className="icon__breakfast">{iconDinner}ICON 3</div>
+            <img src={iconsFoodHours[0]} alt="icono comida" />
+            <img src={iconsFoodHours[1]} alt="icono comida" />
+            <img src={iconsFoodHours[2]} alt="icono comida" />
         </>
     );
 };
