@@ -1,6 +1,6 @@
 import React from 'react'
 import './HeaderNoLogo.css';
-export const HeaderNoLogo = ({text,subText, logo}) => {
+export const HeaderNoLogo = ({text,subText}) => {
 
 
     return (

@@ -34,10 +34,23 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+.init__logo {
+    width: 20rem;
+}
+.init__title {
+    font-size: 3rem;
+    font-weight: 400;
+}
+.init__title span {
+    font-weight: 600;
 }
 
 /* -------------------------------------------------------------------- */
 /* JOIN PAGE */
+
+
 .logo__join {
     width: 7rem;
 }
@@ -85,7 +98,7 @@ html {
 
 }
 
-.logo{
+.logo {
     width: 64px;
     height: 64px;
     margin-top: 21px;
