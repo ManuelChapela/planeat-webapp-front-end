@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import LoggedContext from './../../context/loggedContext';
 
 // CSS
 import './Main.css';
 
 // Assets
 import logo from './../../assets/logo.png';
-import btnNextRec from './../../assets/btnNextRec.svg'
+import btnNextRec from './../../assets/btnNextRec.svg';
+import iconBreakfast from './../../assets/icon__breakfast.svg';
+import iconLunch from './../../assets/icon__lunch.svg';
+import iconDinner from './../../assets/icon__dinner.svg';
 
 // Hooks
+import PrefsContext from './../../context/prefsContext';
 import { useHistory } from 'react-router';
 
 // Componentes
@@ -17,39 +22,39 @@ import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnThreeOptions } from '../../components/BtnThreeOptions/BtnThreeOptions';
 
-
-
-
 export const MainPage = () => {
+  const { logged, setLogged } = useContext(LoggedContext);
+  const { prefs, setPrefs } = useContext(PrefsContext);
 
-    let history = useHistory();
-    const handleClick = () => history.push("/recetas");
-    const handleBack= () => history.push("/seleccion");
+  const iconsFoodHours = [iconBreakfast, iconLunch, iconDinner];
 
-    return (
+  let history = useHistory();
+  const handleClick = () => history.push('/recetas');
+  const handleBack = () => history.push('/seleccion');
 
-        <div className='container'>
-            <header>
-                <BtnBack textBtn="Volver" action={handleBack}/>
-                <HeaderNoLogo logo={logo} text='Y vas a...' />
-                <h2>Esta es la página de las tres comidas en vertical</h2>
-            </header>
+  return (
+    <div className="container">
+      <header>
+        <BtnBack text="Volver" action={handleBack} />
+        <HeaderNoLogo text="Y vas a..." />
+      </header>
 
-            <main>
-                <div className="three__options-box">
-                    <BtnThreeOptions />
-                </div>
-            </main>
-
-            <div className="btn__box">
-                <BtnNext action={handleClick} icon={btnNextRec} textBtn='Buscar' /> 
-            </div>
-
-            <footer className="icon__box">
-                <BtnMainIcons />
-            </footer>
-        
+      <main>
+        <div className="three__options-box">
+          <BtnThreeOptions
+            prefsContext={{ prefs, setPrefs }}
+            iconsFoodHours={iconsFoodHours}
+          />
         </div>
+      </main>
 
-    );
+      <div className="btn__box">
+        <BtnNext action={handleClick} icon={btnNextRec} textBtn="Buscar" />
+      </div>
+
+      <footer className="icon__box" context={logged}>
+        <BtnMainIcons />
+      </footer>
+    </div>
+  );
 };
