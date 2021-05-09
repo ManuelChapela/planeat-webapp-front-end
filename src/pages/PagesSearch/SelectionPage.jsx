@@ -51,15 +51,15 @@ export const SelectionPage = () => {
             <div className="icon__group-food">
 
                 <div className="food__box">
-                    <Food prefsContext={prefs, setPrefs} icons={icons} />
+                    <Food prefsContext={{prefs, setPrefs}} icons={icons} />
                 </div>
 
                 <div className="price__box">
-                    <Money prefsContext={prefs, setPrefs} />
+                    <Money prefsContext={{prefs, setPrefs}} />
                 </div>
 
                 <div className="time__box">
-                    <Time prefsContext={prefs, setPrefs} />
+                    <Time prefsContext={{prefs, setPrefs}} />
                 </div>
 
             </div>
