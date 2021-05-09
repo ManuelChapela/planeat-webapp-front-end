@@ -7,6 +7,15 @@ export const Time = ({ iconsTime, prefsContext }) => {
   console.log(time, prefs);
 
   const timeClickHandler = (e) => {
+    const actualId = e.target.id;
+    let actualValue = time[actualId].value;
+
+    if (actualValue) {
+      actualValue = false;
+    } else {
+      time.map((el, index) => (el.value = actualId === index ? true : false));
+    }
+
     time[e.target.id].value = !time[e.target.id].value;
     console.log(e.target.id, time[e.target.id].value);
     setPrefs({ ...prefs, time });
