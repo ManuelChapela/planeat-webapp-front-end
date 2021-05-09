@@ -57,7 +57,6 @@ export const SelectionPage = () => {
           <Food
             prefsContext={{ prefs, setPrefs }}
             icons={iconsFood}
-            iconsTrue={iconsFood}
           />
         </div>
 
@@ -65,7 +64,6 @@ export const SelectionPage = () => {
           <Money
             prefsContext={{ prefs, setPrefs }}
             iconsMoney={iconsMoney}
-            iconsTrue={iconsMoney}
           />
         </div>
 
@@ -73,7 +71,6 @@ export const SelectionPage = () => {
           <Time
             prefsContext={{ prefs, setPrefs }}
             iconsTime={iconsTime}
-            iconsTrue={iconsTime}
           />
         </div>
       </div>

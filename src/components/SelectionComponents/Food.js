@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Food = ({ icons, iconsTrue, prefsContext }) => {
+export const Food = ({ icons, prefsContext }) => {
   const { prefs, setPrefs } = prefsContext;
   const { categories } = prefs;
 
@@ -14,31 +14,36 @@ export const Food = ({ icons, iconsTrue, prefsContext }) => {
       <img
         id="0"
         onClick={categoryClickHandler}
-        src={categories[0].value ? iconsTrue[0] : icons[0]}
+        className={categories[0].value ? 'icon__food btnCheck' : 'icon__food'}
+        src={icons[0]}
         alt="icono comidas"
       />
       <img
         id="1"
         onClick={categoryClickHandler}
-        src={categories[1].value ? iconsTrue[1] : icons[1]}
+        className={categories[1].value ? 'icon__food btnCheck' : 'icon__food'}
+        src={icons[1]}
         alt="icono comidas"
       />
       <img
         id="2"
         onClick={categoryClickHandler}
-        src={categories[2].value ? iconsTrue[2] : icons[2]}
+        className={categories[2].value ? 'icon__food btnCheck' : 'icon__food'}
+        src={icons[2]}
         alt="icono comidas"
       />
       <img
         id="3"
         onClick={categoryClickHandler}
-        src={categories[3].value ? iconsTrue[3] : icons[3]}
+        className={categories[3].value ? 'icon__food btnCheck' : 'icon__food'}
+        src={icons[3]}
         alt="icono comidas"
       />
       <img
         id="4"
         onClick={categoryClickHandler}
-        src={categories[4].value ? iconsTrue[4] : icons[4]}
+        className={categories[4].value ? 'icon__food btnCheck' : 'icon__food'}
+        src={icons[4]}
         alt="icono comidas"
       />
     </>
