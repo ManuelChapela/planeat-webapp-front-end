@@ -6,6 +6,7 @@ import './Main.css';
 
 // Assets
 import logo from './../../assets/logo.png';
+import btnNext from './../../assets/btnNext.svg'
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -41,7 +42,7 @@ export const SelectionPage = () => {
             </main> */}
 
             <div className="btn__box">
-                <BtnNext action={handleClick} textBtn='Siguiente' /> 
+                <BtnNext action={handleClick} icon={btnNext} textBtn='Siguiente' /> 
             </div>
 
             <footer className="icon__box">

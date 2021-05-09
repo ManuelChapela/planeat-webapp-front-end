@@ -2,11 +2,13 @@ import React, { useContext, useEffect } from 'react';
 import LoggedContext from './../../context/loggedContext';
 import PrefsContext from './../../context/prefsContext';
 import iconNevera from './../../assets/iconNevera.svg'
+
 // CSS
 import './Main.css';
 
 // assets
 import logo from './../../assets/logo.png';
+import btnNext from './../../assets/btnNext.svg'
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -61,7 +63,7 @@ export const FridgePage = () => {
       </main>
 
       <div className="btn__box">
-        <BtnNext action={handleClick} textBtn="Siguiente" />
+        <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
       </div>
 
       <footer className="icon__box">
