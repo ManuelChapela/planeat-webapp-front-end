@@ -14,6 +14,13 @@ import icon2 from './../../assets/icon__tapas.svg';
 import icon3 from './../../assets/icon__sopas-cremas.svg';
 import icon4 from './../../assets/icon__ensaladas.svg';
 
+import iconCheap from './../../assets/icon__barato.svg';
+import iconMedium from './../../assets/icon__medio.svg';
+
+import iconTenMinutes from './../../assets/icon__time-10.svg';
+import iconFifteenMinutes from './../../assets/icon__time-15.svg';
+import iconHalfHour from './../../assets/icon__time-30.svg';
+
 // Hooks
 import { useHistory } from 'react-router';
 
@@ -29,7 +36,9 @@ import { Time } from '../../components/SelectionComponents/Time';
 
 export const SelectionPage = () => {
 
-    const icons = [icon0, icon1, icon2, icon3, icon4];
+    const iconsFood = [icon0, icon1, icon2, icon3, icon4];
+    const iconsMoney = [iconCheap, iconMedium];
+    const iconsTime = [iconTenMinutes, iconFifteenMinutes, iconHalfHour];
 
     const {logged, setLogged} = useContext(LoggedContext);
     const {prefs, setPrefs} = useContext(PrefsContext);
@@ -51,15 +60,15 @@ export const SelectionPage = () => {
             <div className="icon__group-food">
 
                 <div className="food__box">
-                    <Food prefsContext={prefs, setPrefs} icons={icons} />
+                    <Food prefsContext={prefs, setPrefs} icons={iconsFood} />
                 </div>
 
                 <div className="price__box">
-                    <Money prefsContext={prefs, setPrefs} />
+                    <Money prefsContext={prefs, setPrefs} iconsMoney={iconsMoney} />
                 </div>
 
                 <div className="time__box">
-                    <Time prefsContext={prefs, setPrefs} />
+                    <Time prefsContext={prefs, setPrefs} iconsTime={iconsTime}/>
                 </div>
 
             </div>
