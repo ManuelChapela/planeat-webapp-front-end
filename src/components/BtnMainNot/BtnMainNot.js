@@ -1,53 +1,82 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
+import PrefsContext from './../../context/prefsContext';
 
 import './BtnMainNot.css';
 
 export const BtnMainNot = () => {
+  const { prefs, setPrefs } = useContext(PrefsContext);
 
-    let history = useHistory();
-    const handleClick = () => history.push("/more");
+  let history = useHistory();
+  const handleClick = () => history.push('/more');
 
-    return (
+  const categories = prefs.bannedCategories;
+  const defaultClass = 'btn__not';
+  const selectedClass = 'btn__not btn__not-true';
 
-        <div className="btn__not-container">
+  const categoryClickHandler = (e) => {
+    categories[e.target.id].value = !categories[e.target.id].value;
+    setPrefs({ ...prefs, bannedCategories: categories });
+  };
 
+  return (
+    <div className="btn__not-container">
+      <div className="btn__not-box">
+        <button
+          id="0"
+          className={categories[0].value ? selectedClass : defaultClass}
+          onClick={categoryClickHandler}
+        >
+          {categories[0].title}
+        </button>
+        <button
+          id="1"
+          className={categories[1].value ? selectedClass : defaultClass}
+          onClick={categoryClickHandler}
+        >
+          {categories[1].title}
+        </button>
+        <button
+          id="2"
+          className={categories[2].value ? selectedClass : defaultClass}
+          onClick={categoryClickHandler}
+        >
+          {categories[2].title}
+        </button>
+      </div>
 
-            <div className='btn__not-box'>
-                <button className="btn__not">Carne</button>
-                <button className="btn__not">Pescado</button>
-                <button className="btn__not">Mariscos</button>
-            </div>
+      <div className="btn__not-box">
+        <button
+          id="3"
+          className={categories[3].value ? selectedClass : defaultClass}
+          onClick={categoryClickHandler}
+        >
+          {categories[3].title}
+        </button>
+        <button
+          id="4"
+          className={categories[4].value ? selectedClass : defaultClass}
+          onClick={categoryClickHandler}
+        >
+          {categories[4].title}
+        </button>
+        <button
+          id="5"
+          className={categories[5].value ? selectedClass : defaultClass}
+          onClick={categoryClickHandler}
+        >
+          {categories[5].title}
+        </button>
+      </div>
 
-            <div className='btn__not-box'>
-                <button className="btn__not">Verduras</button>
-                <button className="btn__not">Lácteos</button>
-                <button className="btn__not">Huevos</button>
-            </div>
-
-            <div className='btn__not-box'>
-                {/* <button className="btn__not">Legumbres</button>
+      <div className="btn__not-box">
+        {/* <button className="btn__not">Legumbres</button>
                 <button className="btn__not">Pasta</button> */}
-                <button onClick={handleClick} className="btn__not-other">Otros...</button>
-            </div>
-
-        </div>
-
-
-    );
+        <button onClick={handleClick} className="btn__not-other">
+          Otros...
+        </button>
+      </div>
+    </div>
+  );
 };
 
-
-
-
-
-/*
-
-{
-    "id": 1,
-    "category": "meat",
-    "title": "Carne",
-    "value": false
-},
-
-*/
