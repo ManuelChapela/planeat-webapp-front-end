@@ -54,15 +54,27 @@ export const SelectionPage = () => {
 
       <div className="icon__group-food">
         <div className="food__box">
-          <Food prefsContext={{ prefs, setPrefs }} icons={iconsFood} />
+          <Food
+            prefsContext={{ prefs, setPrefs }}
+            icons={iconsFood}
+            iconsTrue={iconsFood}
+          />
         </div>
 
         <div className="price__box">
-          <Money prefsContext={{ prefs, setPrefs }} iconsMoney={iconsMoney} />
+          <Money
+            prefsContext={{ prefs, setPrefs }}
+            iconsMoney={iconsMoney}
+            iconsTrue={iconsMoney}
+          />
         </div>
 
         <div className="time__box">
-          <Time prefsContext={{ prefs, setPrefs }} iconsTime={iconsTime} />
+          <Time
+            prefsContext={{ prefs, setPrefs }}
+            iconsTime={iconsTime}
+            iconsTrue={iconsTime}
+          />
         </div>
       </div>
 
