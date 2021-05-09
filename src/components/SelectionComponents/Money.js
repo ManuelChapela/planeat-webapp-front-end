@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-export const Money = () => {
+export const Money = ({iconsMoney}) => {
 
     
+
     return (
-        <div>
-            <h1>MONEY</h1>
-        </div>
+        <>
+            <img src={iconsMoney[0]} alt="icono dinero" />
+            <img src={iconsMoney[1]} alt="icono dinero" />
+        </>
     );
 };
