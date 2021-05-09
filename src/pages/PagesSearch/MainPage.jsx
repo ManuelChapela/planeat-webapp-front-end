@@ -6,6 +6,9 @@ import './Main.css';
 // Assets
 import logo from './../../assets/logo.png';
 import btnNextRec from './../../assets/btnNextRec.svg'
+import iconBreakfast from './../../assets/icon__breakfast.svg';
+import iconLunch from './../../assets/icon__lunch.svg';
+import iconDinner from './../../assets/icon__dinner.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -22,6 +25,8 @@ import { BtnThreeOptions } from '../../components/BtnThreeOptions/BtnThreeOption
 
 export const MainPage = () => {
 
+    const iconsFoodHours = [iconBreakfast, iconLunch, iconDinner]
+
     let history = useHistory();
     const handleClick = () => history.push("/recetas");
     const handleBack= () => history.push("/seleccion");
@@ -30,14 +35,13 @@ export const MainPage = () => {
 
         <div className='container'>
             <header>
-                <BtnBack textBtn="Volver" action={handleBack}/>
-                <HeaderNoLogo logo={logo} text='Y vas a...' />
-                <h2>Esta es la página de las tres comidas en vertical</h2>
+                <BtnBack text="Volver" action={handleBack}/>
+                <HeaderNoLogo text='Y vas a...' />
             </header>
 
             <main>
                 <div className="three__options-box">
-                    <BtnThreeOptions />
+                    <BtnThreeOptions iconsFoodHours={iconsFoodHours} />
                 </div>
             </main>
 
