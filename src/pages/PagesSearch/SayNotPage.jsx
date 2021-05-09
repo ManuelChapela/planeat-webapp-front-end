@@ -3,7 +3,7 @@ import LoggedContext from './../../context/loggedContext';
 import PrefsContext from './../../context/prefsContext';
 
 // HOOKS
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 // COMPONENTES
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
@@ -17,17 +17,33 @@ import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
 // ASSETS
 import btnNext from './../../assets/btnNext.svg';
 
-export const SayNotPage = () => {
+export const SayNotPage = (props) => {
   const { logged, setLogged } = useContext(LoggedContext);
   const { prefs, setPrefs } = useContext(PrefsContext);
 
-  let history = useHistory();
+  const history = useHistory();
+  const location = useLocation();
 
   // Si no vienes de /nevera te echa
   // TODO: Quitar comentario a linea siguiente (HAY QUE HACERLO EN TODAS LAS DE ESTA RUTA)
   // Object.keys(prefs).length === 0 && history.push('/nevera');
 
+  const handleSkip = () => {
+    if (location.pathname === '/noquiero') {
+      const { bannedCategories } = prefs;
+      bannedCategories.map((el) => (el.value = false));
+      setPrefs({ ...prefs, bannedCategories });
+    } else if (location.pathname === '/more') {
+      const { bannedIngredients } = prefs;
+      bannedIngredients.map((el) => (el.value = false));
+      setPrefs({ ...prefs, bannedIngredients });
+    }
+
+    history.push('/seleccion');
+  };
+
   const handleClick = () => history.push('/seleccion');
+
   const handleBack = () => history.push('/nevera');
 
   return (
@@ -36,7 +52,7 @@ export const SayNotPage = () => {
         <div className="btn__box">
           <BtnBack text="Volver" action={handleBack} />
 
-          <BtnSkip text="Saltar" action={handleClick} />
+          <BtnSkip text="Saltar" action={handleSkip} />
         </div>
 
         <HeaderNoLogo text="¿Hay algo que no quieras comer?" />
