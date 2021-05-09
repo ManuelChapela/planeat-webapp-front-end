@@ -11,9 +11,7 @@ import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Favs } from '../../components/Favs/Favs';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
-import { Suggest } from '../../components/Suggest/Suggest';
-import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
-import  Carousel  from '../../components/Carousel/Carousel';
+import  Carousell  from '../../components/Carousel/Carousel';
 
 
 
@@ -23,7 +21,18 @@ export const MasterPage = () => {
     let history = useHistory();
         const handleClickBack = () => history.push("/horario");
 
-    const recetas = true
+        
+        
+        const hardcodedItems = [
+            {mainTitle: "comida", title: "Espagueti Boloñesa", type: "Pasta", ingredients: ["tomate", "aceite", "ajo", "espaguetis", "albahaca"],price: "Barato / 15 minutos",img:"https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg"},
+            {mainTitle: "comida", title: "Pasta con atún", type: "Pasta", ingredients: ["tomate", "pimiento", "aceite", "ajo", "espirales", "albahaca"], price: "Barato / 15 minutos",img:"https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg"},
+            {mainTitle: "comida", title: "Alubias con choco y jengibre", type: "Inventada", ingredients: ["alubias", "aceite", "ajo", "chocos en su tinta", "jengibre polvo"],price: "Barato / 10 minutos", img:"https://www.chefcaprabo.com/export/shared/.galleries/recetas/4201323CAS_682x433.png_908605617.png"}
+        ]
+       
+        const recetas = true
+        
+        console.log(hardcodedItems.length);
+    
 
     return (
 
@@ -34,8 +43,9 @@ export const MasterPage = () => {
             </header>
 
             <main>
-                { recetas ? <Suggest /> : <NoSuggest/>}
-                <Carousel />
+            {/* suggest={ recetas ? <Suggest recetas={recetas} data={hardcodedItems}/> : <NoSuggest recetas={recetas} data={hardcodedItems}/>} */}
+                <Carousell recetas={recetas} data={hardcodedItems} />
+                
 
             </main>
 
