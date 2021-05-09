@@ -53,7 +53,7 @@ export const FridgePage = () => {
   return (
     <div className="fidge__container-box">
       <header className='fridge__header-box'>
-        <Header logo={iconNevera} text="¿Qué tienes en la nevera?" />
+        <Header logo={iconNevera} cssClass='icon__nevera' text="¿Qué tienes en la nevera?" />
       </header>
 
       <main>

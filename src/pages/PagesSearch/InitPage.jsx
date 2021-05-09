@@ -17,7 +17,12 @@ export const InitPage = () => {
 
     return (
         <div className='init__page'>
-            <Header cssClass='init__title' action={handleClick} logo={logo} textBold='Recetas' text='al instante' />
+
+            <img src={logo} className='init__logo' onClick={handleClick} alt="icono app" />
+            <div className="init__title-box">
+                <h1 className='init__title'> <span> Recetas </span> al instante</h1>
+            </div>
+            
         </div>
     );
 
