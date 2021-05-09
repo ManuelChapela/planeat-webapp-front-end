@@ -26,7 +26,6 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 /* -------------------------------------------------------------------- */
-
 /* INIT PAGE */
 .init__page {
     background-color: var(--primary-color-light);
@@ -36,6 +35,9 @@ html {
     flex-direction: column;
     justify-content: center;
 }
+
+/* -------------------------------------------------------------------- */
+/* JOIN PAGE */
 
 
 /* -------------------------------------------------------------------- */
