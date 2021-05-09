@@ -38,6 +38,31 @@ html {
 
 /* -------------------------------------------------------------------- */
 /* JOIN PAGE */
+.logo__join {
+    width: 7rem;
+}
+.join__title-header {
+    font-weight: 400;
+}
+.text__box-join {
+    font-size: 2rem;
+}
+.join__cta {
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+.join__text {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.btn__join-box {
+    display: flex;
+    flex-direction: column;
+}
+.btn__google, .btn__log-in, .btn__sign-up {
+    width: 28rem;
+}
+
 
 
 /* -------------------------------------------------------------------- */
