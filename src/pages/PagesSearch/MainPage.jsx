@@ -5,6 +5,7 @@ import './Main.css';
 
 // Assets
 import logo from './../../assets/logo.png';
+import btnNextRec from './../../assets/btnNextRec.svg'
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -22,7 +23,7 @@ import { BtnThreeOptions } from '../../components/BtnThreeOptions/BtnThreeOption
 export const MainPage = () => {
 
     let history = useHistory();
-    const handleClick = () => history.push("/horario");
+    const handleClick = () => history.push("/recetas");
     const handleBack= () => history.push("/seleccion");
 
     return (
@@ -41,7 +42,7 @@ export const MainPage = () => {
             </main>
 
             <div className="btn__box">
-                <BtnNext onClick={handleClick} textBtn='Buscar' /> 
+                <BtnNext action={handleClick} icon={btnNextRec} textBtn='Buscar' /> 
             </div>
 
             <footer className="icon__box">

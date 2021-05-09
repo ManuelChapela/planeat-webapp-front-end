@@ -13,6 +13,8 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { Suggest } from '../../components/Suggest/Suggest';
 import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
+import  Carousel  from '../../components/Carousel/Carousel';
+
 
 
 
@@ -33,6 +35,8 @@ export const MasterPage = () => {
 
             <main>
                 { recetas ? <Suggest /> : <NoSuggest/>}
+                <Carousel />
+
             </main>
 
             {/* <div className="btn__box">

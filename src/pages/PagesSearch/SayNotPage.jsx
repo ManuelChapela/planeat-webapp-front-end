@@ -13,6 +13,8 @@ import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
 import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
 
+// ASSETS
+import btnNext from './../../assets/btnNext.svg'
 
 
 export const SayNotPage = () => {
@@ -48,7 +50,7 @@ export const SayNotPage = () => {
             </main>
 
             <div className="btn__box">
-                <BtnNext action={handleClick}  textBtn='Siguiente'/> 
+                <BtnNext action={handleClick} icon={btnNext} textBtn='Siguiente'/> 
             </div>
 
             <footer className="icon__box">
