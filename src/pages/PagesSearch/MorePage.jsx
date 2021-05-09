@@ -3,6 +3,7 @@ import LoggedContext from './../../context/loggedContext';
 
 // Assets
 import logo from './../../assets/logo.png';
+import btnNext from './../../assets/btnNext.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -46,10 +47,13 @@ export const MorePage = () => {
 
             <main>
                 <Painter />
+                <div className="advice__text-box">
+                    <p className='advice__text'>Recuerda que cuantos más ingredientes quites..., ¡menos platos podremos ofrecerte!</p>
+                </div>
             </main>
 
             <div className="btn__box">
-                <BtnNext action={handleClick} textBtn='Siguiente' /> 
+                <BtnNext action={handleClick} icon={btnNext} textBtn='Siguiente' /> 
             </div>
 
             <footer className="icon__box">
