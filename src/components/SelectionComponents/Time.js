@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export const Time = () => {
+export const Time = ({iconsTime}) => {
     return (
-        <div>
-            <h1>TIME</h1>
-        </div>
+        <>
+            <img src={iconsTime[0]} alt="icono tiempo" />
+            <img src={iconsTime[1]} alt="icono tiempo" />
+            <img src={iconsTime[2]} alt="icono tiempo" />
+        </>
     )
 }
