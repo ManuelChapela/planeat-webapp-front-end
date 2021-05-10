@@ -26,7 +26,7 @@ export const MorePage = () => {
     const handleClick = () => history.push("/seleccion");
     const handleBack = () => history.push("/noquiero");
     const handleSkip = () => {
-            setPrefs({...prefs, bannedCategories: []})
+            setPrefs({...prefs, bannedIngredients: []})
             history.push('/seleccion')}
 
     return (
