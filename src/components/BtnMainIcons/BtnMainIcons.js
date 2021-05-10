@@ -30,15 +30,18 @@ export const BtnMainIcons = ( {context} ) => {
     const user = () => logged ? history.push("/profile")  :  history.push("/join");
     
     return (
-        <div className="icon__box">
-            
+        
+        <>
             <BtnSearch action={ search } />
             <BtnLike action={ like } />
             <BtnUser action={ user } />
-            
-        </div>
-        
+        </>
     );
 };
+
+            
+            
+        
+        
 
     

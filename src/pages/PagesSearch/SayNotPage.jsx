@@ -51,6 +51,7 @@ export const SayNotPage = (props) => {
   return (
     <div className="container">
       <header className="header__not">
+
         <div className="nav__bar-box">
           <NavBar cssClass='back__arrow' backArrow={backArrow} />
         </div>
@@ -61,6 +62,7 @@ export const SayNotPage = (props) => {
         </div> */}
 
         <HeaderNoLogo text="¿Hay algo que no quieras comer?" />
+        
       </header>
 
       <main>

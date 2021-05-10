@@ -1,11 +1,12 @@
 import React from 'react';
 
-import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
+// Assets
+import iconLike from './../../../assets/icon__like.svg';
 
 export const BtnLike = ({action}) => {
     return (
         <div className='icon__like' onClick={action}>
-            <FavoriteSharpIcon />
+            <img src={iconLike} alt="icono favoritos" />
         </div>
     )
 }

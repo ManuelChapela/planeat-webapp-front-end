@@ -12,7 +12,7 @@ export const Header = ({cssClass, text, textBold, logo, action}) => {
             </div>
 
             <div className="text__box">
-                <h3 className={cssClass}> <span>{textBold}</span> {text} </h3>
+                <h3> <span>{textBold}</span> {text} </h3>
             </div>
 
         </>
