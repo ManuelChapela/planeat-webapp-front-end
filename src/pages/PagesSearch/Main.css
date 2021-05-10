@@ -147,6 +147,7 @@ main {
 .input__box{
     display: flex;
     align-items: center;
+    width: 300px;
 
 }
 .logo {
