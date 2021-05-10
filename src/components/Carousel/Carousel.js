@@ -12,19 +12,12 @@ import { BtnNext } from '../BtnNext/BtnNext';
 import btnReceta from './../../assets/btnReceta.svg'
 
 
-
-
-// ASSETS
-import random1 from './../../assets/img/random1.jpg'
-import random2 from './../../assets/img/random2.jpeg'
-import random3 from './../../assets/img/random3.jpg'
-
 // MAIN FUNCTION
 const Carousell = ({data, recetas}) => {
     
     const handleClickDetail = (id) => {
         console.log(data[id]);
-        setId(data[id])}
+       }
     
 
     let history = useHistory();
@@ -41,7 +34,7 @@ const Carousell = ({data, recetas}) => {
         // Estado del botón like. 
         const [ like, setLike ] = useState(false);
         const [ banned, setBanned ] = useState(true);
-        const [id, setId] = useState();
+
 
         
         // Cambio de estado de encendido a apagado btnFav y btnBanned

@@ -33,6 +33,8 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { Food } from '../../components/SelectionComponents/Food';
 import { Money } from '../../components/SelectionComponents/Money';
 import { Time } from '../../components/SelectionComponents/Time';
+import BtnCarousel from '../../components/BtnCarousel/BtnCarousel';
+// import CarousellBtn from '../../components/CarouselBtn/CarouselBtn';
 
 export const SelectionPage = () => {
   const iconsFood = [icon0, icon1, icon2, icon3, icon4];
@@ -54,11 +56,18 @@ export const SelectionPage = () => {
 
       <div className="icon__group-food">
         <div className="food__box">
-          <Food
-            prefsContext={{ prefs, setPrefs }}
-            icons={iconsFood}
-          />
+
+
+{/* COMENTAR ESTO CUANDO ACABE CON LA FUNCIONALIDAD */}
+          {/* <Food
+          prefsContext={{ prefs, setPrefs }}
+          icons={iconsFood}
+        /> 
+        */}
+        <BtnCarousel />
         </div>
+        
+
 
         <div className="price__box">
           <Money
