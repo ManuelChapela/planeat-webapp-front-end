@@ -29,13 +29,36 @@ html {
 /* CSS GLOBAL */
 /* -----------------------------------------------------------CSS GLOBAL */
 /* Contenedor padre */
-/* .container {
+.container {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-} */
+}
+header {
+    width: 100vw;
+    height: 20vh;
+    padding: 2rem 0;
+    text-align: center;
+}
+main {
+    margin: 0 auto;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+.bottom__icon-box {
+    height: 10vh;
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    box-shadow: 0px -1px 15px var(--box-shadow);
+    align-items: center;
+}
+.btn__next-box {
+    align-self: center;
+}
 /* HEADER */
 /* Parte fija en casi toda la aplicación */
 
@@ -131,33 +154,17 @@ html {
     padding: 2rem 0;
     text-align: center;
 }
-.fridge__main {
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-}
 .painter__box {
     height: 80%;
 }
 .btn__fridge-box {
     height: 20%;
 }
-.fridge__icon-box {
-    height: 10vh;
-    display: flex;
-    width: 100vw;
-    justify-content: space-around;
-    box-shadow: 0px -1px 15px var(--box-shadow);
-    align-items: center;
-}
 .fridge__main {
     width: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-}
-.fridge__btn-box {
-    align-self: center;
 }
 
 /* .stickers__container {
@@ -201,6 +208,49 @@ html {
 } */
 
 
+/* -----------------------------------------------------------SAY NOT PAGE */
+/* SAY NOT PAGE */
+.say__not-header {
+    width: 100vw;
+    height: 20vh;
+    text-align: center;
+}
+.btn__not-container {
+    height: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btn__not-other--box {
+    align-self: center;
+    margin-top: 2rem;
+}
+.nav__bar-box {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background-color: var(--primary-color-light-top);
+    box-shadow: 0px 2px 2px var(--primary-color);
+}
+.back__arrow {
+    width: .8rem;
+    margin-right: 1rem;
+}
+.bg__box {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.btn__back-box {
+    display: flex;
+    align-items: center;
+}
+/*
+
+ */
+
 
 /* -----------------------------------------------------------JOIN PAGE*/
 /* JOIN PAGE */
@@ -229,32 +279,6 @@ html {
 }
 .btn__google, .btn__log-in, .btn__sign-up {
     width: 28rem;
-} */
-
-
-
-/* -----------------------------------------------------------SAY NOT PAGE */
-/* SAY NOT PAGE */
-/* .nav__bar-box {
-    display: flex;
-    align-items: center;
-    height: 4rem;
-    background-color: var(--primary-color-light-top);
-    box-shadow: 0px 2px 2px var(--primary-color);
-}
-.bg__box {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-.btn__back-box {
-    display: flex;
-    align-items: center;
-}
-.back__arrow {
-    width: .8rem;
-    margin-right: 1rem;
 } */
 
 

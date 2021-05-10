@@ -2,6 +2,10 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 import PrefsContext from './../../context/prefsContext';
 
+// Assets
+import iconOtherIngredients from './../../assets/btn__other-ingredients.svg';
+
+
 import './BtnMainNot.css';
 
 export const BtnMainNot = () => {
@@ -69,12 +73,13 @@ export const BtnMainNot = () => {
         </button>
       </div>
 
-      <div className="btn__not-box">
+      <div className="btn__not-other--box">
         {/* <button className="btn__not">Legumbres</button>
                 <button className="btn__not">Pasta</button> */}
-        <button onClick={handleClick} className="btn__not-other">
+                <img src={iconOtherIngredients} onClick={handleClick} alt="" />
+        {/* <button onClick={handleClick} className="btn__not-other">
           Otros...
-        </button>
+        </button> */}
       </div>
     </div>
   );
