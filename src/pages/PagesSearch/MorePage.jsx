@@ -29,11 +29,11 @@ export const MorePage = () => {
         <div className='container'>
             <header className='more__page-header'>
 
-            <div className='nav__bar-box'>
-                <NavBar cssClass='back__arrow' backArrow={backArrow} />
-            </div>
+                <div className='nav__bar-box'>
+                    <NavBar cssClass='back__arrow' backArrow={backArrow} />
+                </div>
 
-            <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
+                <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
             
             </header>
 
