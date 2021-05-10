@@ -18,17 +18,19 @@ export const InitPage = () => {
     return (
         <div className='init__page'>
 
-            <div className="init__container">
-                
+            <div className="img__box">
                 <img src={logo} className='init__logo' onClick={handleClick} alt="icono app" />
-                <div className="init__title-box">
-                    <h1 className='init__title'> <span> Recetas </span> al instante</h1>
-                </div>  
-
             </div>
 
+            <div className="init__title-box">
+                <h1 className='init__title'> <span> Recetas </span> al instante</h1>
+            </div>  
             
         </div>
+
     );
 
 };
+           
+
+            

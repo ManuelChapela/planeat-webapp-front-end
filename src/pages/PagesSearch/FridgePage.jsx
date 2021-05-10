@@ -1,14 +1,15 @@
 import React, { useContext, useEffect } from 'react';
+
+// CONTEXTS
 import LoggedContext from './../../context/loggedContext';
 import PrefsContext from './../../context/prefsContext';
-import iconNevera from './../../assets/iconNevera.svg';
 
 // CSS
 import './Main.css';
 
 // assets
-import logo from './../../assets/logo.png';
 import btnNext from './../../assets/btnNext.svg'
+import iconNevera from './../../assets/iconNevera.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -20,7 +21,9 @@ import { Header } from './../../components/Header/Header';
 import { Painter } from '../../components/Painter/Painter';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
-import { BtnBack } from '../../components/BtnBack/BtnBack';
+
+
+
 
 export const FridgePage = () => {
   const { logged, setLogged } = useContext(LoggedContext);
@@ -51,24 +54,33 @@ export const FridgePage = () => {
   const handleClick = () => history.push('/noquiero');
 
   return (
+
+
     <div className="fidge__container-box">
       <header className='fridge__header-box'>
-        <Header logo={iconNevera} cssClass='header__title' text="¿Qué tienes en la nevera?" />
+        <Header logo={iconNevera} cssClass='fridge__header-title' text="¿Qué tienes en la nevera?" />
       </header>
 
-      <main>
+      <main className='fridge__main'>
 
-        <Painter />
-        <div className="btn__box">
+        <div className="painter__box">
+          <Painter />
+        </div>
+
+        <div className="fridge__btn-box">
           <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
         </div>
         
       </main>
 
-
-      <footer className="icon__box">
+      <footer className="fridge__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
     </div>
+
+
   );
+
 };
+
+

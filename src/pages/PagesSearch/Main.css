@@ -10,6 +10,8 @@
     --primary-color: #8BC53F;
     --primary-color-light: #EFFFD9;
     --primary-color-light-top: #FCFFF8;
+
+    --box-shadow: #8dc63f40;
 }
 
 * {
@@ -62,9 +64,9 @@ html {
     align-items: center;
 } */
 
-.icon__group-food{
+/* .icon__group-food{
     width: 120px;
-}
+} */
 
 /* FOOTER */
 /* Caja de iconos (Fija en casi toda la aplicación) */
@@ -93,16 +95,13 @@ html {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
-.init__container {
-    width: 98%;
-    margin: 0 auto;
-}
-.init__logo {
+
+/* .init__logo {
     width: 20rem;
-}
+} */
 .init__title {
     font-size: 2.8rem;
     font-weight: 400;
@@ -111,6 +110,96 @@ html {
 .init__title span {
     font-weight: 600;
 }
+
+
+
+/* ----------------------------------------------------------FRIDGE PAGE */
+/* FRIDGE PAGE */
+.fridge__header-title {
+    font-size: 2rem;
+}
+.fidge__container-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.fridge__header-box {
+    height: 20vh;
+    padding: 2rem 0;
+    text-align: center;
+}
+.fridge__main {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+.painter__box {
+    height: 80%;
+}
+.btn__fridge-box {
+    height: 20%;
+}
+.fridge__icon-box {
+    height: 10vh;
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    box-shadow: 0px -1px 15px var(--box-shadow);
+    align-items: center;
+}
+.fridge__main {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.fridge__btn-box {
+    align-self: center;
+}
+
+/* .stickers__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+} */
+
+/* .input__box input{
+    height: 40px;
+    width: 270px;
+    border-radius: 30px;
+    padding: 8px, 16px, 8px, 16px;
+    justify-content: space-between;  
+} 
+.input__box img {
+    width: 58px;
+    margin-left: 10px;
+}
+.input__box{
+    display: flex;
+    align-items: center;
+
+}
+.logo {
+    width: 64px;
+    height: 64px;
+    margin-top: 21px;
+    margin-bottom: 11px;
+}
+.text__box h3{
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.sticker {
+    margin: .2rem;
+} */
+
+
 
 /* -----------------------------------------------------------JOIN PAGE*/
 /* JOIN PAGE */
@@ -141,46 +230,6 @@ html {
     width: 28rem;
 } */
 
-
-
-/* ----------------------------------------------------------FRIDGE PAGE */
-/* FRIDGE PAGE */
-/* .input__box input{
-    height: 40px;
-    width: 270px;
-    border-radius: 30px;
-    padding: 8px, 16px, 8px, 16px;
-    justify-content: space-between;  
-} 
-.input__box img {
-    width: 58px;
-    margin-left: 10px;
-}
-.input__box{
-    display: flex;
-    align-items: center;
-
-}
-.logo {
-    width: 64px;
-    height: 64px;
-    margin-top: 21px;
-    margin-bottom: 11px;
-}
-.text__box h3{
-    font-weight: 700;
-    font-style: normal;
-    font-size: 24px;
-}
-.stickers__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.sticker {
-    margin: .2rem;
-} */
 
 
 /* -----------------------------------------------------------SAY NOT PAGE */

@@ -42,7 +42,7 @@ export const Painter = () => {
     <>
       <FormStickers addSticker={addSticker} />
 
-      <div className="stickers__container">{paintStickers()}</div>
+      <div className="stickers__container">{ paintStickers() }</div>
     </>
   );
 };
