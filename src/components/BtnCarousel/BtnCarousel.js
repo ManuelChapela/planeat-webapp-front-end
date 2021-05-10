@@ -17,19 +17,21 @@ import icon4 from './../../assets/icon__ensaladas.svg';
 const BtnCarousel = () => {
     
     
-    const handleClickDetail = (id) => {
-        console.log("BTNCARR__id", id);
-        console.log("BTNCARR__categories", categories);
-        console.log("BTNCARR__prefs", prefs);
-    }
+    // const handleClickDetail = (id) => {
+
+
+    //     console.log("BTNCARR__id", id);
+    //     console.log("BTNCARR__categories", categories);
+    //     console.log("BTNCARR__prefs", prefs);
+    // }
        
     const { prefs, setPrefs } = useContext(PrefsContext);
 
     const { categories } = prefs;
 
-    const categoryClickHandler = (e) => {
-      categories[e.target.id].value = !categories[e.target.id].value;
-      console.log(e.target.id, categories[e.target.id].value);
+    const categoryClickHandler = (id) => {
+      categories[id].value = !categories[id].value;
+      console.log(id, categories[id].value);
       setPrefs({ ...prefs, categories });
     };
 
@@ -42,7 +44,7 @@ const BtnCarousel = () => {
                 centerMode={30}
                 showArrows={true}  
                 dynamicHeight={false}
-                onClickItem={handleClickDetail}
+                onClickItem={categoryClickHandler}
                 showThumbs={false}      
                 showIndicators={false}
                 showStatus={false}    >
@@ -50,35 +52,35 @@ const BtnCarousel = () => {
             {/* <div className="food__group-box"> */}
                 <img
                     id="0"
-                    onClick={categoryClickHandler}
+                    // onClick={categoryClickHandler}
                     className={categories[0].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon0}
                     alt="icono comidas"
                 />
                 <img
                     id="1"
-                    onClick={categoryClickHandler}
+                    // onClick={categoryClickHandler}
                     className={categories[1].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon1}
                     alt="icono comidas"
                 />
                 <img
                     id="2"
-                    onClick={categoryClickHandler}
+                    // onClick={categoryClickHandler}
                     className={categories[2].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon2}
                     alt="icono comidas"
                 />
                 <img
                     id="3"
-                    onClick={categoryClickHandler}
+                    // onClick={categoryClickHandler}
                     className={categories[3].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon3}
                     alt="icono comidas"
                 />
                 <img
                     id="4"
-                    onClick={categoryClickHandler}
+                    // onClick={categoryClickHandler}
                     className={categories[4].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon4}
                     alt="icono comidas"
