@@ -50,9 +50,9 @@ export const SayNotPage = (props) => {
 
   return (
     <div className="container">
-      <header className="header__not">
+      <header className='say__not-header'>
 
-        <div className="nav__bar-box">
+        <div className='nav__bar-box'>
           <NavBar cssClass='back__arrow' backArrow={backArrow} />
         </div>
         {/* <div className="btn__box">
@@ -66,16 +66,20 @@ export const SayNotPage = (props) => {
       </header>
 
       <main>
-        <BtnMainNot />
 
-        <div className="btn__box">
+        <BtnMainNot />
+       
+        <div className="btn__next-box">
           <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
         </div>
+
       </main>
 
-      <footer className="icon__box">
+      <footer className="bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
     </div>
   );
 };
+        
+

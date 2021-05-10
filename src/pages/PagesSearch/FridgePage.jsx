@@ -56,7 +56,7 @@ export const FridgePage = () => {
   return (
 
 
-    <div className="fidge__container-box">
+    <div className="container">
       <header className='fridge__header-box'>
         <Header logo={iconNevera} cssClass='fridge__header-title' text="¿Qué tienes en la nevera?" />
       </header>
@@ -67,13 +67,13 @@ export const FridgePage = () => {
           <Painter />
         </div>
 
-        <div className="fridge__btn-box">
+        <div className="btn__next-box">
           <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
         </div>
         
       </main>
 
-      <footer className="fridge__icon-box">
+      <footer className="bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
     </div>
