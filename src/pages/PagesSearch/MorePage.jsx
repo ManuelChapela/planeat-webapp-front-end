@@ -2,8 +2,8 @@ import React, {useContext} from 'react';
 import LoggedContext from './../../context/loggedContext';
 
 // Assets
-import logo from './../../assets/logo.png';
 import btnNext from './../../assets/btnNext.svg';
+import backArrow from './../../assets/back__arrow.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -15,6 +15,7 @@ import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
+import { NavBar } from '../../components/NavBar/NavBar';
 
 export const MorePage = () => {
 
@@ -26,37 +27,29 @@ export const MorePage = () => {
 
     return (
         <div className='container'>
-            <header className='header__not'>
+            <header className='more__page-header'>
 
-                <div className="btn__box">
-
-                    <BtnBack 
-                        text="Volver"  
-                        action={handleBack}
-                    />
-
-                    <BtnSkip 
-                        text="Saltar"
-                        action={handleClick}
-                    />              
-
-                </div>
-
-                <HeaderNoLogo text='¿Qué ingrediente no quieres usar?'/>
-            </header>
-
-            <main>
-                <Painter />
-                <div className="advice__text-box">
-                    <p className='advice__text'>Recuerda que cuantos más ingredientes quites..., ¡menos platos podremos ofrecerte!</p>
-                </div>
-            </main>
-
-            <div className="btn__box">
-                <BtnNext action={handleClick} icon={btnNext} textBtn='Siguiente' /> 
+            <div className='nav__bar-box'>
+                <NavBar cssClass='back__arrow' backArrow={backArrow} />
             </div>
 
-            <footer className="icon__box">
+            <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
+            
+            </header>
+
+            <main className='fridge__main'>
+
+                <div className="painter__box">
+                    <Painter />
+                </div>
+
+                <div className="btn__next-box">
+                    <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
+                </div>
+                
+            </main>
+
+            <footer className="bottom__icon-box">
                 <BtnMainIcons context={logged} />
             </footer>
         
