@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import LoggedContext from './../../context/loggedContext';
 import PrefsContext from './../../context/prefsContext';
-import iconNevera from './../../assets/iconNevera.svg'
+import iconNevera from './../../assets/iconNevera.svg';
 
 // CSS
 import './Main.css';
@@ -53,16 +53,18 @@ export const FridgePage = () => {
   return (
     <div className="fidge__container-box">
       <header className='fridge__header-box'>
-        <Header logo={iconNevera} cssClass='icon__nevera' text="¿Qué tienes en la nevera?" />
+        <Header logo={iconNevera} cssClass='header__title' text="¿Qué tienes en la nevera?" />
       </header>
 
       <main>
+
         <Painter />
+        <div className="btn__box">
+          <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
+        </div>
+        
       </main>
 
-      <div className="btn__box">
-        <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
-      </div>
 
       <footer className="icon__box">
         <BtnMainIcons context={logged} />

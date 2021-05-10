@@ -1,11 +1,11 @@
 import React from 'react';
 
-import SearchIcon from '@material-ui/icons/Search';
+import iconLens from './../../../assets/icon__lens.svg';
 
 export const BtnSearch = ({action}) => {
     return (
         <div className='icon__search' onClick={action} >
-            <SearchIcon />
+            <img src={iconLens} alt="icono lupa" />
         </div>
     )
 }
