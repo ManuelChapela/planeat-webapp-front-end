@@ -10,6 +10,8 @@ import btnNextRec from './../../assets/btnNextRec.svg';
 import iconBreakfast from './../../assets/icon__breakfast.svg';
 import iconLunch from './../../assets/icon__lunch.svg';
 import iconDinner from './../../assets/icon__dinner.svg';
+import backArrow from './../../assets/back__arrow.svg';
+
 
 // Hooks
 import PrefsContext from './../../context/prefsContext';
@@ -18,9 +20,10 @@ import { useHistory } from 'react-router';
 // Componentes
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
-import { BtnBack } from '../../components/BtnBack/BtnBack';
+// import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnThreeOptions } from '../../components/BtnThreeOptions/BtnThreeOptions';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 export const MainPage = () => {
   const { logged, setLogged } = useContext(LoggedContext);
@@ -35,7 +38,11 @@ export const MainPage = () => {
   return (
     <div className="container">
       <header>
-        <BtnBack text="Volver" action={handleBack} />
+
+        <div className='nav__bar-box'>
+          <NavBar2 cssClass='back__arrow' actionBack={handleBack} backArrow={backArrow}/>
+        </div>
+
         <HeaderNoLogo text="Y vas a..." />
       </header>
 
@@ -52,7 +59,7 @@ export const MainPage = () => {
         <BtnNext action={handleClick} icon={btnNextRec} textBtn="Buscar" />
       </div>
 
-      <footer className="icon__box" context={logged}>
+      <footer className="bottom__icon-box" context={logged}>
         <BtnMainIcons />
       </footer>
     </div>

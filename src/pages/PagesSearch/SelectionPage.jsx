@@ -13,6 +13,8 @@ import icon1 from './../../assets/icon__de-alla.svg';
 import icon2 from './../../assets/icon__tapas.svg';
 import icon3 from './../../assets/icon__sopas-cremas.svg';
 import icon4 from './../../assets/icon__ensaladas.svg';
+import backArrow from './../../assets/back__arrow.svg';
+
 
 import iconCheap from './../../assets/icon__barato.svg';
 import iconMedium from './../../assets/icon__medio.svg';
@@ -34,6 +36,7 @@ import { Food } from '../../components/SelectionComponents/Food';
 import { Money } from '../../components/SelectionComponents/Money';
 import { Time } from '../../components/SelectionComponents/Time';
 import BtnCarousel from '../../components/BtnCarousel/BtnCarousel';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
 // import CarousellBtn from '../../components/CarouselBtn/CarouselBtn';
 
 export const SelectionPage = () => {
@@ -50,12 +53,14 @@ export const SelectionPage = () => {
 
   return (
     <div className="container">
-      <div className="btn__back-box">
-        <BtnBack textBtn="Volver" text="Volver" action={handleBack} />
-      </div>
+          <div className='nav__bar-box'>
+             <NavBar2 cssClass='back__arrow' actionBack={handleBack} actionNext={handleClick} backArrow={backArrow} />
+          </div>
+
 
       <div className="icon__group-food">
         <div className="food__box">
+
 
 
 {/* COMENTAR ESTO CUANDO ACABE CON LA FUNCIONALIDAD */}
@@ -88,7 +93,7 @@ export const SelectionPage = () => {
         <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
       </div>
 
-      <footer className="icon__box">
+      <footer className="bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
     </div>

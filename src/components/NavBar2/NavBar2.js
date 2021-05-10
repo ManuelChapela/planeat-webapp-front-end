@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const NavBar = ({backArrow, cssClass, actionBack, actionNext}) => {
+export const NavBar2 = ({backArrow, cssClass, actionBack, actionNext}) => {
     return (
         
         <>
@@ -11,7 +11,7 @@ export const NavBar = ({backArrow, cssClass, actionBack, actionNext}) => {
                     <img className={cssClass} src={backArrow} alt="flecha atrás" />
                     <p onClick={actionBack} >Volver</p>
                 </div>
-                <p onClick={actionNext}>Saltar</p>
+               
             
             </div>
 
