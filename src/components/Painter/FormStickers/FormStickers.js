@@ -69,18 +69,29 @@ export const FormStickers = ({ addSticker }) => {
             </div>
         </form> */}
 
-        <Autocomplete
-          freesolo
-          options={ingredientes}
-          noOptionsText=""
-          getOptionLabel={(options) => options.Ingrediente}
-          onChange={handleAutocomplete}
-          onInputChange={handleSearchText}
-          renderInput={(params) => (
-            <TextField {...params} label="Selecciona..." fullWidth />
-          )}
-        />
-        <button>ADD</button>
+          <Autocomplete
+            freesolo
+            options={ingredientes}
+            noOptionsText=""
+            getOptionLabel={( options ) => options.Ingrediente}
+            onChange={handleAutocomplete}
+            onInputChange={handleSearchText}
+            renderInput={( params ) => ( <TextField {...params} label="Selecciona..." fullWidth /> )}
+            
+            autoHighlight={true}
+            fullWidth={true}
+       
+            // clearOnEscape={false}
+            // disableListWrap={true}
+            // autoSelect={true}
+            // clearOnBlur={true}
+            // disableClearable={true}
+            // disabledItemsFocusable={true}
+
+            
+  
+          />
+        {/* <button>ADD</button> */}
       </div>
     </form>
   );

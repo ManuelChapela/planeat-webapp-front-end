@@ -87,13 +87,6 @@ const BtnCarousel = () => {
                     />
                 {/* </div> */}
 
-
-
-        
-
-
-
-
             </Carousel>
         );
     }
