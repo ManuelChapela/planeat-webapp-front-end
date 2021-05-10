@@ -5,6 +5,7 @@ import Chip from "@material-ui/core/Chip";
 export const Sticker = ({data}) => {
 
     const handleDelete = () => {
+        console.log("DATA ID",data)
         data.deleteSticker(data.id);
     };
 
