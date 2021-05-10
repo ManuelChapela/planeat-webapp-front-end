@@ -7,11 +7,11 @@ import { useHistory, useLocation } from 'react-router';
 
 // COMPONENTES
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
-import { Painter } from '../../components/Painter/Painter';
+// import { Painter } from '../../components/Painter/Painter';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
-import { BtnBack } from '../../components/BtnBack/BtnBack';
-import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
+// import { BtnBack } from '../../components/BtnBack/BtnBack';
+// import { BtnSkip } from '../../components/BtnSkip/BtnSkip';
 import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
 import { NavBar } from '../../components/NavBar/NavBar';
 
@@ -55,12 +55,14 @@ export const SayNotPage = (props) => {
       <header className='say__not-header'>
 
         <div className='nav__bar-box'>
-          <NavBar cssClass='back__arrow' backArrow={backArrow} />
+          <NavBar cssClass='back__arrow' actionBack={handleBack} actionNext={handleSkip} backArrow={backArrow} />
         </div>
+        
+        
         {/* <div className="btn__box">
-          <BtnBack text="Volver" action={handleBack} />
+          <BtnBack text="Volver" actionBack={handleBack} />
 
-          <BtnSkip text="Saltar" action={handleClick} />
+          <BtnSkip text="Saltar" actionNext={handleClick} />
         </div> */}
 
         <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
