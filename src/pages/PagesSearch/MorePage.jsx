@@ -37,7 +37,7 @@ export const MorePage = () => {
                 <NavBar cssClass='back__arrow' actionBack={handleBack} actionNext={handleSkip} backArrow={backArrow} />
             </div>
 
-            <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
+                <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
             
             </header>
 
