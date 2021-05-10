@@ -46,7 +46,7 @@ export const FavsPage = () => {
                     
                 </main>
 
-                <footer className="icon__box">
+                <footer className="bottom__icon-box">
                     <BtnMainIcons />
                 </footer>
             

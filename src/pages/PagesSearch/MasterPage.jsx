@@ -13,6 +13,8 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import  Carousell  from '../../components/Carousel/Carousel';
 
+import backArrow from './../../assets/back__arrow.svg';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
 
@@ -38,7 +40,12 @@ export const MasterPage = () => {
 
         <div className='container'>
             <header>
-                <BtnBack text="Volver" action={handleClickBack}/>
+
+            <div className='nav__bar-box'>
+                <NavBar2 cssClass='back__arrow' actionBack={handleClickBack} backArrow={backArrow} />
+
+            </div>
+
                 <HeaderNoLogo text='Recetas sugeridas' />
             </header>
 
@@ -53,7 +60,7 @@ export const MasterPage = () => {
                 <BtnNext onClick={handleClick} textBtn='Siguiente' /> 
             </div> */}
 
-            <footer className="icon__box">
+            <footer className="bottom__icon-box">
                 <BtnMainIcons />
             </footer>
         
