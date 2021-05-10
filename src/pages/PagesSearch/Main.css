@@ -136,6 +136,9 @@ html {
     display: flex;
     flex-direction: column;
 }
+
+
+
 .painter__box {
     height: 80%;
 }

@@ -54,9 +54,13 @@ export const FormStickers = ({ addSticker }) => {
   };
 
   const handleSearchText = (e) => {
-    console.log(e.target.value);
+    console.log(e.target.value.length >= 2 );
     setSearchText(e.target.value);
+
   };
+
+
+  const handleOpen = (e) => {  console.log(e.target.value.length >= 2)}
 
   return (
     <form className="input__form-box" onSubmit={addingSticker}>
@@ -87,8 +91,7 @@ export const FormStickers = ({ addSticker }) => {
             // clearOnBlur={true}
             // disableClearable={true}
             // disabledItemsFocusable={true}
-
-            
+            onChangeInput={handleOpen}
   
           />
         {/* <button>ADD</button> */}
