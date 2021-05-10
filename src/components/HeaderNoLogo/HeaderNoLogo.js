@@ -6,9 +6,9 @@ export const HeaderNoLogo = ( {text, cssClass} ) => {
     return (
         
             <div className="text__box">
-                <h3> {text} </h3>
+                <h3 className={cssClass}> {text} </h3>
             </div>
             
 
-    )
-}
+    );
+};
