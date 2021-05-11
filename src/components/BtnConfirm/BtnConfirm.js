@@ -1,19 +1,23 @@
 import React from 'react';
 import './BtnConfirm.css';
 
-export const BtnConfirm = ({action, textBtn, cssClass}) => {
+export const BtnConfirm = ({action, cssClass, btn}) => {
     
     return (
         <div className="btn__back-box">
 
-            <button className={cssClass} 
-                    type="button" 
-                    onClick={action}>
-                    {textBtn}
-            </button>
+            <img 
+            src={btn} 
+            className={cssClass} 
+            type="button" 
+            onClick={action} 
+            alt="botón login" 
+            />
 
         </div>
 
-    )
+    );
         
-}
+};
+            
+

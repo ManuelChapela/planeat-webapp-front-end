@@ -457,6 +457,74 @@ main {
 }
 
 
+
+/* -------------------------------------------------------  LOGIN PAGE */
+/* LOGIN PAGE */
+.login__header {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login__title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+.login__main {
+    height: 60vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.input__text {
+    font-family: var(--lato-font);
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: .2rem;
+    text-align: left;
+}
+.input__box {
+    width: 100%;
+}
+.input__style {
+    border-radius: 8rem;
+    outline: none;
+    padding: .8rem 1rem;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+}
+.input__style::placeholder {
+    text-align: left;
+    color: var(--primary-color);
+    opacity: .5;
+}
+.btn__back-box {
+    height: 20%;
+}
+.btn__login {
+    width: 18rem;
+}
+.login__footer-box {
+    text-align: center;
+    height: 30%;
+}
+.login__bottom-text {
+    font-weight: 400;
+    font-family: var(--lato-font);
+    padding: .8rem 0;
+}
+.text__advice-box {
+    text-align: right;
+}
+
+.small__advice {
+    color: red;
+}
+
+
 /* -------------------------------------------------------------------- */
 /* ICONS SEARCH BAR */
 /* .icon__user{

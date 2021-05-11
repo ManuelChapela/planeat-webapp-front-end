@@ -1,17 +1,24 @@
-import React, {useState, useEffect, useContext } from 'react'
+import React, {useState, useEffect, useContext } from 'react';
+
+// Assets
 import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
+import logo from './../../assets/mainIcon__small.svg';
+import backArrow from './../../assets/back__arrow.svg';
+import btn from './../../assets/btn__enter-login.svg';
+
+// Components
 import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+
+// Hooks
+import {useHistory} from 'react-router-dom';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage'
-import {useHistory} from 'react-router-dom';
 
+// Contexts
 import loggedContext from './../../context/loggedContext'
-
-
-
-// STATES
 
 
 
@@ -50,8 +57,6 @@ export const LogInPage = () => {
   };
 
 
-
-    
     // FUNCIONES QUE RECIBEN VALORES DE LOS INPUTS
     const mailChange = (mail) => { setMail(mail)};
     const passChange = (pass) => { setPass(pass)};
@@ -59,41 +64,59 @@ export const LogInPage = () => {
     // Botones secundarios
     const handleClickPass = () => {console.log("Has clicado en el botón de OLVIDASTE CONTRASEÑA")}
     const handleClickHelp = () => {console.log("Has clicado en el botón de NECESITAS AYUDA")}
-
-
-
-
-
-
+    const handleClickBack = () => history.push('/join');
 
     return (
         <div className='container'>
 
-            <header>
+            <header className='login__header'>
+                <div className="nav__bar-box">
+
+                    <NavBar2 
+                        cssClass='back__arrow' 
+                        actionBack={handleClickBack} 
+                        backArrow={backArrow} 
+                    />
+
+                </div>
+
                 <Header 
-                    text="Iniciar sesión en Planeat" />
+                    cssClass='login__title'
+                    logo={logo}
+                    text="Iniciar sesión en Planeat" 
+                />
+
             </header>
 
-            <main>
+            <main className='login__main'>
                 <InputMod 
+                    cssClass='input__style'
                     type="email" 
                     text="Email"
                     placeholder='Introduce tu email'
                     inputChange={mailChange}
-                    />
-
+                    small='email no válido, prueba otra vez'
+                />
 
                 <InputMod 
+                    cssClass='input__style'
                     type="password" 
                     text="Contraseña"
-                    placeholder='Introduce tu email'
+                    placeholder='Introduce tu contraseña'
                     inputChange={passChange}
-                    />
-                <BtnConfirm textBtn="Entra"  action={handleClick}/>
+                    small='contraseña no válida, prueba otra vez'
+                />
 
-                <div className='reset__pass-box'>
-                    <button onClick={handleClickPass}>Olvidaste tu contraseña</button>
-                    <button onClick={handleClickHelp}>¿Necesitas ayuda?</button>
+                <BtnConfirm 
+                    btn={btn} 
+                    textBtn="Entra" 
+                    cssClass='btn__login' 
+                    action={handleClick}
+                />
+
+                <div className='login__footer-box'>
+                    <h4 className='login__bottom-text' onClick={handleClickPass}>Olvidaste tu contraseña</h4>
+                    <h4 className='login__bottom-text' onClick={handleClickHelp}>¿Necesitas ayuda?</h4>
                 </div>
 
             </main>
@@ -102,6 +125,7 @@ export const LogInPage = () => {
 
         </div>
     );
+
 };
 
     
