@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 // CSS
 import './Main.css';
@@ -21,6 +21,7 @@ export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
   const { prefs, setPrefs } = useContext(PrefsContext);
   const [token, setToken] = useLocalStorage('token', '');
+  const [recipes, setRecipes] = useState();
 
   const history = useHistory();
   const handleClickBack = () => history.push('/horario');
@@ -31,6 +32,12 @@ export const MasterPage = () => {
     const method = 'POST';
     fetchData({ url, method, body: prefs, headers });
   },[fetchData, prefs, token]);
+
+  useEffect (() => {
+    fetchState.isSuccess && setRecipes(fetchState.data);
+  },[fetchState.data, fetchState.isSuccess])
+
+  fetchState.isSuccess&& console.log(recipes)
 
   const hardcodedItems = [
     {
