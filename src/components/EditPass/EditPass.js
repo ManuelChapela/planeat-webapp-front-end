@@ -13,7 +13,7 @@ export const EditPass = ({text, text2, textInput, cssClass}) => {
     return (
         <div className="editPass">
             
-            <InputMod text={textInput}/>
+            <InputMod className={cssClass} text={textInput}/>
 
             <div className="box__btnEditPass">
                 <BtnEdit action={handleClickDel} textBtn={text} className={cssClass}/>

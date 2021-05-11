@@ -445,6 +445,7 @@ main {
 }
 .btn__edit {
     margin-left: auto;
+    width: 22px;
 }
 .profile__text-user {
     font-family: var(--lato-font);

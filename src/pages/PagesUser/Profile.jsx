@@ -12,9 +12,12 @@ import { NavBar2 } from '../../components/NavBar2/NavBar2';
 // Assets
 import iconPhotoUser from './../../assets/icon__user.svg';
 import elipsePhoto from './../../assets/elipse__photo.svg';
+import cameraIcon from './../../assets/cameraIcon.svg';
 import elipse from './../../assets/elipse__profile.svg';
 import backArrow from './../../assets/back__arrow.svg';
 import { ModalTest } from '../../modals/ModalTest';
+import { ModalTestDoble } from '../../modals/ModalTestDoble';
+
 
 
 export const Profile = () => {
@@ -37,15 +40,32 @@ export const Profile = () => {
         history.push('/profile')
         }
 
-    const handleClickPass = () => setModal("pass")
+    const handleClickPass = () => {
+        setModal("pass")
+
+        }
+
     const handleClickPrefs = () => setModal("prefs")
     const handleClickExit = () => setModal("exit")
     const handleClickBack = () => console.log('hola volver');
 
     // Reset State
     const reset = () => setModal("")
-    
-    console.log(modal);
+
+    const clicBtnLeft = () => {
+        reset()
+        
+        console.log("clicaste en el boton de la izquierda");}
+
+    const clicBtnLeftDelete = () => {
+        reset()
+        handleClickPass()
+        console.log("REVISAR LA FUNCIONALIDAD DE ESTE BTN");
+    }
+
+    const clicBtnRight = () => {console.log("clicaste en el boton de la derecha");}
+   
+
     // const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
 
     return (
@@ -61,11 +81,6 @@ export const Profile = () => {
                         <h1>Tu Perfil</h1>
                     </div>
 
-                    <div className="icon__profile-box">
-                        <p>iconito 1</p>
-                
-                    </div>
-
                     <div className="profile__img-box">
                         <div className="user__photo">
                             <img className='elipse__photo' src={elipsePhoto} alt="icono foto" />
@@ -73,7 +88,7 @@ export const Profile = () => {
                         </div>
 
                         <div className="profile__box">
-                            <p>icono camara</p>
+                            <img src={cameraIcon} alt="Icono de cámara"/>
                         </div>
                     </div>
 
@@ -99,10 +114,46 @@ export const Profile = () => {
             </footer>
 
             <div> 
-                {modal === "user" ? <ModalTest  leftBtn="CANCELAR" rigthBtn="MODIFICAR" secondText="Nombre de usuario" mainText="Modificar nombre de usuario" reset={reset}/> : ""}
-                {modal === "email" ? <ModalTest  leftBtn="CANCELAR" rigthBtn="MODIFICAR" secondText="Modificar Email" mainText="Email" reset={reset}/> : ""}
-                {modal === "pass" ? <ModalTest  leftBtn="BORRAR" rigthBtn="MODIFICAR" secondText="Modificar contraseña" mainText="Nueva Contraseña" reset={reset}/> : ""}
-                {modal === "prefs" ? <ModalTest  mainText="Te has ido a preferencias. Estamos trabajando en ello Fernando."/> : ""}
+                {modal === "user" ? 
+                    <ModalTest  
+                        leftBtn="CANCELAR" 
+                        rigthBtn="MODIFICAR" 
+                        secondText="Nombre de usuario" 
+                        mainText="Modificar nombre de usuario" 
+                        reset={reset}
+                        action1={clicBtnLeft}
+                        action2={clicBtnRight}
+                    /> : ""}
+                
+                {modal === "email" ? 
+                    <ModalTest 
+                        leftBtn="CANCELAR" 
+                        rigthBtn="MODIFICAR" 
+                        secondText="Modificar Email" 
+                        mainText="Email" 
+                        reset={reset}
+                        action1={clicBtnLeft}
+                        action2={clicBtnRight}
+                    /> : ""}
+                
+                {modal === "pass" ? 
+                    <ModalTestDoble  
+                        leftBtn="BORRAR" 
+                        rigthBtn="MODIFICAR" 
+                        secondText="Modificar contraseña" 
+                        secondText2="Confirma contraseña" 
+                        mainText="Nueva Contraseña" 
+                        reset={reset}
+                        action1={clicBtnLeftDelete}
+                        action2={clicBtnRight}
+                    /> : ""}
+                
+                {modal === "prefs" ? 
+                    <ModalTest  
+                        mainText="Te has ido a preferencias. Estamos trabajando en ello Fernando." 
+                        reset={reset} 
+                    /> : ""}
+
             </div>
 
         </div>
