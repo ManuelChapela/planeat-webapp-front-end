@@ -3,6 +3,7 @@
 
 /* TIPOGRAFÍA APP */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 :root {
     --white: #fff;
@@ -13,6 +14,7 @@
 
     --box-shadow: #8dc63f40;
     --box-shadow-btn: #8dc63f40;
+    --lato-font: 'Lato', sans-serif;
 }
 
 * {
@@ -268,7 +270,56 @@ main {
 
 /* -----------------------------------------------------------JOIN PAGE*/
 /* JOIN PAGE */
+.join__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.join__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 40%;
+}
+.nav__bar-box {
+    
+}
+.text__box-join {
+    text-align: center;
+}
+.join__title-header {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+.join__main {
+    padding: 0 2rem;
+    height: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.join__text {
+    font-family: var(--lato-font);
+    font-size: 1.2rem;
+}
+.join__cta {
+    font-size: 3rem;
+    font-weight: 400;
+}
+.join__footer {
+    padding: 2rem 0;
+    height: 40%;
+    display: flex;
+}
 
+.btn__join-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
 /* .logo__join {
     width: 7rem;

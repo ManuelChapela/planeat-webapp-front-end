@@ -4,13 +4,17 @@ import logoSmall from './../../assets/mainIcon__small.svg';
 import { useHistory } from 'react-router';
 import { BtnMainIcons } from './../../components/BtnMainIcons/BtnMainIcons';
 
+// Componentes
 // import { EditPass } from '../../components/EditPass/EditPass';
 import { InputMod } from '../../components/InputMod/InputMod';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+
 
 //Assets
 import btnGoogle from './../../assets/btn__google.svg';
 import btnLogin from './../../assets/btn__log-in.svg';
 import btnSignup from './../../assets/btn__sign-up.svg';
+import backArrow from './../../assets/back__arrow.svg';
 
 
 
@@ -25,23 +29,37 @@ export const JoinPage = () => {
 
 
     return (
-        <div className='container'>
+        <div className='join__container'>
 
-            <header>
+            <header className='join__header'>
+
+                <div className="nav__bar-box">
+                    <NavBar2
+                        cssClass="back__arrow"
+                        // actionBack={handleBack}
+                        backArrow={backArrow}
+                    />
+                </div>
+
                 <HeaderJoin cssClass='logo__join' logo={logoSmall} text="¿Quieres añadir una receta a favoritos o eliminar una receta de tus sugerencias?" />
+
             </header>
 
-            <main>
+            <main className='join__main'>
                 <h2 className='join__cta'>Únete a Planeat</h2>
                 <h3 className='join__text'>Aprovecha lo que hay en tu nevera con recetas rápidas y sencillas ¡Únete ahora!</h3>
+            </main>
+
+            <footer className='join__footer'>
 
                 <div className='btn__join-box'>
                     <img src={btnGoogle} className="btn__google" onClick={handleClickGoogle} alt="botón de login con google" />
                     <img src={btnLogin} className="btn__log-in" onClick={handleClickLogIn} alt="botón de login con google" />
                     <img src={btnSignup} className="btn__sign-up" onClick={handleClickSignUp} alt="botón de login con google" />
                 </div>
+            </footer>
 
-            </main>
+            
 
 
         </div>
