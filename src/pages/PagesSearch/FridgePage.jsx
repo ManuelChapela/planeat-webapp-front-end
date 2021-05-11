@@ -26,8 +26,10 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 
 
 export const FridgePage = () => {
+
   const { logged, setLogged } = useContext(LoggedContext);
   const {prefs, setPrefs} = useContext(PrefsContext);
+  
 
   const [fetchState, fetchData] = useFetch();
 
@@ -74,7 +76,7 @@ export const FridgePage = () => {
       </main>
 
       <footer className="bottom__icon-box">
-        <BtnMainIcons context={logged} />
+        <BtnMainIcons context={ logged } />
       </footer>
     </div>
 
