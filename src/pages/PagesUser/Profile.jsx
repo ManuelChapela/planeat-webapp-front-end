@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { EditUser } from '../../components/EditUser/EditUser';
+import { useHistory } from 'react-router';
 
-// import { useHistory } from 'react-router';
+
 
 // Components
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
@@ -12,32 +13,40 @@ import { NavBar2 } from '../../components/NavBar2/NavBar2';
 import iconPhotoUser from './../../assets/icon__user.svg';
 import elipsePhoto from './../../assets/elipse__photo.svg';
 import elipse from './../../assets/elipse__profile.svg';
+import backArrow from './../../assets/back__arrow.svg';
+import { ModalTest } from '../../modals/ModalTest';
 
 
 export const Profile = () => {
-    // let history = useHistory();
-        // const handleClickGoogle = () => history.push("/1");
-
-    // Hooks state & setState
-    // const [userEdit, setUserEdit] = useState()
-    // const [mailEdit, setMailEdit] = useState()
-    // const [passEdit, setPassEdit] = useState()
-    // const [prefsEdit, setPrefsEdit] = useState()
-
-    // const userChange = (user) => {setUserEdit(user)}
-    // const mailChange = (mail) => {setMailEdit(mail)}
-    // const passChange = (pass) => {setPassEdit(pass)}
-    // const prefsChange = (prefs) => {setPrefsEdit(prefs)}
-
-
-    const handleClickUser = () => {console.log("Clicaste en editar usuario")}
-    const handleClickEmail = () => {console.log("Clicaste en editar email")}
-    const handleClickPass = () => {console.log("Clicaste en editar contraseña")}
-    const handleClickPrefs = () => {console.log("Clicaste en editar preferencias")}
-    const handleClickExit = () => {console.log("Clicaste en editar salir")}
-    const handleClickBack = () => console.log('hola volver');
+    // const handleClickGoogle = () => history.push("/1");
     
-    const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
+    // Hooks state & setState
+    const [modal, setModal] = useState()
+    
+    // HistoryPush
+    let history = useHistory();
+
+    // Functions setState --> activate Modal + historyPush('/PROFILE')
+    const handleClickUser = () => {
+        setModal("user")
+        history.push('/profile')
+    }
+    
+    const handleClickEmail = () => {
+        setModal("email")
+        history.push('/profile')
+        }
+
+    const handleClickPass = () => setModal("pass")
+    const handleClickPrefs = () => setModal("prefs")
+    const handleClickExit = () => setModal("exit")
+    const handleClickBack = () => console.log('hola volver');
+
+    // Reset State
+    const reset = () => setModal("")
+    
+    console.log(modal);
+    // const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
 
     return (
         <div className='container'>
@@ -52,6 +61,11 @@ export const Profile = () => {
                         <h1>Tu Perfil</h1>
                     </div>
 
+                    <div className="icon__profile-box">
+                        <p>iconito 1</p>
+                
+                    </div>
+
                     <div className="profile__img-box">
                         <div className="user__photo">
                             <img className='elipse__photo' src={elipsePhoto} alt="icono foto" />
@@ -64,11 +78,12 @@ export const Profile = () => {
                     </div>
 
                 </div>
-
+                {/* < ModalTest /> */}
 
             </header>
 
             <main className='profile__main'>
+                {/* <button onClick={handleClickUser}>clic</button> */}
 
                 <EditUser cssClass='btn__edit' text="Nombre de usuario" textBtn="..." action={handleClickUser}/>
                 <EditUser cssClass='btn__edit' text="Dirección de email" textBtn="..." action={handleClickEmail}/>
@@ -82,6 +97,13 @@ export const Profile = () => {
             <footer className='bottom__icon-box'>
                 <BtnMainIcons />
             </footer>
+
+            <div> 
+                {modal === "user" ? <ModalTest  leftBtn="CANCELAR" rigthBtn="MODIFICAR" secondText="Nombre de usuario" mainText="Modificar nombre de usuario" reset={reset}/> : ""}
+                {modal === "email" ? <ModalTest  leftBtn="CANCELAR" rigthBtn="MODIFICAR" secondText="Modificar Email" mainText="Email" reset={reset}/> : ""}
+                {modal === "pass" ? <ModalTest  leftBtn="BORRAR" rigthBtn="MODIFICAR" secondText="Modificar contraseña" mainText="Nueva Contraseña" reset={reset}/> : ""}
+                {modal === "prefs" ? <ModalTest  mainText="Te has ido a preferencias. Estamos trabajando en ello Fernando."/> : ""}
+            </div>
 
         </div>
     )
