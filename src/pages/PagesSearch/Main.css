@@ -426,14 +426,30 @@ main {
 .icon__group-food {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 80vh;
+    width: 95vw;
+}
+.price__selection-box{
+    display: flex;
+    flex-direction: column;
+}
+.price__selection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.icon__money{
+    margin: 10px
+}
+.icon__time {
+    margin:5px;
+}
 
-
-
-
+.btn__selection-next img {
+    margin-bottom: 5rem;
+}
 
 
 

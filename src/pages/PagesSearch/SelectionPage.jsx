@@ -67,12 +67,16 @@ export const SelectionPage = () => {
       <div className="icon__group-food">
           <div className="food__selection-box">
               <HeaderNoLogo cssClass="main__title-box" text="¿Qué te apetece?" />
+            <div className="food__selection">
               <BtnCarousel />
+            </div>
           </div>
 
           <div className="price__selection-box">
               <HeaderNoLogo cssClass="main__title-box" text="¿Cuánto quieres gastar?" />
+            <div className="price__selection">
               <Money prefsContext={{ prefs, setPrefs }} iconsMoney={iconsMoney} />
+            </div>
           </div>
 
           <div className="time__selection-box">
@@ -81,7 +85,7 @@ export const SelectionPage = () => {
           </div>
       </div>
 
-      <div className="btn__box">
+      <div className="btn__selection-next">
           <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
       </div>
 
