@@ -4,13 +4,10 @@ import './BtnThreeOptions.css';
 
 export const BtnThreeOptions = ({ iconsFoodHours, prefsContext }) => {
   const { prefs, setPrefs } = prefsContext;
-  console.log('PREFS', prefs);
   const { daily } = prefs;
-  console.log('test', daily);
 
   const dailyClickHandler = (e) => {
     daily[e.target.id].value = !daily[e.target.id].value;
-    console.log(e.target.id, daily[e.target.id].value);
     setPrefs({ ...prefs, daily });
   };
 
