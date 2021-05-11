@@ -16,6 +16,8 @@ import { Elaboration } from '../../components/Elaboration/Elaboration';
 import LoggedContext from './../../context/loggedContext';
 import  BtnLikeDislike from '../../components/BtnLikeDislike/BtnLikeDislike';
 import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
+import backArrow from './../../assets/back__arrow.svg';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
 
@@ -54,7 +56,11 @@ export const DetailPage = () => {
         <div className='container'>
            
             <header>
-                <BtnBack textBtn="Volver" action={handleClickBack}/>
+                <div className='nav__bar-box'>
+                    <NavBar2 cssClass='back__arrow' actionBack={handleClickBack} backArrow={backArrow} />
+                </div>
+
+                {/* <BtnBack textBtn="Volver" action={handleClickBack}/> */}
             </header>
 
             <main>

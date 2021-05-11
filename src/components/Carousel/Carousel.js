@@ -104,7 +104,7 @@ const drawRecetas = (item) => {
                 infiniteLoop={true} 
                 swipeable={true}
                 autoPlay={false}
-                centerMode={30}
+                centerMode={80}
                 showArrows={true}  
                 dynamicHeight={false}
                 onClickItem={handleClickDetail}
