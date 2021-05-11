@@ -18,8 +18,6 @@ import { NavBar } from '../../components/NavBar/NavBar';
 // ASSETS
 import btnNext from './../../assets/btnNext.svg';
 import backArrow from './../../assets/back__arrow.svg';
-import test3 from './../../assets/test3.svg';
-import test2 from './../../assets/test2.svg';
 
 export const SayNotPage = (props) => {
   const { logged, setLogged } = useContext(LoggedContext);
@@ -69,9 +67,6 @@ export const SayNotPage = (props) => {
       </header>
 
       <main>
-        
-        {/* <img src={test2} alt="" />
-        <img src={test3} alt="" /> */}
         
 
 
