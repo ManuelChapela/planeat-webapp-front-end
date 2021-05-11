@@ -56,57 +56,6 @@ main {
 .btn__next-box {
     align-self: center;
 }
-/* HEADER */
-/* Parte fija en casi toda la aplicación */
-
-
-/* MAIN */
-/* Sección central (la más cambiante) */
-/* header {
-    height: 20vh;
-} */
-/* main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 95%;
-    margin: .4rem auto;
-    height: 60vh;
-} */
-/* Input general */
-/* .input__form-box {
-    margin-bottom: .6rem;
-} */
-
-/* Botón Siguiente (Componente) */
-/* .btn__box {
-    display: flex;
-    align-items: center;
-} */
-
-/* .icon__group-food{
-    width: 120px;
-} */
-
-/* FOOTER */
-/* Caja de iconos (Fija en casi toda la aplicación) */
-/* .icon__box {
-    border: 2px solid black;
-    height: 6rem;
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    justify-content: space-around;
-    align-items: flex-end;
-}
-.icon__like {
-    width: 7rem;
-}
-.btn__box {
-    margin-top: auto;
-    margin-bottom: 3rem;
-} */
-
 
 /* -------------------------------------------------------INIT PAGE */
 /* INIT PAGE */
@@ -321,34 +270,6 @@ main {
     justify-content: space-around;
 }
 
-/* .logo__join {
-    width: 7rem;
-}
-.join__title-header {
-    font-weight: 400;
-}
-.text__box-join {
-    font-size: 2rem;
-}
-.join__cta {
-    font-size: 3.5rem;
-    font-weight: 400;
-}
-.join__text {
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-.btn__join-box {
-    display: flex;
-    flex-direction: column;
-}
-.btn__google, .btn__log-in, .btn__sign-up {
-    width: 28rem;
-} */
-
-
-
-
 /* -----------------------------------------------------------MORE PAGE */
 /* MORE PAGE */
 .more__page-header {
@@ -458,6 +379,27 @@ main {
 
 
 
+/* -----------------------------------------------------------PROFILE PAGE */
+/* PROFILE PAGE */
+
+.header__profile {
+    height: 30vh;
+}
+.profile__main {
+    height: 60vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.edit__profile-box {
+    display: flex;
+    width: 90%;
+}
+.btn__edit {
+    margin-left: auto;
+}
 
 
 /* -------------------------------------------------------------------- */

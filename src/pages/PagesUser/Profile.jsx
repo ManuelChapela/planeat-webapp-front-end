@@ -1,10 +1,16 @@
 import React, {useState} from 'react';
-import img from './../../assets/img.png';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { EditUser } from '../../components/EditUser/EditUser';
-// import { useHistory } from 'react-router';
-import {BtnBack} from './../../components/BtnBack/BtnBack';
 
+// import { useHistory } from 'react-router';
+
+// Components
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+
+
+// Assets
+import iconPhotoUser from './../../assets/icon__user.svg';
+import backArrow from './../../assets/back__arrow.svg';
 
 
 export const Profile = () => {
@@ -28,6 +34,7 @@ export const Profile = () => {
     const handleClickPass = () => {console.log("Clicaste en editar contraseña")}
     const handleClickPrefs = () => {console.log("Clicaste en editar preferencias")}
     const handleClickExit = () => {console.log("Clicaste en editar salir")}
+    const handleClickBack = () => console.log('hola volver');
     
     const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
 
@@ -36,10 +43,11 @@ export const Profile = () => {
 
             <header className="header__profile">
 
-                <div className="btn__back-box">
-                    <p> Back </p>
-                    <BtnBack textBtn="Volver"/>
-                </div>
+                <NavBar2 
+                    cssClass='back__arrow' 
+                    actionBack={handleClickBack} 
+                    backArrow={backArrow} 
+                />
 
                 <div className="green__img-box">
 
@@ -53,7 +61,7 @@ export const Profile = () => {
                     </div>
 
                     <div className="profile__img-box">
-                        <img src={img} alt=""/>
+                        <img alt=""/>
                     </div>
 
                 </div>
@@ -61,18 +69,18 @@ export const Profile = () => {
 
             </header>
 
-            <main>
+            <main className='profile__main'>
 
-                <EditUser text="Nombre de usuario" textBtn="..." action={handleClickUser}/>
-                <EditUser text="Dirección de email" textBtn="..." action={handleClickEmail}/>
-                <EditUser text="Contraseña" textBtn="..." action={handleClickPass}/>
-                <EditUser text="Preferencias" textBtn="..." action={handleClickPrefs}/>
+                <EditUser cssClass='btn__edit' text="Nombre de usuario" textBtn="..." action={handleClickUser}/>
+                <EditUser cssClass='btn__edit' text="Dirección de email" textBtn="..." action={handleClickEmail}/>
+                <EditUser cssClass='btn__edit' text="Contraseña" textBtn="..." action={handleClickPass}/>
+                <EditUser cssClass='btn__edit' text="Preferencias" textBtn="..." action={handleClickPrefs}/>
                 
                 <button onClick={handleClickExit}>Cerrar sesión</button>
 
             </main>
 
-            <footer>
+            <footer className='bottom__icon-box'>
                 <BtnMainIcons />
             </footer>
 

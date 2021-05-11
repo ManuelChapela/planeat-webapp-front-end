@@ -37,7 +37,12 @@ export const FavsPage = () => {
             
             <div className='container'>
                 <header>
-                    <NavBar2 cssClass='back__arrow' actionBack={handleClick} backArrow={backArrow} />
+                    <NavBar2 
+                        cssClass='back__arrow' 
+                        actionBack={handleClick} 
+                        backArrow={backArrow} 
+                    />
+                    
                     <HeaderNoLogo text='Recetas favoritas' />
 
                 </header>
