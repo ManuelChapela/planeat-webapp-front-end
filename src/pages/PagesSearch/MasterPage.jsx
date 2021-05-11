@@ -16,6 +16,9 @@ import { Favs } from '../../components/Favs/Favs';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnBack } from '../../components/BtnBack/BtnBack';
 import Carousell from '../../components/Carousel/Carousel';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+import backArrow from './../../assets/back__arrow.svg';
+
 
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
@@ -81,23 +84,20 @@ export const MasterPage = () => {
 
   return (
     <div className="container">
+
       <header>
-        <BtnBack text="Volver" action={handleClickBack} />
+        <NavBar2 cssClass='back__arrow' actionBack={handleClickBack} backArrow={backArrow} />
         <HeaderNoLogo text="Recetas sugeridas" />
       </header>
 
       <main>
-        {/* suggest={ recetas ? <Suggest recetas={recetas} data={hardcodedItems}/> : <NoSuggest recetas={recetas} data={hardcodedItems}/>} */}
         <Carousell recetas={recetas} data={hardcodedItems} />
       </main>
-
-      {/* <div className="btn__box">
-                <BtnNext onClick={handleClick} textBtn='Siguiente' /> 
-            </div> */}
 
       <footer className="icon__box">
         <BtnMainIcons />
       </footer>
+
     </div>
   );
 };

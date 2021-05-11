@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const NavBar2 = ({backArrow, cssClass, actionBack, actionNext}) => {
+export const NavBar2 = ({backArrow, cssClass, actionBack}) => {
     return (
         
         <>

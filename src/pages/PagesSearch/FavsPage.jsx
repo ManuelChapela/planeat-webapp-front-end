@@ -12,6 +12,9 @@ import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Favs } from '../../components/Favs/Favs';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { EmptyFav } from '../../components/EmptyFav/EmptyFav';
+import backArrow from './../../assets/back__arrow.svg';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+
 
 
 export const FavsPage = () => {
@@ -20,7 +23,7 @@ export const FavsPage = () => {
     console.log(logged);
     
     let history = useHistory();
-    const handleClick = () => history.push("/");
+    const handleClick = () => history.push("/recetas");
 
     const fav = false;
 
@@ -34,7 +37,9 @@ export const FavsPage = () => {
             
             <div className='container'>
                 <header>
+                    <NavBar2 cssClass='back__arrow' actionBack={handleClick} backArrow={backArrow} />
                     <HeaderNoLogo text='Recetas favoritas' />
+
                 </header>
 
                 <main>
