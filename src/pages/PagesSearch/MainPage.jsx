@@ -5,7 +5,6 @@ import LoggedContext from './../../context/loggedContext';
 import './Main.css';
 
 // Assets
-import logo from './../../assets/logo.png';
 import btnNextRec from './../../assets/btnNextRec.svg';
 import iconBreakfast from './../../assets/icon__breakfast.svg';
 import iconLunch from './../../assets/icon__lunch.svg';

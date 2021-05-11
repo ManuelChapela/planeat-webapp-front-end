@@ -6,7 +6,6 @@ import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
-import logo from './../../assets/logo.png';
 
 import loggedContext from './../../context/loggedContext';
 
@@ -62,7 +61,6 @@ export const SignUpPage = () => {
     <div className="container">
       <header>
         <Header
-          logo={logo}
           text="Regístrate en X"
           subText="Introduce tus datos"
         />

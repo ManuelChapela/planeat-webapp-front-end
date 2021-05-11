@@ -12,6 +12,7 @@
     --primary-color-light-top: #FCFFF8;
 
     --box-shadow: #8dc63f40;
+    --box-shadow-btn: #8dc63f40;
 }
 
 * {
@@ -233,7 +234,6 @@ main {
 }
 .btn__not-other--box {
     align-self: center;
-    margin-top: 2rem;
 }
 .nav__bar-box {
     display: flex;
