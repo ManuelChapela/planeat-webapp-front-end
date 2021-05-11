@@ -21,6 +21,7 @@ import { MasterPage } from './pages/PagesSearch/MasterPage';
 import { useState } from 'react';
 import { LoggedProvider } from './context/loggedContext';
 import { PrefsProvider } from './context/prefsContext';
+import { HistoryProvider }  from './context/historyContext';
 
 import {
   BrowserRouter as Router,
@@ -32,32 +33,38 @@ import {
 function App() {
   const [logged, setLogged] = useState(false);
   const [prefs, setPrefs] = useState({});
+  const [currentUrl, setCurrentUrl] = useState({});
+
   return (
     <div className="App">
       <LoggedProvider value={{ logged, setLogged }}>
-        <Router>
-          <Switch>
-            {/* SEARCH */}
-            <PrefsProvider value={{ prefs, setPrefs }}>
-              <Route exact path="/" component={InitPage} />
-              <Route exact path="/nevera" component={FridgePage} />
-              <Route exact path="/noquiero" component={SayNotPage} />
-              <Route exact path="/more" component={MorePage} />
-              <Route exact path="/seleccion" component={SelectionPage} />
-              <Route exact path="/horario" component={MainPage} />
-              <Route exact path="/favoritos" component={FavsPage} />
+        <HistoryProvider value={{ currentUrl, setCurrentUrl }}>
+            <Router>
+              <Switch>
+                {/* SEARCH */}
+                <PrefsProvider value={{ prefs, setPrefs }}>
+                
+                  <Route exact path="/" component={InitPage} />
+                  <Route exact path="/nevera" component={FridgePage} />
+                  <Route exact path="/noquiero" component={SayNotPage} />
+                  <Route exact path="/more" component={MorePage} />
+                  <Route exact path="/seleccion" component={SelectionPage} />
+                  <Route exact path="/horario" component={MainPage} />
+                  <Route exact path="/favoritos" component={FavsPage} />
 
-              <Route exact path="/recetas" component={MasterPage} />
-              <Route exact path="/receta-detalle" component={DetailPage} />
+                  <Route exact path="/recetas" component={MasterPage} />
+                  <Route exact path="/receta-detalle" component={DetailPage} />
 
-            {/* USER */}
-            <Route exact path="/signup" component={SignUpPage} />
-            <Route exact path="/login" component={LogInPage} />
-            <Route exact path="/join" component={JoinPage} />
-            <Route exact path="/profile" component={Profile} />
-            </PrefsProvider>
-          </Switch>
-        </Router>
+                {/* USER */}
+                <Route exact path="/signup" component={SignUpPage} />
+                <Route exact path="/login" component={LogInPage} />
+                <Route exact path="/join" component={JoinPage} />
+                <Route exact path="/profile" component={Profile} />
+                </PrefsProvider>
+              </Switch>
+            </Router>
+
+          </HistoryProvider>
       </LoggedProvider>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { HeaderJoin } from './../../components/HeaderJoin/HeaderJoin';
 import logoSmall from './../../assets/mainIcon__small.svg';
 import { useHistory } from 'react-router';
@@ -9,6 +9,8 @@ import { BtnMainIcons } from './../../components/BtnMainIcons/BtnMainIcons';
 import { InputMod } from '../../components/InputMod/InputMod';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
+// CONTEXTS
+import HistoryContext from './../../context/historyContext';
 
 //Assets
 import btnGoogle from './../../assets/btn__google.svg';
@@ -21,11 +23,15 @@ import backArrow from './../../assets/back__arrow.svg';
 
 export const JoinPage = () => {
 
+    const {currentUrl, setCurrentUrl} = useContext(HistoryContext);
+    let url = currentUrl.currentUrl;
+
     let history = useHistory();
 
     const handleClickGoogle = () => history.push("/profile");
     const handleClickLogIn = () => history.push('/login');
     const handleClickSignUp = () => history.push("/signup");
+    const handleBack = () => history.push(`${url}`);
 
 
     return (
@@ -35,6 +41,7 @@ export const JoinPage = () => {
 
                 <div className="nav__bar-box">
                     <NavBar2
+                        action={handleBack}
                         cssClass="back__arrow"
                         // actionBack={handleBack}
                         backArrow={backArrow}
@@ -53,9 +60,27 @@ export const JoinPage = () => {
             <footer className='join__footer'>
 
                 <div className='btn__join-box'>
-                    <img src={btnGoogle} className="btn__google" onClick={handleClickGoogle} alt="botón de login con google" />
-                    <img src={btnLogin} className="btn__log-in" onClick={handleClickLogIn} alt="botón de login con google" />
-                    <img src={btnSignup} className="btn__sign-up" onClick={handleClickSignUp} alt="botón de login con google" />
+                    <img 
+                        src={btnGoogle} 
+                        className="btn__google" 
+                        onClick={handleClickGoogle} 
+                        alt="botón de login con google" 
+                    />
+
+                    <img 
+                        src={btnLogin} 
+                        className="btn__log-in" 
+                        onClick={handleClickLogIn} 
+                        alt="botón de login con google" 
+                    />
+
+                    <img 
+                        src={btnSignup} 
+                        className="btn__sign-up" 
+                        onClick={handleClickSignUp} 
+                        alt="botón de login con google" 
+                    />
+
                 </div>
             </footer>
 
