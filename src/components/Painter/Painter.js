@@ -16,19 +16,6 @@ export const Painter = () => {
 
   // Función para añadir sticker
   const addSticker = ({ title, id }) => {
-    /*     console.log('OLD PREFS', prefs, title, id);
-
-    const ingredientType =
-      location.pathname === '/nevera' ? 'ingredients' : 'bannedIngredient';
-
-    const newPrefs = prefs;
-    console.log("TYPE", ingredientType, newPrefs)
-    newPrefs[ingredientType] = [
-      ...newPrefs[ingredientType],
-      { idIngredient: id, title, check: false },
-    ];
-    console.log('ADDED', newPrefs);
-    setPrefs(newPrefs); */
     if (location.pathname === '/nevera') {
       setPrefs({
         ...prefs,
@@ -51,7 +38,6 @@ export const Painter = () => {
 
   // Función para pintar los sticker
   const paintStickers = () => {
-    console.log('PREFES', Object.keys(prefs).length);
 
     let ingredientType = '';
 

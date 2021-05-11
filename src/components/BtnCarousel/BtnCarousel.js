@@ -31,7 +31,6 @@ const BtnCarousel = () => {
 
     const categoryClickHandler = (id) => {
       categories[id].value = !categories[id].value;
-      console.log(id, categories[id].value);
       setPrefs({ ...prefs, categories });
     };
 

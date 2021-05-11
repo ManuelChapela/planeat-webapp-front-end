@@ -6,7 +6,6 @@ import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 
 export const BtnBanned = ({action, cssClass, icon, stateBanned}) => {
     
-    console.log("stateBanned", stateBanned);
     
 
     return (

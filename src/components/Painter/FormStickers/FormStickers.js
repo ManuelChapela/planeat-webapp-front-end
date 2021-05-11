@@ -44,10 +44,7 @@ export const FormStickers = ({ addSticker }) => {
 
   const handleAutocomplete = (e, newValue) => {
     if (newValue != null) {
-      console.log('NUEVO', newValue);
-      console.log('NUEVO ID', newValue.IdIngrediente);
       setAuto(newValue);
-      console.log(newValue.Ingrediente);
       addSticker({ title: newValue.Ingrediente, id: newValue.IdIngrediente });
       e.target.value = '';
     }

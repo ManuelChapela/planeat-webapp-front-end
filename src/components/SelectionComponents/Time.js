@@ -4,7 +4,6 @@ export const Time = ({ iconsTime, prefsContext }) => {
   const { prefs, setPrefs } = prefsContext;
   const { time } = prefs;
 
-  console.log(time, prefs);
 
   const timeClickHandler = (e) => {
     const actualId = e.target.id;

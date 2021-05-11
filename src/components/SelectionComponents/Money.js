@@ -4,8 +4,6 @@ export const Money = ({ iconsMoney, prefsContext }) => {
   const { prefs, setPrefs } = prefsContext;
   const { cost } = prefs;
 
-  console.log('COST', cost);
-  console.log('PREFS', prefs);
 
   const moneyClickHandler = (e) => {
     let actualValue = cost[e.target.id].value;
