@@ -40,7 +40,8 @@ const BtnCarousel = () => {
                 // infiniteLoop={true} 
                 swipeable={true}
                 autoPlay={false}
-                centerMode={30}
+                centerMode={true}
+                centerSlidePercentage={33}
                 showArrows={true}  
                 dynamicHeight={false}
                 onClickItem={categoryClickHandler}

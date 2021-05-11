@@ -65,32 +65,31 @@ export const SelectionPage = () => {
       </div>
 
       <div className="icon__group-food">
-        <div className="food__box">
-          {/* COMENTAR ESTO CUANDO ACABE CON LA FUNCIONALIDAD */}
-          {/* <Food
-          prefsContext={{ prefs, setPrefs }}
-          icons={iconsFood}
-        /> 
-        */}
-          <BtnCarousel />
-        </div>
+          <div className="food__selection-box">
+              <HeaderNoLogo cssClass="main__title-box" text="¿Qué te apetece?" />
+              <BtnCarousel />
+          </div>
 
-        <div className="price__box">
-          <Money prefsContext={{ prefs, setPrefs }} iconsMoney={iconsMoney} />
-        </div>
+          <div className="price__selection-box">
+              <HeaderNoLogo cssClass="main__title-box" text="¿Cuánto quieres gastar?" />
+              <Money prefsContext={{ prefs, setPrefs }} iconsMoney={iconsMoney} />
+          </div>
 
-        <div className="time__box">
-          <Time prefsContext={{ prefs, setPrefs }} iconsTime={iconsTime} />
-        </div>
+          <div className="time__selection-box">
+              <HeaderNoLogo cssClass="main__title-box" text="¿Cuánto tiempo tienes?" />
+              <Time prefsContext={{ prefs, setPrefs }} iconsTime={iconsTime} />
+          </div>
       </div>
 
       <div className="btn__box">
-        <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
+          <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
       </div>
 
       <footer className="bottom__icon-box">
-        <BtnMainIcons context={logged} />
+          <BtnMainIcons context={logged} />
       </footer>
+    
     </div>
+
   );
 };
