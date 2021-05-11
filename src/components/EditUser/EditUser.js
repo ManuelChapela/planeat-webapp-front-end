@@ -8,7 +8,7 @@ export const EditUser = ( {action, text, textBtn, cssClass} ) => {
     return (
         <div className="edit__profile-box">
 
-            <h3>{text}</h3>
+            <h3 className='profile__text-user'>{text}</h3>
 
             <button className={cssClass} 
                     type="button" 
