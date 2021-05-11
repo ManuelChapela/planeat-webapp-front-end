@@ -16,8 +16,19 @@ export const Painter = () => {
 
   // Función para añadir sticker
   const addSticker = ({ title, id }) => {
-    console.log('OLD PREFS', prefs, title, id);
+    /*     console.log('OLD PREFS', prefs, title, id);
 
+    const ingredientType =
+      location.pathname === '/nevera' ? 'ingredients' : 'bannedIngredient';
+
+    const newPrefs = prefs;
+    console.log("TYPE", ingredientType, newPrefs)
+    newPrefs[ingredientType] = [
+      ...newPrefs[ingredientType],
+      { idIngredient: id, title, check: false },
+    ];
+    console.log('ADDED', newPrefs);
+    setPrefs(newPrefs); */
     if (location.pathname === '/nevera') {
       setPrefs({
         ...prefs,
@@ -35,67 +46,58 @@ export const Painter = () => {
         ],
       });
     }
-    //setState({ elements: [...state.elements, { title, id, check: true }] });
   };
+  //setState({ elements: [...state.elements, { title, id, check: true }] });
 
   // Función para pintar los sticker
   const paintStickers = () => {
     console.log('PREFES', Object.keys(prefs).length);
 
-    if (location.pathname === '/nevera') {
-      if (Object.keys(prefs).length !== 0)
-        return prefs.ingredients.map((el) => {
-          const data = {
-            title: el.title,
-            id: el.idIngredient,
-            check: el.check,
-            deleteSticker,
-          };
+    let ingredientType = '';
 
-          return <Sticker data={data} key={el.id} />;
-        });
-      else return [];
+    if (location.pathname === '/nevera') {
+      ingredientType = 'ingredients';
     } else if (location.pathname === '/more') {
-      if (Object.keys(prefs).length !== 0)
-        return prefs.bannedIngredients.map((el) => {
-          console.log("BANNED", el)
-          const data = {
-            title: el.title,
-            id: el.idIngredient,
-            check: el.check,
-            deleteSticker,
-          };
-          return <Sticker data={data} key={el.id} />;
-        });
-      else return [];
-    }
+      ingredientType = 'bannedIngredients';
+    } else return false;
+
+    if (Object.keys(prefs).length !== 0)
+      return prefs[ingredientType].map((el) => {
+        const data = {
+          title: el.title,
+          id: el.idIngredient,
+          check: el.check,
+          deleteSticker,
+        };
+        return <Sticker data={data} key={el.id} />;
+      });
+    else return [];
   };
 
   // Función para borrar stickers
   const deleteSticker = (id) => {
-    console.log('ID', id);
-    prefs &&
-      prefs.ingredients.map((el) => console.log('ELEMENT', el, 'ID', id));
-    const ingredients = prefs
-      ? prefs.ingredients.filter((el) => el.idIngredient !== id)
-      : [];
-    location.pathname === '/nevera' &&
-      setPrefs({
-        ...prefs,
-        ingredients,
-      });
-    location.pathname === '/more' &&
-      setPrefs({
-        ...prefs,
-        bannedIngredients: ingredients,
-      });
+    let ingredientsType = '';
+
+    if (location.pathname === '/nevera') {
+      const ingredients = prefs
+        ? prefs.ingredients.filter((el) => el.idIngredient !== id)
+        : [];
+      setPrefs({...prefs, ingredients});
+    } else if (location.pathname === '/more') {
+      const ingredients = prefs
+        ? prefs.bannedIngredients.filter((el) => el.idIngredient !== id)
+        : [];
+      setPrefs({ ...prefs, bannedIngredients: ingredients });
+    } else {
+      return false;
+    }
   };
 
   return (
     <>
       <FormStickers addSticker={addSticker} />
 
-      <div className="stickers__container">{ paintStickers() }</div>
+      <div className="stickers__container">{paintStickers()}</div>
     </>
   );
 };

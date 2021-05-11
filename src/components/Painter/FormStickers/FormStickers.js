@@ -10,7 +10,7 @@ export const FormStickers = ({ addSticker }) => {
   // Estado del componente
   const [sticker, setSticker] = useState({ title: '' });
 
-  // Recoge el input del usuario y setea el estado
+  // Recoge el input $reactTemp0el usuario y setea el estado
   const manageSticker = (e) => setSticker({ title: e.target.value });
 
   const options = [];
@@ -44,8 +44,8 @@ export const FormStickers = ({ addSticker }) => {
 
   const handleAutocomplete = (e, newValue) => {
     if (newValue != null) {
-      console.log("NUEVO", newValue);
-      console.log("NUEVO ID", newValue.IdIngrediente);
+      console.log('NUEVO', newValue);
+      console.log('NUEVO ID', newValue.IdIngrediente);
       setAuto(newValue);
       console.log(newValue.Ingrediente);
       addSticker({ title: newValue.Ingrediente, id: newValue.IdIngrediente });
@@ -54,13 +54,13 @@ export const FormStickers = ({ addSticker }) => {
   };
 
   const handleSearchText = (e) => {
-    console.log(e.target.value.length >= 2 );
+    console.log(e.target.value.length >= 2);
     setSearchText(e.target.value);
-
   };
 
-
-  const handleOpen = (e) => {  console.log(e.target.value.length >= 2)}
+  const handleOpen = (e) => {
+    console.log(e.target.value.length >= 2);
+  };
 
   return (
     <form className="input__form-box" onSubmit={addingSticker}>
@@ -73,27 +73,26 @@ export const FormStickers = ({ addSticker }) => {
             </div>
         </form> */}
 
-          <Autocomplete
-            freesolo
-            options={ingredientes}
-            noOptionsText=""
-            getOptionLabel={( options ) => options.Ingrediente}
-            onChange={handleAutocomplete}
-            onInputChange={handleSearchText}
-            renderInput={( params ) => ( <TextField {...params} label="Selecciona..." fullWidth /> )}
-            
-            autoHighlight={true}
-            fullWidth={true}
-       
-            // clearOnEscape={false}
-            // disableListWrap={true}
-            // autoSelect={true}
-            // clearOnBlur={true}
-            // disableClearable={true}
-            // disabledItemsFocusable={true}
-            onChangeInput={handleOpen}
-  
-          />
+        <Autocomplete
+          freesolo
+          options={ingredientes}
+          noOptionsText=""
+          getOptionLabel={(options) => options.Ingrediente}
+          onChange={handleAutocomplete}
+          onInputChange={handleSearchText}
+          renderInput={(params) => (
+            <TextField {...params} label="Selecciona..." fullWidth />
+          )}
+          autoHighlight={true}
+          fullWidth={true}
+          // clearOnEscape={false}
+          // disableListWrap={true}
+          // autoSelect={true}
+          // clearOnBlur={true}
+          // disableClearable={true}
+          // disabledItemsFocusable={true}
+          onChangeInput={handleOpen}
+        />
         {/* <button>ADD</button> */}
       </div>
     </form>
