@@ -12,6 +12,8 @@
     --primary-color-light: #EFFFD9;
     --primary-color-light-top: #FCFFF8;
 
+    --secondary-color: #CE2F2F;
+
     --box-shadow: #8dc63f40;
     --box-shadow-btn: #8dc63f40;
     --lato-font: 'Lato', sans-serif;
@@ -233,9 +235,7 @@ main {
     margin: 0 auto;
     height: 40%;
 }
-.nav__bar-box {
-    
-}
+
 .text__box-join {
     text-align: center;
 }
@@ -383,22 +383,66 @@ main {
 /* PROFILE PAGE */
 
 .header__profile {
-    height: 30vh;
+    height: 40vh;
+}
+.green__img-box {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+.profile__elipse {
+    position: relative;
+}
+.profile__img-box {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%);
+
+    display: flex;
+}
+.user__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title__box {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 1rem;
+}
+.icon__photo {
+    position: absolute;
+    top: 1.5rem;
+    z-index: 1;
 }
 .profile__main {
     height: 60vh;
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
 }
 .edit__profile-box {
+    position: relative;
     display: flex;
-    width: 90%;
+    width: 100%;
 }
 .btn__edit {
     margin-left: auto;
+}
+.profile__text-user {
+    font-family: var(--lato-font);
+}
+.btn__log-out {
+    color: var(--secondary-color);
+}
+.icon__camera {
+    position: absolute;
 }
 
 

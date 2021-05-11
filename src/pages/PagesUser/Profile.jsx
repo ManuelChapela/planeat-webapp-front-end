@@ -10,7 +10,8 @@ import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 // Assets
 import iconPhotoUser from './../../assets/icon__user.svg';
-import backArrow from './../../assets/back__arrow.svg';
+import elipsePhoto from './../../assets/elipse__photo.svg';
+import elipse from './../../assets/elipse__profile.svg';
 
 
 export const Profile = () => {
@@ -43,11 +44,7 @@ export const Profile = () => {
 
             <header className="header__profile">
 
-                <NavBar2 
-                    cssClass='back__arrow' 
-                    actionBack={handleClickBack} 
-                    backArrow={backArrow} 
-                />
+                <img className='profile__elipse' src={elipse} alt="" />
 
                 <div className="green__img-box">
 
@@ -55,13 +52,15 @@ export const Profile = () => {
                         <h1>Tu Perfil</h1>
                     </div>
 
-                    <div className="icon__profile-box">
-                        <p>iconito 1</p>
-                        <p>iconito 2</p>
-                    </div>
-
                     <div className="profile__img-box">
-                        <img alt=""/>
+                        <div className="user__photo">
+                            <img className='elipse__photo' src={elipsePhoto} alt="icono foto" />
+                            <img className='icon__photo' src={iconPhotoUser} alt="icono foto"/>
+                        </div>
+
+                        <div className="profile__box">
+                            <p>icono camara</p>
+                        </div>
                     </div>
 
                 </div>
@@ -76,7 +75,7 @@ export const Profile = () => {
                 <EditUser cssClass='btn__edit' text="Contraseña" textBtn="..." action={handleClickPass}/>
                 <EditUser cssClass='btn__edit' text="Preferencias" textBtn="..." action={handleClickPrefs}/>
                 
-                <button onClick={handleClickExit}>Cerrar sesión</button>
+                <h4 className='btn__log-out' onClick={handleClickExit}>Cerrar sesión</h4>
 
             </main>
 
