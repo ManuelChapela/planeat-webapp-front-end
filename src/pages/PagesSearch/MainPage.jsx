@@ -47,20 +47,23 @@ export const MainPage = () => {
           />
         </div>
 
-        <HeaderNoLogo text="Y vas a..." />
+        <HeaderNoLogo cssClass="main__title-box" text="¿Y vas a...?" />
       </header>
 
       <main>
         <div className="three__options-box">
+         
           <BtnThreeOptions
             prefsContext={{ prefs, setPrefs }}
             iconsFoodHours={iconsFoodHours}
           />
+
+          <BtnNext action={handleClick} icon={btnNextRec} textBtn="Buscar" />
+        
         </div>
       </main>
 
       <div className="btn__box">
-        <BtnNext action={handleClick} icon={btnNextRec} textBtn="Buscar" />
       </div>
 
       <footer className="bottom__icon-box" context={logged}>
