@@ -53,35 +53,35 @@ const BtnCarousel = () => {
                 <img
                     id="0"
                     // onClick={categoryClickHandler}
-                    className={categories[0].value ? 'icon__food btnCheck' : 'icon__food'}
+                    className={categories && categories[0].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon0}
                     alt="icono comidas"
                 />
                 <img
                     id="1"
                     // onClick={categoryClickHandler}
-                    className={categories[1].value ? 'icon__food btnCheck' : 'icon__food'}
+                    className={categories && categories[1].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon1}
                     alt="icono comidas"
                 />
                 <img
                     id="2"
                     // onClick={categoryClickHandler}
-                    className={categories[2].value ? 'icon__food btnCheck' : 'icon__food'}
+                    className={categories && categories[2].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon2}
                     alt="icono comidas"
                 />
                 <img
                     id="3"
                     // onClick={categoryClickHandler}
-                    className={categories[3].value ? 'icon__food btnCheck' : 'icon__food'}
+                    className={categories && categories[3].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon3}
                     alt="icono comidas"
                 />
                 <img
                     id="4"
                     // onClick={categoryClickHandler}
-                    className={categories[4].value ? 'icon__food btnCheck' : 'icon__food'}
+                    className={categories && categories[4].value ? 'icon__food btnCheck' : 'icon__food'}
                     src={icon4}
                     alt="icono comidas"
                     />

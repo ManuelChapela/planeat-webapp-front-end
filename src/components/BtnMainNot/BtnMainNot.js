@@ -5,7 +5,6 @@ import PrefsContext from './../../context/prefsContext';
 // Assets
 import iconOtherIngredients from './../../assets/btn__other-ingredients.svg';
 
-
 import './BtnMainNot.css';
 
 export const BtnMainNot = () => {
@@ -28,55 +27,67 @@ export const BtnMainNot = () => {
       <div className="btn__not-box">
         <button
           id="0"
-          className={categories[0].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[0].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         >
-          {categories[0].title}
+          {categories && categories[0].title}
         </button>
         <button
           id="1"
-          className={categories[1].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[1].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         >
-          {categories[1].title}
+          {categories && categories[1].title}
         </button>
         <button
           id="2"
-          className={categories[2].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[2].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         >
-          {categories[2].title}
+          {categories && categories[2].title}
         </button>
       </div>
 
       <div className="btn__not-box">
         <button
           id="3"
-          className={categories[3].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[3].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         >
-          {categories[3].title}
+          {categories && categories[3].title}
         </button>
         <button
           id="4"
-          className={categories[4].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[4].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         >
-          {categories[4].title}
+          {categories && categories[4].title}
         </button>
         <button
           id="5"
-          className={categories[5].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[5].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         >
-          {categories[5].title}
+          {categories && categories[5].title}
         </button>
       </div>
 
       <div className="btn__not-other--box">
         {/* <button className="btn__not">Legumbres</button>
                 <button className="btn__not">Pasta</button> */}
-                <img src={iconOtherIngredients} onClick={handleClick} alt="" />
+        <img src={iconOtherIngredients} onClick={handleClick} alt="" />
         {/* <button onClick={handleClick} className="btn__not-other">
           Otros...
         </button> */}
@@ -84,4 +95,3 @@ export const BtnMainNot = () => {
     </div>
   );
 };
-

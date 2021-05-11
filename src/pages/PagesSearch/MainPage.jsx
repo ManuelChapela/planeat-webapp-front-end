@@ -12,7 +12,6 @@ import iconLunch from './../../assets/icon__lunch.svg';
 import iconDinner from './../../assets/icon__dinner.svg';
 import backArrow from './../../assets/back__arrow.svg';
 
-
 // Hooks
 import PrefsContext from './../../context/prefsContext';
 import { useHistory } from 'react-router';
@@ -35,12 +34,18 @@ export const MainPage = () => {
   const handleClick = () => history.push('/recetas');
   const handleBack = () => history.push('/seleccion');
 
+  // Si no vienes de /nevera te echa
+  Object.keys(prefs).length === 0 && history.push('/nevera');
+
   return (
     <div className="container">
       <header>
-
-        <div className='nav__bar-box'>
-          <NavBar2 cssClass='back__arrow' actionBack={handleBack} backArrow={backArrow}/>
+        <div className="nav__bar-box">
+          <NavBar2
+            cssClass="back__arrow"
+            actionBack={handleBack}
+            backArrow={backArrow}
+          />
         </div>
 
         <HeaderNoLogo text="Y vas a..." />

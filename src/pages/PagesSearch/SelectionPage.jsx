@@ -15,7 +15,6 @@ import icon3 from './../../assets/icon__sopas-cremas.svg';
 import icon4 from './../../assets/icon__ensaladas.svg';
 import backArrow from './../../assets/back__arrow.svg';
 
-
 import iconCheap from './../../assets/icon__barato.svg';
 import iconMedium from './../../assets/icon__medio.svg';
 
@@ -51,41 +50,37 @@ export const SelectionPage = () => {
   const handleClick = () => history.push('/horario');
   const handleBack = () => history.push('/noquiero');
 
+  // Si no vienes de /nevera te echa
+  Object.keys(prefs).length === 0 && history.push('/nevera');
+
   return (
     <div className="container">
-          <div className='nav__bar-box'>
-             <NavBar2 cssClass='back__arrow' actionBack={handleBack} actionNext={handleClick} backArrow={backArrow} />
-          </div>
-
+      <div className="nav__bar-box">
+        <NavBar2
+          cssClass="back__arrow"
+          actionBack={handleBack}
+          actionNext={handleClick}
+          backArrow={backArrow}
+        />
+      </div>
 
       <div className="icon__group-food">
         <div className="food__box">
-
-
-
-{/* COMENTAR ESTO CUANDO ACABE CON LA FUNCIONALIDAD */}
+          {/* COMENTAR ESTO CUANDO ACABE CON LA FUNCIONALIDAD */}
           {/* <Food
           prefsContext={{ prefs, setPrefs }}
           icons={iconsFood}
         /> 
         */}
-        <BtnCarousel />
+          <BtnCarousel />
         </div>
-        
-
 
         <div className="price__box">
-          <Money
-            prefsContext={{ prefs, setPrefs }}
-            iconsMoney={iconsMoney}
-          />
+          <Money prefsContext={{ prefs, setPrefs }} iconsMoney={iconsMoney} />
         </div>
 
         <div className="time__box">
-          <Time
-            prefsContext={{ prefs, setPrefs }}
-            iconsTime={iconsTime}
-          />
+          <Time prefsContext={{ prefs, setPrefs }} iconsTime={iconsTime} />
         </div>
       </div>
 

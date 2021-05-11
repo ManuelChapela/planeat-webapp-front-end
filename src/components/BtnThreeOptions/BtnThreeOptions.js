@@ -20,21 +20,21 @@ export const BtnThreeOptions = ({ iconsFoodHours, prefsContext }) => {
         id="0"
         src={iconsFoodHours[0]}
         onClick={dailyClickHandler}
-        className={daily[0].value ? 'icon__foodhours btnCheck' : 'icon__foodhours'}
+        className={daily && daily[0].value ? 'icon__foodhours btnCheck' : 'icon__foodhours'}
         alt="icono comida"
       />
       <img
         id="1"
         src={iconsFoodHours[1]}
         onClick={dailyClickHandler}
-        className={daily[1].value ? 'icon__foodhours btnCheck' : 'icon__foodhours'}
+        className={daily && daily[1].value ? 'icon__foodhours btnCheck' : 'icon__foodhours'}
         alt="icono comida"
       />
       <img
         id="2"
         src={iconsFoodHours[2]}
         onClick={dailyClickHandler}
-        className={daily[2].value ? 'icon__foodhours btnCheck' : 'icon__foodhours'}
+        className={daily && daily[2].value ? 'icon__foodhours btnCheck' : 'icon__foodhours'}
         alt="icono comida"
       />
     </>

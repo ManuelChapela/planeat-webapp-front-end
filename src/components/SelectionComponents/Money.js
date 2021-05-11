@@ -28,14 +28,18 @@ export const Money = ({ iconsMoney, prefsContext }) => {
     <>
       <img
         id="0"
-        className={cost[0].value ? 'icon__money btnCheck' : 'icon__money'}
+        className={
+          cost && cost[0].value ? 'icon__money btnCheck' : 'icon__money'
+        }
         onClick={moneyClickHandler}
         src={iconsMoney[0]}
         alt="icono dinero"
       />
       <img
         id="1"
-        className={cost[1].value ? 'icon__money btnCheck' : 'icon__money'}
+        className={
+          cost && cost[1].value ? 'icon__money btnCheck' : 'icon__money'
+        }
         onClick={moneyClickHandler}
         src={iconsMoney[1]}
         alt="icono dinero"

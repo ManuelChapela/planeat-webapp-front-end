@@ -29,8 +29,7 @@ export const SayNotPage = (props) => {
   const location = useLocation();
 
   // Si no vienes de /nevera te echa
-  // TODO: Quitar comentario a linea siguiente (HAY QUE HACERLO EN TODAS LAS DE ESTA RUTA)
-  // Object.keys(prefs).length === 0 && history.push('/nevera');
+  Object.keys(prefs).length === 0 && history.push('/nevera');
 
   const handleSkip = () => {
     if (location.pathname === '/noquiero') {
