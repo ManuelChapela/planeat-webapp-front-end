@@ -7,8 +7,6 @@ import logo from './../../assets/mainIcon.svg';
 // Hooks
 import { useHistory } from 'react-router';
 
-// Componentes
-import { Header } from './../../components/Header/Header';
 
 export const InitPage = () => {
 

@@ -3,7 +3,6 @@ import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
-import logo from './../../assets/logo.png';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage'
 import {useHistory} from 'react-router-dom';
@@ -72,7 +71,6 @@ export const LogInPage = () => {
 
             <header>
                 <Header 
-                    logo={logo} 
                     text="Iniciar sesión en Planeat" />
             </header>
 

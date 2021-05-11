@@ -7,10 +7,12 @@
     
 }
 .btn__not {
-    width: 6rem;
-    height: 5rem;
-    margin: .2rem;
+    width: 7rem;
+    margin: .8rem;
     border-radius: 1rem;
+}
+.btn__not-true {
+    box-shadow: 0px 6px 8px var(--box-shadow-btn);
 }
 
 
