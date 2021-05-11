@@ -18,6 +18,8 @@ import { BtnBack } from '../../components/BtnBack/BtnBack';
 import Carousell from '../../components/Carousel/Carousel';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 import backArrow from './../../assets/back__arrow.svg';
+import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
+
 
 
 export const MasterPage = () => {
@@ -91,7 +93,8 @@ export const MasterPage = () => {
       </header>
 
       <main>
-        <Carousell recetas={recetas} data={hardcodedItems} />
+        {/* <Carousell recetas={recetas} data={hardcodedItems} /> */}
+        <NoSuggest />
       </main>
 
       <footer className="icon__box">

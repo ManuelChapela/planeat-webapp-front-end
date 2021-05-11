@@ -2,6 +2,9 @@ import React from 'react';
 import { BtnNext } from '../BtnNext/BtnNext';
 import { useHistory } from 'react-router';
 
+// Assets
+import btnSearchAgain from './../../assets/btn__search-again.svg';
+
 import './NoSuggest.css';
 
 export const NoSuggest = () => {
@@ -13,10 +16,17 @@ export const NoSuggest = () => {
     return (
         <div className="noSuggest__main-box">
             <div className="noSuggest__img-box">
-                   
-                <BtnNext textBtn="VOLVER A BUSCAR" action={handleClick}/>
+
+                <h1>adfsdfasdf</h1>
+
+                <BtnNext 
+                    btn={btnSearchAgain} 
+                    textBtn="VOLVER A BUSCAR" 
+                    action={handleClick}
+                />
 
             </div>
+
         </div>
-    )
-}
+    );
+};
