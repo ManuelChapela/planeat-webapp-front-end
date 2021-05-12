@@ -1,15 +1,30 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+
+// Componentes
 import { BtnConfirm } from '../../components/BtnConfirm/BtnConfirm';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { Header } from '../../components/Header/Header';
 import { InputMod } from '../../components/InputMod/InputMod';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+
+// Assets
+import logo from './../../assets/mainIcon__small.svg';
+import backArrow from './../../assets/back__arrow.svg';
+import btnSignup from './../../assets/btn__sign-up.svg';
+
+// Hooks
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
+// Contexts
 import loggedContext from './../../context/loggedContext';
 
+
+
+
 export const SignUpPage = () => {
+
   const { logged, setLogged } = useContext(loggedContext);
 
   // Hook useState
@@ -57,17 +72,31 @@ export const SignUpPage = () => {
     fetchData({ url, method, body });
   };
 
+  const handleClickBack = () => console.log('botón de volver');
+
   return (
     <div className="container">
-      <header>
+      <header className='signup__header'>
+
+      <div className="nav__bar-box">
+        <NavBar2 
+          cssClass='back__arrow' 
+          actionBack={handleClickBack} 
+          backArrow={backArrow} 
+        />
+      </div>
+
         <Header
-          text="Regístrate en X"
+          logo={logo}
+          cssClass='signup__title'
+          text="Regístrate en Planeat"
           subText="Introduce tus datos"
         />
       </header>
 
-      <main>
+      <main className='signup__main'>
         <InputMod
+          cssClass='input__style'
           placeholder="Introduce tus datos"
           type="text"
           text="Nombre y apellidos"
@@ -75,6 +104,7 @@ export const SignUpPage = () => {
         />
 
         <InputMod
+          cssClass='input__style'
           placeholder="Introduce tu usuario"
           type="text"
           text="Nombre de usuario"
@@ -83,23 +113,24 @@ export const SignUpPage = () => {
 
         <div>
           <InputMod
+            cssClass='input__style'
             placeholder="Introduce tu email"
             type="text"
             text="Email"
             inputChange={mailChange}
+            small='email no válido, prueba otra vez'
           />
-          <small>nombre@servidor.es</small>
         </div>
 
         <div>
           <InputMod
+            cssClass='input__style'
             placeholder="Introduce tu contraseña"
             type="password"
             text="Contraseña"
             inputChange={passChange}
+            small='contraseña no válida, prueba otra vez'
           />
-
-          <small>*Al menos 8 caracteres</small>
         </div>
 
         {fetchState.isFailed && (
@@ -110,7 +141,13 @@ export const SignUpPage = () => {
         {fetchState.isSuccess && (
           <div className="error">{fetchState.data.message}</div>
         )}
-        <BtnConfirm textBtn="Crear cuenta" action={handleClick} />
+        <BtnConfirm 
+          cssClass='btn__confirm'
+          btn={btnSignup} 
+          textBtn="Crear cuenta" 
+          action={handleClick} />
+
+
       </main>
     </div>
   );
