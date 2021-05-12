@@ -32,7 +32,7 @@ export const MasterPage = () => {
   const handleClickBack = () => history.push('/horario');
 
   useEffect(() => {
-    const url = 'http://localhost:5000/search';
+    const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
     const headers = { Authorization: `Bearer ${token}` };
     const method = 'POST';
     fetchData({ url, method, body: prefs, headers });

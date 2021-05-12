@@ -24,7 +24,7 @@ export const FormStickers = ({ addSticker }) => {
   const [fetchState, fetchData] = useFetch();
 
   useEffect(() => {
-    const url = `http://localhost:5000/auto/${searchText}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/auto/${searchText}`;
     const method = 'GET';
     fetchData({ url, method });
   }, [fetchData, searchText]);

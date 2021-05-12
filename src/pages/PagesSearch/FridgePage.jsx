@@ -38,7 +38,7 @@ export const FridgePage = () => {
   let history = useHistory();
 
   useEffect(() => {
-    const url = 'http://localhost:5000/search';
+    const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
     const method = 'GET';
     const headers = { Authorization: `Bearer ${token}` };
     console.log('AUTH', headers);
