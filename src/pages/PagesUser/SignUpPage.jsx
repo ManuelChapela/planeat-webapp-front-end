@@ -20,8 +20,7 @@ import useLocalStorage from '../../Hooks/useLocalStorage';
 // Contexts
 import loggedContext from './../../context/loggedContext';
 
-
-
+// APLICAR FUNCIONALIDAD DE VOLVER CON HISTORY CONTEXT A LA PÁGINA EN LA CUAL ESTABAS DESPUÉS DE REGISTRARTE
 
 export const SignUpPage = () => {
 
@@ -72,7 +71,7 @@ export const SignUpPage = () => {
     fetchData({ url, method, body });
   };
 
-  const handleClickBack = () => console.log('botón de volver');
+  const handleClickBack = () => history.push('/join');
 
   return (
     <div className="container">
