@@ -410,8 +410,11 @@ main {
     justify-content: center;
     align-items: center;
 }
-.master__text {
-    font-size: 1.8rem;
+
+.master__title {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
 }
 .master__text {
     text-align: center;

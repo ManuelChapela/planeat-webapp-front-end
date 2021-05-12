@@ -103,7 +103,7 @@ export const MasterPage = () => {
 
       <header className='master__page-header'>
 
-        <HeaderNoLogo cssClass='master__text' text="Recetas sugeridas" />
+        <HeaderNoLogo cssClass='master__title' text="Recetas sugeridas" />
 
       </header>
 
