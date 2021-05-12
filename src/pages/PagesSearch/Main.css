@@ -277,9 +277,28 @@ main {
     height: 20vh;
     text-align: center;
 }
-/* .advice__text-box {
-    margin-top: auto;
+
+.more__main {
+    height: 70vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
+.more__painter-box {
+    height: 60%;
+}
+.advice__text-box {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.advice__text {
+    font-size: 1.2rem;
+    font-family: var(--lato-font);
+}
+
+
+/*
 .advice__text {
     font-size: 1.5rem;
 } */
@@ -372,6 +391,41 @@ main {
     margin-bottom: 3.8rem;
 }
 
+
+
+
+/* ----------------------------------------------------------MASTER PAGE
+/* MASTER PAGE */
+
+.master__page-header {
+    height: 10vh;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem 0;
+}
+.master__page-main {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.master__text {
+    font-size: 1.8rem;
+}
+.master__text {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.master__btn-again {
+    width: 80%;
+    height: 20vh;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 

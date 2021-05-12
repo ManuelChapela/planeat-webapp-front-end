@@ -19,9 +19,7 @@ export const BtnMainIcons = ( {context} ) => {
 
     const {currentUrl, setCurrentUrl} = useContext(HistoryContext);
     let location = useLocation();
-    console.log(currentUrl);
     let logged = context;
-    console.log(currentUrl);
 
     let history = useHistory();
     // Lleva al input de búsqueda
