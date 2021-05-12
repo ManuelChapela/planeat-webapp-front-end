@@ -70,7 +70,13 @@ export const FridgePage = () => {
         </div>
 
         <div className="btn__next-box">
-          <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" cssClass="btn__box-next"/>
+          <BtnNext 
+            action={handleClick} 
+            icon={btnNext} 
+            textBtn="Siguiente" 
+            cssClass="btn__box-next"
+            btn={btnNext}
+          />
         </div>
         
       </main>

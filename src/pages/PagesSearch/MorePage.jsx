@@ -56,6 +56,7 @@ export const MorePage = () => {
 
         <div className="btn__next-box">
           <BtnNext
+            btn={btnNext}
             action={handleClick}
             icon={btnNext}
             textBtn="Siguiente"
