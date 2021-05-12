@@ -28,6 +28,7 @@ export const LogInPage = () => {
 
     const [mail, setMail] = useState();
     const [pass, setPass] = useState();
+    
     const url = `${process.env.REACT_APP_BACKEND_URL}/login`;
     const method = 'POST';
 
