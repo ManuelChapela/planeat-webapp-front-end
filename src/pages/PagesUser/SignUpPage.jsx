@@ -17,7 +17,7 @@ export const SignUpPage = () => {
   const [user, setUser] = useState();
   const [mail, setMail] = useState();
   const [pass, setPass] = useState();
-  const url = 'http://localhost:5000/signup';
+  const url = `${process.env.REACT_APP_BACKEND_URL}/signup`;
   const method = 'POST';
 
   // Hook useHistory
