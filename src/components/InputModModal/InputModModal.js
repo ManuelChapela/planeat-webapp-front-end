@@ -1,21 +1,22 @@
 import React, {useState} from 'react'
 
-export const InputModModal = ({text, type, inputChange, cssClass, placeholder}) => {
+export const InputModModal = ({text, type, inputChange, cssClass, placeholder, handleChange}) => {
 
-    const [newName, setNewName] = useState()
+//     const [newName, setNewName] = useState()
 
   
 
-const handleChange = (e) => {
-    console.log(e.target.value);
-    setNewName(e.target.value)
-}
-console.log("newName", newName);
+// const handleChange = (e) => {
+//     console.log(e.target.value);
+//     setNewName(e.target.value)
+// }
+
+// console.log("newName", newName);
 
     return (
-        <div className={cssClass} >
+        <div >
             <h4>{text}</h4>
-            <input placeholder={placeholder} type={type} onChange={handleChange}/>
+            <input className={cssClass} placeholder={placeholder} type={type} onChange={handleChange} />
         </div>
     )
 }

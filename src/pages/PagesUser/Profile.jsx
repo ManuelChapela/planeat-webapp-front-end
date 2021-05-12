@@ -52,10 +52,15 @@ export const Profile = () => {
     // Reset State
     const reset = () => setModal("")
 
+
+
+
+
+    // Botones 
     const clicBtnLeft = () => {
         reset()
-        
-        console.log("clicaste en el boton de la izquierda");}
+        console.log("clicaste en el boton de la izquierda");
+    }
 
     const clicBtnLeftDelete = () => {
         reset()
@@ -63,10 +68,19 @@ export const Profile = () => {
         console.log("REVISAR LA FUNCIONALIDAD DE ESTE BTN");
     }
 
-    const clicBtnRight = () => {console.log("clicaste en el boton de la derecha");}
+    const clicBtnRight = (value) => {
+        console.log(value);
+        console.log("Aquí se va a hacer un fetch");
+    }
    
 
     // const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
+
+
+
+
+
+
 
     return (
         <div className='container'>
@@ -123,6 +137,7 @@ export const Profile = () => {
                         reset={reset}
                         action1={clicBtnLeft}
                         action2={clicBtnRight}
+
                     /> : ""}
                 
                 {modal === "email" ? 

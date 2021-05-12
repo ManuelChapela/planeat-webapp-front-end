@@ -1,11 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { EditPass } from '../components/EditPass/EditPass'
 import { HeaderNoLogo } from '../components/HeaderNoLogo/HeaderNoLogo'
 import { InputModModal } from '../components/InputModModal/InputModModal'
 import closeIcon from './../assets/closeIcon.svg'
 
 
-export const ModalTest = ({mainText, action, secondText, leftBtn, rigthBtn, reset, action1, action2}) => {
+export const ModalTest = ({mainText, action, secondText, leftBtn, rigthBtn, reset, action1, action2, action3}) => {
+    
+    const [newName, setNewName] = useState()
+
+    const handleChange = (e) => {
+        setNewName(e.target.value)
+    }
+    
+    console.log(newName);
+    
+
+    const testNewName = () => action2(newName);
+    
+    
     return (
         <div className="modal">
             
@@ -21,13 +34,13 @@ export const ModalTest = ({mainText, action, secondText, leftBtn, rigthBtn, rese
                     <EditPass text={leftBtn} text2={rigthBtn} />
                 </div> */}
 
-            <InputModModal cssClass="input__style" text1={mainText} text2={secondText}/>
+            <InputModModal cssClass="input__style" text1={mainText} text2={secondText} handleChange={handleChange}/>
 
 
 
             <div>
-                <button onClick={action1}>{leftBtn}</button>
-                <button onClick={action2}> {rigthBtn}</button>
+                <button onClick={action1} >{leftBtn}</button>
+                <button onClick={testNewName} > {rigthBtn}</button>
             </div>
                
 
