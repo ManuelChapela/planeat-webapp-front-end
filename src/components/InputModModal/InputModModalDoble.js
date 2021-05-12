@@ -22,12 +22,12 @@ console.log("pass", pass);
 console.log("newPass", newPass);
 
     return (
-        <div className={cssClass} >
+        <div  >
             <h4>{text1}</h4>
-            <input placeholder={placeholder} type={type} onChange={handleChangePass}/>
+            <input className={cssClass} placeholder={placeholder} type={type} onChange={handleChangePass}/>
            
             <h4>{text2}</h4>
-            <input placeholder={placeholder} type={type} onChange={handleChangeNewPass}/>
+            <input className={cssClass} placeholder={placeholder} type={type} onChange={handleChangeNewPass}/>
         </div>
     )
 }
