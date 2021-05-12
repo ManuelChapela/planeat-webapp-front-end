@@ -86,7 +86,7 @@ export const SelectionPage = () => {
       </div>
 
       <div className="btn__selection-next">
-          <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
+          <BtnNext btn={btnNext} action={handleClick} icon={btnNext} textBtn="Siguiente" />
       </div>
 
       <footer className="bottom__icon-box">

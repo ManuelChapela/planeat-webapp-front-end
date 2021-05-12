@@ -73,7 +73,7 @@ export const SayNotPage = (props) => {
         <BtnMainNot />
        
         <div className="btn__next-box">
-          <BtnNext action={handleClick} icon={btnNext} textBtn="Siguiente" />
+          <BtnNext btn={btnNext} action={handleClick} icon={btnNext} textBtn="Siguiente" />
         </div>
 
       </main>
