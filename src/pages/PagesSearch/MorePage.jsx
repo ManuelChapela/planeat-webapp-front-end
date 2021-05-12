@@ -49,21 +49,27 @@ export const MorePage = () => {
         />
       </header>
 
-      <main className="fridge__main">
-        <div className="painter__box">
+      <main className="more__main">
+        <div className="more__painter-box">
           <Painter />
         </div>
 
+        <div className="advice__text-box">
+          <p className='advice__text'>Recuerda que cuantos más ingredientes <br /> quites... ¡menos platos podremos <br /> ofrecerte!</p>
+        </div>  
+          
         <div className="btn__next-box">
-          <BtnNext
-            btn={btnNext}
-            action={handleClick}
-            icon={btnNext}
-            textBtn="Siguiente"
-            cssClass="btn__box-next"
-          />
+            <BtnNext
+              btn={btnNext}
+              action={handleClick}
+              icon={btnNext}
+              textBtn="Siguiente"
+              cssClass="btn__box-next"
+            />
         </div>
+        
       </main>
+
 
       <footer className="bottom__icon-box">
         <BtnMainIcons context={logged} />
@@ -71,3 +77,5 @@ export const MorePage = () => {
     </div>
   );
 };
+      
+

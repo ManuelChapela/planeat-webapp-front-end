@@ -3,6 +3,10 @@ import React, { useState, useContext, useEffect } from 'react';
 // CSS
 import './Main.css';
 
+// Assets
+import btnSearchAgain from './../../assets/btn__search-again.svg';
+import emptyPlate from './../../assets/empty__plate.svg';
+
 // Hooks
 import { useHistory } from 'react-router';
 import PrefsContext from './../../context/prefsContext';
@@ -19,6 +23,7 @@ import Carousell from '../../components/Carousel/Carousel';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 import backArrow from './../../assets/back__arrow.svg';
 import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
+import { BtnNext } from '../../components/BtnNext/BtnNext';
 
 
 
@@ -89,22 +94,39 @@ export const MasterPage = () => {
 
   const recetas = true;
 
+  const handleBack = () => history.push('/horario');
+
   console.log(hardcodedItems.length);
 
   return (
     <div className="container">
 
-      <header>
-        <NavBar2 cssClass='back__arrow' actionBack={handleClickBack} backArrow={backArrow} />
-        <HeaderNoLogo text="Recetas sugeridas" />
+      <header className='master__page-header'>
+
+        <HeaderNoLogo cssClass='master__text' text="Recetas sugeridas" />
+
       </header>
 
-      <main>
+      <main className='master__page-main'>
         {/* <Carousell recetas={recetas} data={hardcodedItems} /> */}
-        <NoSuggest />
+        <NoSuggest img={emptyPlate} />
       </main>
 
-      <footer className="icon__box">
+      <div className="master__btn-again">
+
+        <div className="master__text-box">
+          <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
+        </div>
+
+
+        <BtnNext 
+            btn={btnSearchAgain} 
+            textBtn="VOLVER A BUSCAR"
+        />
+
+      </div>
+
+      <footer className="bottom__icon-box">
         <BtnMainIcons />
       </footer>
 

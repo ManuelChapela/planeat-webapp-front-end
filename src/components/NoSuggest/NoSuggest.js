@@ -7,25 +7,15 @@ import btnSearchAgain from './../../assets/btn__search-again.svg';
 
 import './NoSuggest.css';
 
-export const NoSuggest = () => {
+export const NoSuggest = ({img}) => {
 
     let history = useHistory();
-    const handleClick = () => history.push("/nevera");
 
 
     return (
         <div className="noSuggest__main-box">
-            <div className="noSuggest__img-box">
 
-                <h1>adfsdfasdf</h1>
-
-                <BtnNext 
-                    btn={btnSearchAgain} 
-                    textBtn="VOLVER A BUSCAR" 
-                    action={handleClick}
-                />
-
-            </div>
+            <img src={img} alt="imagen plato vacío" />
 
         </div>
     );
