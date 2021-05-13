@@ -13,7 +13,6 @@ import PrefsContext from './../../context/prefsContext';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
-
 // Componentes
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Favs } from '../../components/Favs/Favs';
@@ -24,8 +23,6 @@ import { NavBar2 } from '../../components/NavBar2/NavBar2';
 import backArrow from './../../assets/back__arrow.svg';
 import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
-
-
 
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
@@ -41,13 +38,13 @@ export const MasterPage = () => {
     const headers = { Authorization: `Bearer ${token}` };
     const method = 'POST';
     fetchData({ url, method, body: prefs, headers });
-  },[fetchData, prefs, token]);
+  }, [fetchData, prefs, token]);
 
-  useEffect (() => {
+  useEffect(() => {
     fetchState.isSuccess && setRecipes(fetchState.data);
-  },[fetchState.data, fetchState.isSuccess])
+  }, [fetchState.data, fetchState.isSuccess]);
 
-  fetchState.isSuccess&& console.log(recipes)
+  fetchState.isSuccess && console.log(recipes);
 
   const hardcodedItems = [
     {
@@ -89,8 +86,7 @@ export const MasterPage = () => {
         'jengibre polvo',
       ],
       price: 'Barato / 10 minutos',
-      img:
-        'https://www.chefcaprabo.com/export/shared/.galleries/recetas/4201323CAS_682x433.png_908605617.png',
+      img: 'https://www.chefcaprabo.com/export/shared/.galleries/recetas/4201323CAS_682x433.png_908605617.png',
     },
   ];
 
@@ -148,7 +144,6 @@ export const MasterPage = () => {
       <footer className="bottom__icon-box">
         <BtnMainIcons />
       </footer>
-
     </div>
   );
 };
