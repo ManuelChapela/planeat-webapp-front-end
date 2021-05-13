@@ -398,11 +398,11 @@ main {
 /* MASTER PAGE */
 
 .master__page-header {
-    height: 10vh;
-    width: 80%;
+    /* height: 20vh; */
+    width: 100%;
     display: flex;
     justify-content: flex-start;
-    padding: 2rem 0;
+    flex-direction: column;
 }
 .master__page-main {
     height: 60vh;
@@ -411,9 +411,10 @@ main {
     align-items: center;
 }
 .master__title {
-    text-align: center;
+    text-align: left;
     font-size: 1.6rem;
     margin-bottom: 2rem;
+    padding-left: 3rem;
 }
 .master__text {
     text-align: center;
@@ -768,13 +769,13 @@ width: 190px;
 
 
 /* ------------------------------------------- PURO TESTING  */
-.suggest__main-box {
+/* .suggest__main-box {
     width: 500px;
 }
 
 .suggest__img-box {
     width: 500px;
-}
+} */
 
 
 

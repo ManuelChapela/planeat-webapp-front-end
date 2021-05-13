@@ -105,19 +105,21 @@ export const MasterPage = () => {
     <div className="container">
 
       <header className='master__page-header'>
-
-      <NavBar2 
-          cssClass='back__arrow' 
-          actionBack={handleBack} 
-          backArrow={backArrow} 
-      />
+    
+          <div className="nav__bar-box">
+                <NavBar2 
+                    cssClass='back__arrow' 
+                    actionBack={handleBack} 
+                    backArrow={backArrow} 
+                />
+          </div>
                     
-        <HeaderNoLogo cssClass='master__title' text="Recetas sugeridas" />
+          <HeaderNoLogo cssClass='master__title' text="Recetas sugeridas" />
 
       </header>
 
 
-      { hardcodedItems.length === 3?  
+      { hardcodedItems.length === 4 ?  
           <main className='master__page-Carousel'>
             <Carousell recetas={recetas} data={hardcodedItems} />
           </main>
