@@ -52,6 +52,7 @@ export const DetailPage = () => {
 
     // Context de logged
     const {logged, setLogged} = useContext(LoggedContext);
+    // Context de history
     const {currentUrl, setCurrentUrl} = useContext(HistoryContext);
 
     let history = useHistory();
