@@ -35,8 +35,6 @@ const Carousell = ({data, recetas}) => {
         const [ like, setLike ] = useState(false);
         const [ banned, setBanned ] = useState(true);
 
-
-        
         // Cambio de estado de encendido a apagado btnFav y btnBanned
         const handleLikeState = () => { setLike(!like) 
                                         // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
@@ -57,36 +55,36 @@ const printRecetas = () => data.map( item =>  drawRecetas(item))
 const drawRecetas = (item) => {
     
     return(
-        <div className="suggest__main-box">
+        <>
 
-        <div className="suggest__img-box">
-            <h2>{item.mainTitle}</h2>
-            <img src={item.img} alt="imgEJEMPLO"/>
-            <div className="suggest__icon-box">
-                    { logged ? <BtnLikeDislike action={handleLikeState} stateLike={like}/> : <BtnLikeDislike action={handleClickJoin} /> }
-                    { logged ? <BtnBanned action={handleBannedState} stateBanned={banned}/> : <BtnBanned action={handleClickJoin} /> } 
+            <div className="suggest__img-box">
+                <h2>{item.mainTitle}</h2>
+                <img src={item.img} alt="imgEJEMPLO"/>
+                <div className="suggest__icon-box">
+                        { logged ? <BtnLikeDislike action={handleLikeState} stateLike={like}/> : <BtnLikeDislike action={handleClickJoin} /> }
+                        { logged ? <BtnBanned action={handleBannedState} stateBanned={banned}/> : <BtnBanned action={handleClickJoin} /> } 
+                </div>
             </div>
-        </div>
 
-        <div className="suggest__title-box">
-            <h2>{item.title}</h2>
-            <h3>{item.pasta}</h3>
-        </div>
+            <div className="suggest__title-box">
+                <h2>{item.title}</h2>
+                <h3>{item.pasta}</h3>
+            </div>
 
-        <div className="suggest__description-box">                
-            <div>
-                <h4>{item.price}</h4>
-                <h4> Ingredientes </h4>
-                <div className="suggest__stickers-box">
-                    <div>
-                        {item.ingredients[0]}
+            <div className="suggest__description-box">                
+                <div>
+                    <h4>{item.price}</h4>
+                    <h4> Ingredientes </h4>
+                    <div className="suggest__stickers-box">
+                        <div>
+                            {item.ingredients[0]}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <BtnNext textBtn="VER RECETA" icon={btnReceta} action={handleClickkk}/>
-    </div>
+            <BtnNext textBtn="VER RECETA" icon={btnReceta} action={handleClickkk}/>
+    </>
     ) 
 }
 

@@ -764,3 +764,24 @@ width: 190px;
     font-size: 1.17em;
 
 }
+
+
+
+/* ------------------------------------------- PURO TESTING  */
+.suggest__main-box {
+    width: 500px;
+}
+
+.suggest__img-box {
+    width: 500px;
+}
+
+
+
+
+
+/* ---------------------- TEST */
+.master__page-Carousel{
+    width: 100%;
+    height: 100%;
+}
