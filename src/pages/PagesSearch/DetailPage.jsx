@@ -19,7 +19,6 @@ import HistoryContext from './../../context/historyContext';
 import { useHistory } from 'react-router';
 
 // Componentes
-import { TimePrice } from '../../components/TimePrice/TimePrice';
 import { Ingredients } from '../../components/Ingredients/Ingredients';
 import { Elaboration } from '../../components/Elaboration/Elaboration';
 import  BtnLikeDislike from '../../components/BtnLikeDislike/BtnLikeDislike';

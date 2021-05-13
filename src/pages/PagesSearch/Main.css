@@ -346,6 +346,11 @@ main {
     border-radius: 1rem;
 } */
 
+
+/* -----------------------------------------------------------SELECCIÓN PAGE  */
+/* SELECCIÓN PAGE */
+
+
 .icon__food {
   
  height: 7rem; 
@@ -383,8 +388,8 @@ main {
 .icon__money{
     margin: 10px
 }
-.icon__time {
-    margin:5px;
+.time__selection-box {
+    text-align: center;
 }
 
 .btn__selection-next img {
