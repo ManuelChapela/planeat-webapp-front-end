@@ -2,7 +2,7 @@
 /* MAIN CSS GLOBAL */
 /* -------------------------------------------------------------------- */
 
-/* Contenedor padre */
+/* Contenedor padre
 .container {
     display: flex;
     flex-direction: column;
@@ -12,52 +12,59 @@
 }
 /* HEADER */
 /* Parte fija en casi toda la aplicación */
-header {
+/* header {
     height: 20vh;
     margin-bottom: 4rem;
-}
+} */
 
 /* MAIN */
 /* Sección central (la más cambiante) */
-main {
+/* main {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 95%;
     margin: .4rem auto;
     height: 50vh;
-}
+} */
 /* Input general */
-.input__form-box {
+/* .input__form-box {
     margin-bottom: .6rem;
-}
+} */
 
 /* Botón Siguiente (Componente) */
-.btn__box {
+/* .btn__box {
     display: flex;
     align-items: center;
     height: 20vh;
-}
+} */
 
 /* FOOTER */
 /* Caja de iconos (Fija en casi toda la aplicación) */
-.icon__box {
+/* .icon__box {
     height: 10vh;
     display: flex;
     width: 80%;
     margin: 0 auto;
     justify-content: space-around;
-}
+} */
 
 /* -------------------------------------------------------------------- */
 
 /* PANTALLA NEVERA */
-.stickers__container {
+/* .stickers__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
+
+
+
+
 .sticker {
     margin: .2rem;
-}
+}  */
+
+
+

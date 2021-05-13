@@ -1,13 +1,16 @@
 import React from 'react';
 import './BtnNext.css';
 
-export const BtnNext = ({action, textBtn, cssClass}) => {
+export const BtnNext = ({action, cssClass, btn}) => {
     
     return (
-        <button className={cssClass} 
-        type="button" 
-        onClick={action}>
-            {textBtn} 
-        </button>
-    )
-}
+
+        <img 
+            src={btn} 
+            alt="botón volver a buscar" 
+            className={cssClass}
+            onClick={action}
+        />
+    );
+
+};

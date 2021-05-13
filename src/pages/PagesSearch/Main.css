@@ -1,63 +1,820 @@
 
 /* MAIN CSS GLOBAL */
-/* -------------------------------------------------------------------- */
 
+/* TIPOGRAFÍA APP */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --primary-color: #8BC53F;
+    --primary-color-light: #EFFFD9;
+    --primary-color-light-top: #FCFFF8;
+
+    --secondary-color: #CE2F2F;
+
+    --box-shadow: #8dc63f40;
+    --box-shadow-btn: #8dc63f40;
+    --lato-font: 'Lato', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: .79em;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* CSS GLOBAL */
+/* -----------------------------------------------------------CSS GLOBAL */
 /* Contenedor padre */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    width: 100%;
     height: 100vh;
-}
-/* HEADER */
-/* Parte fija en casi toda la aplicación */
-header {
-    height: 20vh;
-    margin-bottom: 4rem;
-}
-
-/* MAIN */
-/* Sección central (la más cambiante) */
-main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 95%;
-    margin: .4rem auto;
-    height: 50vh;
 }
-/* Input general */
-.input__form-box {
-    margin-bottom: .6rem;
-}
-
-/* Botón Siguiente (Componente) */
-.btn__box {
+main {
+    margin: 0 auto;
+    height: 76vh;
     display: flex;
-    align-items: center;
-    height: 20vh;
+    flex-direction: column;
 }
-
-/* FOOTER */
-/* Caja de iconos (Fija en casi toda la aplicación) */
-.icon__box {
+.bottom__icon-box {
     height: 10vh;
     display: flex;
-    width: 80%;
-    margin: 0 auto;
+    width: 100vw;
     justify-content: space-around;
+    box-shadow: 0px -1px 15px var(--box-shadow);
+    align-items: center;
+}
+.btn__next-box {
+    align-self: center;
 }
 
-/* -------------------------------------------------------------------- */
+/* -------------------------------------------------------INIT PAGE */
+/* INIT PAGE */
+.init__page {
+    background-color: var(--primary-color-light);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-/* PANTALLA NEVERA */
-.stickers__container {
+/* .init__logo {
+    width: 20rem;
+} */
+.init__title {
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 5rem;
+}
+.init__title span {
+    font-weight: 600;
+}
+
+
+
+/* ----------------------------------------------------------FRIDGE PAGE */
+/* FRIDGE PAGE */
+.fridge__header-box {
+    width: 100vw;
+    height: 20vh;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.fridge__header-title {
+    font-size: 2rem;
+}
+.fidge__container-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.fridge__header-box {
+    height: 20vh;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.painter__box {
+    height: 80%;
+}
+.btn__fridge-box {
+    height: 20%;
+}
+.fridge__main {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .stickers__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+} */
+
+/* .input__box input{
+    height: 40px;
+    width: 270px;
+    border-radius: 30px;
+    padding: 8px, 16px, 8px, 16px;
+    justify-content: space-between;  
+} 
+.input__box img {
+    width: 58px;
+    margin-left: 10px;
 }
+.input__box{
+    display: flex;
+    align-items: center;
+    width: 300px;
+
+}
+.logo {
+    width: 64px;
+    height: 64px;
+    margin-top: 21px;
+    margin-bottom: 11px;
+}
+.text__box h3{
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+}
+
 .sticker {
     margin: .2rem;
+} */
+
+
+/* -----------------------------------------------------------SAY NOT PAGE */
+/* SAY NOT PAGE */
+.say__not-header {
+    width: 100vw;
+    height: 20vh;
+    text-align: center;
+}
+.say__not-title {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+}
+.btn__not-container {
+    height: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btn__not-other--box {
+    align-self: center;
+}
+.nav__bar-box {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    width: 100vw;
+    background-color: var(--primary-color-light-top);
+    box-shadow: 0px 2px 2px var(--primary-color);
+    margin-bottom: 1.6rem;
+}
+.back__arrow {
+    width: .8rem;
+    margin-right: 1rem;
+}
+.bg__box {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.btn__back-box {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/*
+
+ */
+
+
+/* -----------------------------------------------------------JOIN PAGE*/
+/* JOIN PAGE */
+.join__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.join__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 40%;
+}
+
+.text__box-join {
+    text-align: center;
+}
+.join__title-header {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+.join__main {
+    padding: 0 2rem;
+    height: 20%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.join__text {
+    font-family: var(--lato-font);
+    font-size: 1.2rem;
+}
+.join__cta {
+    font-size: 3rem;
+    font-weight: 400;
+}
+.join__footer {
+    padding: 2rem 0;
+    height: 40%;
+    display: flex;
+}
+
+.btn__join-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* -----------------------------------------------------------MORE PAGE */
+/* MORE PAGE */
+.more__page-header {
+    width: 100vw;
+    height: 20vh;
+    text-align: center;
+}
+
+.more__main {
+    height: 70vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.more__painter-box {
+    height: 60%;
+}
+.advice__text-box {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.advice__text {
+    font-size: 1.2rem;
+    font-family: var(--lato-font);
+}
+
+
+/*
+.advice__text {
+    font-size: 1.5rem;
+} */
+
+
+
+/* -----------------------------------------------------------MAIN PAGE [ /horario ] */
+/* MAIN PAGE */
+.main__title-box {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.three__options-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 48rem;
+    margin-bottom: 1rem;
+    width: 300px;
+}
+
+.icon__foodhours {
+    width: 7rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+.btnCheck {
+    background-color: var(--primary-color-light-top);
+    /* box-shadow: 0px 2px 2px var(--primary-color); */
+    border-radius: 1rem;
+    box-shadow: 0px 6px 8px var(--box-shadow-btn)
+}
+
+/* Carousel tamaño */
+/* .icon__group-food {
+    width: 100%;
+    height: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+} */
+
+
+/* -----------------------------------------------------------SELECCIÓN PAGE  */
+/* SELECCIÓN PAGE */
+
+
+.icon__food {
+  
+ height: 7rem; 
+ margin: 0.4rem;
+} 
+
+.slide {
+    width: 15px;
+    min-width: 5px;
+    margin: 40rem
+}
+
+.control-arrow {
+    color: black;
+    background-color: black;
+}
+
+.icon__group-food {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+    width: 95vw;
+}
+.price__selection-box{
+    display: flex;
+    flex-direction: column;
+}
+.price__selection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon__money{
+    margin: 10px
+}
+.time__selection-box {
+    text-align: center;
+}
+
+.btn__selection-next img {
+    margin-bottom: 3.8rem;
+}
+
+
+
+
+/* ----------------------------------------------------------MASTER PAGE
+/* MASTER PAGE */
+
+.master__page-header {
+    /* height: 20vh; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.master__page-main {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.master__title {
+    text-align: left;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    padding-left: 3rem;
+}
+.master__text {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.master__btn-again {
+    width: 80%;
+    height: 20vh;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* ----------------------------------------------------------TESTING BORRAR
+/* MAIN PAGE */
+/* .modal{
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal-content{
+    background-color: white;
+    width: 50vw;
+    height: 50vh;
+} */
+
+
+
+/* -----------------------------------------------------------PROFILE PAGE */
+/* PROFILE PAGE */
+
+.header__profile {
+    height: 40vh;
+}
+.green__img-box {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+.profile__elipse {
+    position: relative;
+}
+.profile__img-box {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%);
+
+    display: flex;
+}
+.user__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title__box {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 1rem;
+}
+.icon__photo {
+    position: absolute;
+    top: 1.5rem;
+    z-index: 1;
+}
+.profile__main {
+    height: 60vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.edit__profile-box {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+.btn__edit {
+    margin-left: auto;
+    width: 22px;
+}
+.profile__text-user {
+    font-family: var(--lato-font);
+}
+.btn__log-out {
+    color: var(--secondary-color);
+}
+.icon__camera {
+    position: absolute;
+}
+
+
+
+/* -------------------------------------------------------  LOGIN PAGE */
+/* LOGIN PAGE */
+.login__header {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login__title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+.login__main {
+    height: 60vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.input__text {
+    font-family: var(--lato-font);
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: .2rem;
+    text-align: left;
+}
+.input__box {
+    width: 100%;
+}
+.input__style {
+    border-radius: 8rem;
+    outline: none;
+    padding: .8rem 1rem;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+}
+.input__style::placeholder {
+    text-align: left;
+    color: var(--primary-color);
+    opacity: .5;
+}
+.btn__back-box {
+    height: 20%;
+}
+.btn__login {
+    width: 18rem;
+}
+.login__footer-box {
+    text-align: center;
+    height: 30%;
+}
+.login__bottom-text {
+    font-weight: 400;
+    font-family: var(--lato-font);
+    padding: .8rem 0;
+}
+.text__advice-box {
+    text-align: right;
+}
+
+.small__advice {
+    color: red;
+}
+
+
+/* -------------------------------------------------------  SIGNUP PAGE */
+/* SIGNUP PAGE */
+.signup__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.signup__title {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.signup__main {
+    width: 60%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.btn__confirm {
+    width: 18rem;
+}
+
+
+/* -------------------------------------------------------  DETAIL PAGE */
+/* DETAIL PAGE */
+.detail__header {
+    position: relative;
+    height: 40vh;
+}
+.detail__btn-group {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #1D1D1B 7.29%, rgba(2, 2, 2, 0) 66.67%);
+    padding: .8rem 2rem;
+}
+.detail__img {
+    width: 100%;
+}
+.detail__title {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    font-weight: 700;
+    width: 80%;
+    text-align: center;
+    color: var(--white);
+    text-shadow: 0 4px 4px #333;
+}
+.back__arrow-white {
+    width: .8rem;
+    margin-right: 1rem;
+}
+.detail__back-arrow--text {
+    color: var(--white);
+}
+.detail__icon-box {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+
+    display: flex;
+    align-items: center;
+}
+.detail__price-icon--box {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
+}
+.icon__time {
+    margin-right: 4rem;
+}
+.detail__barra {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+.detail__main {
+    width: 90%;
+    margin: 0 auto;
+}
+.sub__title {
+    font-family: var(--lato-font);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.ingredients__text {
+    font-size: 1.2rem;
+    font-family: var(--lato-font);
+    margin-bottom: 4rem;
+}
+
+
+
+
+
+
+/* -------------------------------------------------------------------- */
+/* ICONS SEARCH BAR */
+/* .icon__user{
+    width: 32px;
+    height: 32px;
+} */
+
+
+/* -------------------------------------------------------------------- */
+/* BOTON SIGUIENTE */
+/* .btn__box-next{
+height: 40px;
+width: 190px;
+} */
+
+
+/* -------------------------------------------------------------------- */
+
+/* PANTALLA MAIN TRES OPCIONES */
+/* .three__options-box {
+    display: flex;
+    flex-direction: column;
+} */
+
+
+
+
+
+/* test icono */
+/* .btnCheck {
+    background: #FCFFF8;
+    border: 1px solid #8DC63F;
+    box-shadow: 0px 4px 2px  rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: .8rem;
+} */
+
+
+
+
+
+/* DECORATION EXTRAS */
+
+
+/* -------------------------------------------------------------------- MODAL TEST*/
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: solid 1px black;
+
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+
+    padding: 20px;
+    box-shadow: 0px 0px 350px grey;
+
+    font-style: Body 2/Regular/Lato;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.0015em;
+    text-align: left;
+  }
+.modal__closeBtn-header {
+    float: right;
+    margin-bottom: 20px;
+}
+
+/* .modal-header{
+    margin-top: 100px;
+} */
+
+.modal-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.modal-body input {
+    margin-top: 5px;
+}
+.modal-body h4 {
+    margin-top: 20px;
+}
+
+.modal-body .text__box{
+    margin-top:20px
+}
+
+.modal-footer img {
+    margin: 5px;
+    margin-top: 5px;
+}
+
+
+
+
+.btn__log-out{
+    font-family: var(--lato-font);
+    font-size: 1.17em;
+
+}
+
+
+
+/* ------------------------------------------- PURO TESTING  */
+/* .suggest__main-box {
+    width: 500px;
+}
+
+.suggest__img-box {
+    width: 500px;
+} */
+
+
+
+
+
+/* ---------------------- TEST */
+.master__page-Carousel{
+    width: 100%;
+    height: 100%;
 }

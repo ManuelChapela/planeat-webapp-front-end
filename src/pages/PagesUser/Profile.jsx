@@ -1,45 +1,165 @@
-import React, {useState} from 'react';
-import img from './../../assets/img.png';
+import React, {useState, useEffect, useContext} from 'react';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { EditUser } from '../../components/EditUser/EditUser';
-// import { useHistory } from 'react-router';
-import {BtnBack} from './../../components/BtnBack/BtnBack';
+import { useHistory } from 'react-router';
+import useFetch from '../../Hooks/useFetch';
+import useLocalStorage from '../../Hooks/useLocalStorage';
+
+// Components
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
+
+// Assets
+import iconPhotoUser from './../../assets/icon__user.svg';
+import elipsePhoto from './../../assets/elipse__photo.svg';
+import cameraIcon from './../../assets/cameraIcon.svg';
+import elipse from './../../assets/elipse__profile.svg';
+import backArrow from './../../assets/back__arrow.svg';
+import { ModalTest } from '../../modals/ModalTest';
+import { ModalTestDoble } from '../../modals/ModalTestDoble';
+
+import modalBtnCancel from './../../assets/modalBtnCancel.svg';
+import modalBtnDelete from './../../assets/modalBtnDelete.svg';
+import modalBtnMod from './../../assets/modalBtnMod.svg';
+
+// Context
+import loggedContext from './../../context/loggedContext'
+
 
 
 
 export const Profile = () => {
-    // let history = useHistory();
-        // const handleClickGoogle = () => history.push("/1");
-
-    // Hooks state & setState
-    // const [userEdit, setUserEdit] = useState()
-    // const [mailEdit, setMailEdit] = useState()
-    // const [passEdit, setPassEdit] = useState()
-    // const [prefsEdit, setPrefsEdit] = useState()
-
-    // const userChange = (user) => {setUserEdit(user)}
-    // const mailChange = (mail) => {setMailEdit(mail)}
-    // const passChange = (pass) => {setPassEdit(pass)}
-    // const prefsChange = (prefs) => {setPrefsEdit(prefs)}
-
-
-    const handleClickUser = () => {console.log("Clicaste en editar usuario")}
-    const handleClickEmail = () => {console.log("Clicaste en editar email")}
-    const handleClickPass = () => {console.log("Clicaste en editar contraseña")}
-    const handleClickPrefs = () => {console.log("Clicaste en editar preferencias")}
-    const handleClickExit = () => {console.log("Clicaste en editar salir")}
+    // const handleClickGoogle = () => history.push("/1");
     
-    const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
+    // Hooks state & setState
+    const [modal, setModal] = useState()
+    
+    // HistoryPush
+    let history = useHistory();
+
+
+
+    // Functions setState --> activate Modal + historyPush('/PROFILE')
+    const handleClickUser = () => {
+        setModal("user")
+        history.push('/profile')
+    }
+    
+    const handleClickEmail = () => {
+        setModal("email")
+        history.push('/profile')
+        }
+
+    const handleClickPass = () => {
+        setModal("pass")
+        history.push('/profile')
+        }
+
+    const handleClickPrefs = () => setModal("prefs")
+
+    // const handleClickExit = () => { 
+    //     // setModal("exit")
+    //     clicBtnLogOut()
+    //     console.log("Has hecho click en log out");
+    // }
+
+    const handleClickBack = () => console.log('hola volver');
+
+    // Reset State
+    const reset = () => setModal("")
+
+
+    // Context, Hook Fetch y Hook Token 
+    const [fetchState, fetchData] = useFetch();
+    const [fetchStateLogout, fetchDataLogout] = useFetch();
+    const [token, setToken] = useLocalStorage("token", "");
+    const {logged, setLogged} = useContext(loggedContext) 
+
+    console.log("logged", logged);
+    // Botones 
+    const clicBtnLeft = () => {
+        reset()
+        console.log("clicaste en el boton de la izquierda");
+    }
+
+    const clicBtnLeftDelete = () => {
+        setModal("")
+        // handleClickPass()
+      // setModal("pass")
+        // handleClickPass()
+    }
+
+
+    // FETCHS
+    const clicBtnRightUser = (value) => {
+        // FETCH USERNAME
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'PATCH';
+        const body = { userName: value }
+        const headers = { authorization: `Bearer ${token}` }
+        fetchData({ url, method, body, headers })
+    }   
+    
+    const clicBtnRightEmail = (value) => {
+        // FETCH EMAIL
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'PATCH';
+        const body = {  email: value }
+        const headers = { authorization: `Bearer ${token}` }
+        fetchData({ url, method, body, headers })
+    }   
+
+    const clicBtnRightPass = (value) => {
+        // FETCH EMAIL
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'PATCH';
+        const body = {  pass: value }
+        const headers = { authorization: `Bearer ${token}` }
+        fetchData({ url, method, body, headers })
+    }   
+
+    const clicBtnLogOut = () => {
+        // FETCH EMAIL
+        const url = `${process.env.REACT_APP_BACKEND_URL}/logout`;
+        const method = 'GET';
+        const headers = { authorization: `Bearer ${token}` }
+
+        fetchDataLogout({ url, method, headers })
+        // setToken("")
+    }   
+    
+    useEffect (()=> {
+        fetchState.isSuccess && fetchState.data.OK && reset();
+    }, [fetchState])
+    
+    useEffect (()=> {
+        fetchStateLogout.isSuccess && fetchStateLogout.data.OK && logOut();
+    }, [fetchStateLogout])
+    
+    const logOut = () => {
+        history.push('/nevera')
+        setLogged(false)
+    }
+
+      useEffect (()=> {
+       !logged && history.push('/nevera')
+        }, [logged])
+   
+
+    // const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
+
+    // const [emptyState, setEmptyState] = useState()
+    // const handleClickEmpty = () => { 
+    //     setEmptyState('')
+    //     console.log("666", emptyState);}
+
+    // console.log("emptyState", emptyState);
 
     return (
         <div className='container'>
 
             <header className="header__profile">
 
-                <div className="btn__back-box">
-                    <p> Back </p>
-                    <BtnBack textBtn="Volver"/>
-                </div>
+                <img className='profile__elipse' src={elipse} alt="" />
 
                 <div className="green__img-box">
 
@@ -47,106 +167,78 @@ export const Profile = () => {
                         <h1>Tu Perfil</h1>
                     </div>
 
-                    <div className="icon__profile-box">
-                        <p>iconito 1</p>
-                        <p>iconito 2</p>
-                    </div>
-
                     <div className="profile__img-box">
-                        <img src={img} alt=""/>
+                        <div className="user__photo">
+                            <img className='elipse__photo' src={elipsePhoto} alt="icono foto" />
+                            <img className='icon__photo' src={iconPhotoUser} alt="icono foto"/>
+                        </div>
+
+                        <div className="profile__box">
+                            <img src={cameraIcon} alt="Icono de cámara"/>
+                        </div>
                     </div>
-
                 </div>
-
 
             </header>
 
-            <main>
-
-                <EditUser text="Nombre de usuario" textBtn="..." action={handleClickUser}/>
-                <EditUser text="Dirección de email" textBtn="..." action={handleClickEmail}/>
-                <EditUser text="Contraseña" textBtn="..." action={handleClickPass}/>
-                <EditUser text="Preferencias" textBtn="..." action={handleClickPrefs}/>
+            <main className='profile__main'>
+                <EditUser cssClass='btn__edit' text="Nombre de usuario" textBtn="..." action={handleClickUser}/>
+                <EditUser cssClass='btn__edit' text="Dirección de email" textBtn="..." action={handleClickEmail}/>
+                <EditUser cssClass='btn__edit' text="Contraseña" textBtn="..." action={handleClickPass}/>
+                <EditUser cssClass='btn__edit' text="Preferencias" textBtn="..." action={handleClickPrefs}/>
                 
-                <button onClick={handleClickExit}>Salir</button>
-
+                <h4 className='btn__log-out' onClick={clicBtnLogOut}>Cerrar sesión</h4>
             </main>
 
-            <footer>
+            <footer className='bottom__icon-box'>
                 <BtnMainIcons />
             </footer>
 
+            <div> 
+                {modal === "user" ? 
+                    <ModalTest  
+                        leftBtn={modalBtnCancel} 
+                        rigthBtn={modalBtnMod} 
+                        secondText="Nombre de usuario" 
+                        mainText="Modificar nombre de usuario" 
+                        reset={reset}
+                        action1={clicBtnLeft}
+                        action2={clicBtnRightUser}
+                    /> : ""}
+                
+                {modal === "email" ? 
+                    <ModalTest 
+                        leftBtn={modalBtnCancel} 
+                        rigthBtn={modalBtnMod} 
+                        secondText="Modificar Email" 
+                        mainText="Email" 
+                        reset={reset}
+                        action1={clicBtnLeft}
+                        action2={clicBtnRightEmail}
+                    /> : ""}
+                
+                {modal === "pass" ? 
+                    <ModalTestDoble  
+                        leftBtn={modalBtnDelete} 
+                        rigthBtn={modalBtnMod} 
+                        secondText="Modificar contraseña" 
+                        secondText2="Confirma contraseña" 
+                        mainText="Nueva Contraseña" 
+                        reset={reset}
+                        action1={clicBtnLeftDelete}
+                        action2={clicBtnRightPass}
+                        
+                    /> : ""}
+                
+                {modal === "prefs" ? 
+                    <ModalTest  
+                        mainText="Te has ido a preferencias. Estamos trabajando en ello Fernando." 
+                        reset={reset} 
+                    /> : ""}
+
+            </div>
         </div>
     )
 }
-            
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import React from 'react';
-// import { useHistory } from "react-router-dom";
-// import { Header } from '../../components/Header/Header';
-// import { BtnMainIcons } from './../../components/BtnMainIcons/BtnMainIcons';
-// import logo  from './logo.png'
-
-
-export const JoinPage = () => {
-
-    // let history = useHistory();
-    // const handleClickGoogle = () => history.push("/1");
-    // const handleClickLogIn = () => history.push("/2");
-    // const handleClickSignUp = () => history.push("/3");
-    // const handleClickLens = () => history.push("/4")
-    // const handleClickUser = () => history.push("/5")
-    // const handleClickLike = () => history.push("/6")
-
-    return (
-        <div>
-            <h1>jjjjj</h1>
-            {/* <Header logo={logo} mainText='¿Quieres añadir una receta a favoritos o eliminar una receta de tus sugerencias?'/> 
-            <h3>Únete a XXXXXXX</h3>
-            <h5>Aprovecha lo que hay en tu nevera con recetas rápidas y sencillas ¡Únete ahora!</h5> */
-            /* <button className="btnGoogle" onClick={handleClickGoogle}>Continúa con Google</button>
-            <button className="btnLogIn" onClick={handleClickLogIn}>Regístrate</button>
-            <button className="btnSignUp" onClick={handleClickSignUp}>Iniciar sesión</button> */
-            /* <BtnMainIcons cssClass="mainIcons" /> }
-        </div>
-    );
-};
-
-
-*/
 

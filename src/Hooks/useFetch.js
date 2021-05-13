@@ -1,23 +1,6 @@
 import { useCallback, useState } from 'react';
+import sendRequest from '../utilities/sendRequest';
 
-async function apiFetch(
-  URL,
-  method = 'GET',
-  body = '',
-  headers = {
-    'Content-Type': 'application/json',
-  },
-) {
-  const request = new Request(URL, {
-    headers,
-    method,
-    body,
-  });
-  console.log('ANTES DE ENTRAR', request);
-  const response = await fetch(request);
-  if (response.ok) return await response.json();
-  else throw await response.json();
-}
 export default function useFetch() {
   const [fetchState, setFetchState] = useState({
     isLoading: false,
@@ -26,11 +9,8 @@ export default function useFetch() {
     data: null,
     error: null,
   });
-  const fetchData = useCallback(async function (url, method, body, headers) {
-    console.log('ENTRANDO');
-    /*     const URL = 'http://localhost:5000/signup';
-    const METHOD = 'post'; */
-    body = JSON.stringify(body);
+
+  const fetchData = useCallback(async function ({ url, method, body, headers }) {
     try {
       setFetchState({
         isLoading: true,
@@ -39,9 +19,8 @@ export default function useFetch() {
         error: null,
         data: null,
       });
-      console.log('llegando');
-      const result = await apiFetch(url, method, body, headers);
-      console.log('result', result);
+      console.log('TEST', url, method, body, headers);
+      const result = await sendRequest({ url, method, body, headers });
       setFetchState({
         isLoading: false,
         isSuccess: true,
@@ -51,7 +30,6 @@ export default function useFetch() {
       });
       return result;
     } catch (error) {
-      console.log('ERROR', error);
       setFetchState({
         isLoading: false,
         isSuccess: false,
@@ -61,5 +39,6 @@ export default function useFetch() {
       });
     }
   }, []);
+
   return [fetchState, fetchData];
 }
