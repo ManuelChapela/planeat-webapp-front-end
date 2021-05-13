@@ -9,7 +9,6 @@ import PrefsContext from './../../context/prefsContext';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
-
 // Componentes
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Favs } from '../../components/Favs/Favs';
@@ -19,8 +18,6 @@ import Carousell from '../../components/Carousel/Carousel';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 import backArrow from './../../assets/back__arrow.svg';
 import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
-
-
 
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
@@ -36,13 +33,13 @@ export const MasterPage = () => {
     const headers = { Authorization: `Bearer ${token}` };
     const method = 'POST';
     fetchData({ url, method, body: prefs, headers });
-  },[fetchData, prefs, token]);
+  }, [fetchData, prefs, token]);
 
-  useEffect (() => {
+  useEffect(() => {
     fetchState.isSuccess && setRecipes(fetchState.data);
-  },[fetchState.data, fetchState.isSuccess])
+  }, [fetchState.data, fetchState.isSuccess]);
 
-  fetchState.isSuccess&& console.log(recipes)
+  fetchState.isSuccess && console.log(recipes);
 
   const hardcodedItems = [
     {
@@ -51,8 +48,7 @@ export const MasterPage = () => {
       type: 'Pasta',
       ingredients: ['tomate', 'aceite', 'ajo', 'espaguetis', 'albahaca'],
       price: 'Barato / 15 minutos',
-      img:
-        'https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg',
+      img: 'https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg',
     },
     {
       mainTitle: 'comida',
@@ -67,8 +63,7 @@ export const MasterPage = () => {
         'albahaca',
       ],
       price: 'Barato / 15 minutos',
-      img:
-        'https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg',
+      img: 'https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg',
     },
     {
       mainTitle: 'comida',
@@ -82,8 +77,7 @@ export const MasterPage = () => {
         'jengibre polvo',
       ],
       price: 'Barato / 10 minutos',
-      img:
-        'https://www.chefcaprabo.com/export/shared/.galleries/recetas/4201323CAS_682x433.png_908605617.png',
+      img: 'https://www.chefcaprabo.com/export/shared/.galleries/recetas/4201323CAS_682x433.png_908605617.png',
     },
   ];
 
@@ -93,9 +87,12 @@ export const MasterPage = () => {
 
   return (
     <div className="container">
-
       <header>
-        <NavBar2 cssClass='back__arrow' actionBack={handleClickBack} backArrow={backArrow} />
+        <NavBar2
+          cssClass="back__arrow"
+          actionBack={handleClickBack}
+          backArrow={backArrow}
+        />
         <HeaderNoLogo text="Recetas sugeridas" />
       </header>
 
@@ -107,7 +104,6 @@ export const MasterPage = () => {
       <footer className="icon__box">
         <BtnMainIcons />
       </footer>
-
     </div>
   );
 };
