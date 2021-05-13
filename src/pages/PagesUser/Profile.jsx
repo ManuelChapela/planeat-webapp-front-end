@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { EditUser } from '../../components/EditUser/EditUser';
 import { useHistory } from 'react-router';
+import useFetch from '../../Hooks/useFetch';
+import useLocalStorage from '../../Hooks/useLocalStorage';
 
 
 
@@ -56,6 +58,12 @@ export const Profile = () => {
 
 
 
+
+
+    const [fetchState, fetchData] = useFetch();
+    const [token, setToken] = useLocalStorage("token", "");
+
+
     // Botones 
     const clicBtnLeft = () => {
         reset()
@@ -68,13 +76,46 @@ export const Profile = () => {
         console.log("REVISAR LA FUNCIONALIDAD DE ESTE BTN");
     }
 
-    const clicBtnRight = (value) => {
-        console.log(value);
-        console.log("Aquí se va a hacer un fetch");
-    }
+
+// FETCHS
+    const clicBtnRightUser = (value) => {
+        // FETCH USERNAME
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'PATCH';
+        const body = { userName: value }
+        const headers = { authorization: `Bearer ${token}` }
+        fetchData({ url, method, body, headers })
+    }   
+    
+    const clicBtnRightEmail = (value) => {
+        // FETCH EMAIL
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'PATCH';
+        const body = {  email: value }
+        const headers = { authorization: `Bearer ${token}` }
+        fetchData({ url, method, body, headers })
+    }   
+
+    const clicBtnRightPass = (value) => {
+        // FETCH EMAIL
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'PATCH';
+        const body = {  pass: value }
+        const headers = { authorization: `Bearer ${token}` }
+        fetchData({ url, method, body, headers })
+    }   
+
+    useEffect (()=> {
+        fetchState.isSuccess && fetchState.data.OK && reset();
+      }, [fetchState])
    
 
     // const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
+
+
+
+
+
 
 
 
@@ -136,7 +177,7 @@ export const Profile = () => {
                         mainText="Modificar nombre de usuario" 
                         reset={reset}
                         action1={clicBtnLeft}
-                        action2={clicBtnRight}
+                        action2={clicBtnRightUser}
 
                     /> : ""}
                 
@@ -148,7 +189,7 @@ export const Profile = () => {
                         mainText="Email" 
                         reset={reset}
                         action1={clicBtnLeft}
-                        action2={clicBtnRight}
+                        action2={clicBtnRightEmail}
                     /> : ""}
                 
                 {modal === "pass" ? 
@@ -160,7 +201,7 @@ export const Profile = () => {
                         mainText="Nueva Contraseña" 
                         reset={reset}
                         action1={clicBtnLeftDelete}
-                        action2={clicBtnRight}
+                        action2={clicBtnRightPass}
                     /> : ""}
                 
                 {modal === "prefs" ? 
