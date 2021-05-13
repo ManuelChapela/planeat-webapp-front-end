@@ -30,14 +30,16 @@ console.log("3", newPass);
         <div className="modal">
             
             <div className="modal-content">
+                    
+                <div className="modal__closeBtn-header">
+                    <img src={closeIcon} onClick={reset} alt="Cerrar pestaña"/>
+                </div>
                 
                 <div className="modal-header">
-                    <img src={closeIcon} onClick={reset} alt="Cerrar pestaña"/>
                     <HeaderNoLogo text={secondText}/>
                 </div>
 
                 <div className="modal-body">
-
                     <InputModModalDoble 
                             cssClass="input__style" 
                             text1={mainText} 
@@ -45,12 +47,11 @@ console.log("3", newPass);
                             handleChangePass={handleChangePass} 
                             handleChangeNewPass={handleChangeNewPass}
                             />
+                </div>
 
-                    <div>
-                        <button onClick={action1}>{leftBtn}</button>
-                        <button onClick={pass === newPass ? testNewPass : errorPass}> {rigthBtn}</button>
-                    </div>
-                   
+                <div className="modal-footer">
+                    <img src={leftBtn} alt="Borrar" onClick={action1}/>
+                    <img src={rigthBtn} alt="Modificar" onClick={pass === newPass ? testNewPass : errorPass}/>
                 </div>
             </div>
         </div>

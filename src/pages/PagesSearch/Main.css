@@ -664,5 +664,57 @@ width: 190px;
     transform: translate(-50%, -50%);
     background-color: white;
     border: solid 1px black;
-    border-radius: 2rem;
+
+    height: auto;
+    width: 300px;
+    border-radius: 10px;
+
+    padding: 20px;
+    box-shadow: 0px 0px 350px grey;
+
+    font-style: Body 2/Regular/Lato;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.0015em;
+    text-align: left;
   }
+.modal__closeBtn-header {
+    float: right;
+    margin-bottom: 20px;
+}
+
+/* .modal-header{
+    margin-top: 100px;
+} */
+
+.modal-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.modal-body input {
+    margin-top: 5px;
+}
+.modal-body h4 {
+    margin-top: 20px;
+}
+
+.modal-body .text__box{
+    margin-top:20px
+}
+
+.modal-footer img {
+    margin: 5px;
+    margin-top: 5px;
+}
+
+
+
+
+.btn__log-out{
+    font-family: var(--lato-font);
+    font-size: 1.17em;
+
+}

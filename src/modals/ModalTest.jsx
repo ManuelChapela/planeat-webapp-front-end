@@ -18,16 +18,21 @@ export const ModalTest = ({mainText, action, secondText, leftBtn, rigthBtn, rese
             
             <div className="modal-content">
 
-                <div className="modal-header">
+                <div className="modal__closeBtn-header">
                     <img src={closeIcon} onClick={reset} alt="Cerrar pestaña"/>
+                </div>
+                
+                <div className="modal-header" >
                     <HeaderNoLogo text={mainText}/>
                 </div>
+            
+                <div className="modal-body">
+                    <InputModModal cssClass="input__style" text1={mainText} text={secondText} handleChange={handleChange}/>
+                </div>
 
-                <InputModModal cssClass="input__style" text1={mainText} text2={secondText} handleChange={handleChange}/>
-
-                <div>
-                    <button onClick={action1} >{leftBtn}</button>
-                    <button onClick={testNewName} > {rigthBtn}</button>
+                <div className="modal-footer">
+                    <img src={leftBtn} alt="Modificar" onClick={action1}/>
+                    <img src={rigthBtn} alt="Enviar" onClick={testNewName} />
                 </div>
             </div>
         </div>

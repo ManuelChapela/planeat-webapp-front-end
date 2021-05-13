@@ -20,6 +20,10 @@ import backArrow from './../../assets/back__arrow.svg';
 import { ModalTest } from '../../modals/ModalTest';
 import { ModalTestDoble } from '../../modals/ModalTestDoble';
 
+import modalBtnCancel from './../../assets/modalBtnCancel.svg';
+import modalBtnDelete from './../../assets/modalBtnDelete.svg';
+import modalBtnMod from './../../assets/modalBtnMod.svg';
+
 
 
 export const Profile = () => {
@@ -171,8 +175,8 @@ export const Profile = () => {
             <div> 
                 {modal === "user" ? 
                     <ModalTest  
-                        leftBtn="CANCELAR" 
-                        rigthBtn="MODIFICAR" 
+                        leftBtn={modalBtnCancel} 
+                        rigthBtn={modalBtnMod} 
                         secondText="Nombre de usuario" 
                         mainText="Modificar nombre de usuario" 
                         reset={reset}
@@ -183,8 +187,8 @@ export const Profile = () => {
                 
                 {modal === "email" ? 
                     <ModalTest 
-                        leftBtn="CANCELAR" 
-                        rigthBtn="MODIFICAR" 
+                        leftBtn={modalBtnCancel} 
+                        rigthBtn={modalBtnMod} 
                         secondText="Modificar Email" 
                         mainText="Email" 
                         reset={reset}
@@ -194,8 +198,8 @@ export const Profile = () => {
                 
                 {modal === "pass" ? 
                     <ModalTestDoble  
-                        leftBtn="BORRAR" 
-                        rigthBtn="MODIFICAR" 
+                        leftBtn={modalBtnDelete} 
+                        rigthBtn={modalBtnMod} 
                         secondText="Modificar contraseña" 
                         secondText2="Confirma contraseña" 
                         mainText="Nueva Contraseña" 
