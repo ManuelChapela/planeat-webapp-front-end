@@ -607,6 +607,52 @@ main {
 }
 
 
+/* -------------------------------------------------------  DETAIL PAGE */
+/* DETAIL PAGE */
+.detail__header {
+    position: relative;
+    height: 40vh;
+}
+.detail__btn-group {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #1D1D1B 7.29%, rgba(2, 2, 2, 0) 66.67%);
+    padding: .8rem 2rem;
+}
+.detail__img {
+    width: 100%;
+}
+.detail__title {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    font-weight: 700;
+    width: 80%;
+    text-align: center;
+    color: var(--white);
+    text-shadow: 0 4px 4px #333;
+}
+.back__arrow-white {
+    width: .8rem;
+    margin-right: 1rem;
+}
+.detail__back-arrow--text {
+    color: var(--white);
+}
+.detail__icon-box {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+
+    display: flex;
+    align-items: center;
+}
+
 
 
 
