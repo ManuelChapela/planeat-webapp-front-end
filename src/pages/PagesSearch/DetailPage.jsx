@@ -8,6 +8,8 @@ import './Main.css';
 import iconHeart from './../../assets/icon__heart.svg';
 import iconHeartFill from './../../assets/icon__heart-fill.svg';
 import iconHand from './../../assets/icon__down-hand.svg';
+import iconPrice from './../../assets/icon__recipe-price.svg';
+import iconTime from './../../assets/icon__recipe-time.svg';
 
 // CONTEXTS
 import LoggedContext from './../../context/loggedContext';
@@ -91,8 +93,8 @@ export const DetailPage = () => {
                 <div className="detail__btn-back-box">
 
                     <div onClick={handleClickBack} className="detail__btn-group">
-                        <img className='pa back__arrow-white' src={backArrowWhite} alt="botón de flecha" />
-                        <p className='detail__back-arrow--text pa'>Volver</p>
+                        <img className='back__arrow-white' src={backArrowWhite} alt="botón de flecha" />
+                        <p className='detail__back-arrow--text'>Volver</p>
                     </div>
                     
                     <div className="detail__icon-box">
@@ -126,51 +128,26 @@ export const DetailPage = () => {
                 
             </header>
                 
-            <main>
-                <div>
+            <main className='detail__main'>
 
-                    <div>
-                        {/* {btnDislikeBanned()} */}
-                    {/* { logged 
-                        ? <BtnLikeDislike action={handleLikeState} stateLike={like}/> 
-                        : <BtnLikeDislike action={handleClickJoin} /> }
+                <div className='detail__price-icon--box'>
 
-                    { logged 
-                        ? <BtnBanned action={handleBannedState} stateBanned={banned}/> 
-                        : <BtnBanned action={handleClickJoin} /> } */}
 
-                    </div>
+                    <img className='icon__time' src={iconTime} alt="iconos tiempo" />
+                    <img src={iconPrice} alt="iconos precio" />
 
                 </div>
+                <hr className='detail__barra' />
 
                 <div>
 
-                    <TimePrice 
-                        mainText="Tiempo" 
-                        secondaryText="20 minutos"/>
-                    <TimePrice 
-                        mainText="Precio" 
-                        secondaryText="Barato"/>
+                    <Ingredients titleCss='sub__title' ingredientsCss='ingredients__text' text="Ingrediente a cholón aquí"/>
 
-                </div>
-
-                <div>
-
-                    <Ingredients text="Ingrediente a cholón aquí"/>
-
-                    <Elaboration text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" />
+                    <Elaboration titleCss='sub__title' ingredientsCss='ingredients__text' text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" />
 
                 </div>
 
             </main>
-
-            
-
-            <footer className="icon__box">
-
-                <h2>FOOOOOOOOOOOOTER</h2>
-
-            </footer>
 
         
         </div>

@@ -653,6 +653,33 @@ main {
     display: flex;
     align-items: center;
 }
+.detail__price-icon--box {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
+}
+.icon__time {
+    margin-right: 4rem;
+}
+.detail__barra {
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+.detail__main {
+    width: 90%;
+    margin: 0 auto;
+}
+.sub__title {
+    font-family: var(--lato-font);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.ingredients__text {
+    font-size: 1.2rem;
+    font-family: var(--lato-font);
+    margin-bottom: 4rem;
+}
 
 
 
