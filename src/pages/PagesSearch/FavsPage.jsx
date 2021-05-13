@@ -37,12 +37,14 @@ export const FavsPage = () => {
             
             <div className='container'>
                 <header>
+                    <div className='nav__bar-box'>
                     <NavBar2 
                         cssClass='back__arrow' 
                         actionBack={handleClick} 
                         backArrow={backArrow} 
                     />
-                    
+                    </div>
+
                     <HeaderNoLogo text='Recetas favoritas' />
 
                 </header>

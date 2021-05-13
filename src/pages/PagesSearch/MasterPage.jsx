@@ -4,7 +4,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import './Main.css';
 
 // Assets
-import btnSearchAgain from './../../assets/btn__search-again.svg';
+import searchAgain from './../../assets/btn__search-again.svg';
 import emptyPlate from './../../assets/empty__plate.svg';
 
 // Hooks
@@ -55,7 +55,8 @@ export const MasterPage = () => {
       title: 'Espagueti Boloñesa',
       type: 'Pasta',
       ingredients: ['tomate', 'aceite', 'ajo', 'espaguetis', 'albahaca'],
-      price: 'Barato / 15 minutos',
+      price: 'Barato', 
+      time: '15 minutos',
       img:
         'https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg',
     },
@@ -72,6 +73,7 @@ export const MasterPage = () => {
         'albahaca',
       ],
       price: 'Barato / 15 minutos',
+      time: '15 minutos',
       img:
         'https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg',
     },
@@ -95,36 +97,51 @@ export const MasterPage = () => {
   const recetas = true;
 
   const handleBack = () => history.push('/horario');
+  const btnSearchAgain = () => history.push('/nevera')
 
-  console.log(hardcodedItems.length);
+
 
   return (
     <div className="container">
 
       <header className='master__page-header'>
 
+      <NavBar2 
+          cssClass='back__arrow' 
+          actionBack={handleBack} 
+          backArrow={backArrow} 
+      />
+                    
         <HeaderNoLogo cssClass='master__title' text="Recetas sugeridas" />
 
       </header>
 
-      <main className='master__page-main'>
-        {/* <Carousell recetas={recetas} data={hardcodedItems} /> */}
-        <NoSuggest img={emptyPlate} />
-      </main>
 
-      <div className="master__btn-again">
+      { hardcodedItems.length === 3?  
+          <main className='master__page-Carousel'>
+            <Carousell recetas={recetas} data={hardcodedItems} />
+          </main>
 
-        <div className="master__text-box">
-          <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
-        </div>
+          : <>
+              <main className='master__page-main'>
+                  <NoSuggest img={emptyPlate} />
+              </main>
+        
+              <div className="master__btn-again">
+                  <div className="master__text-box">
+                      <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
+                  </div>
+        
+                  <BtnNext 
+                      btn={searchAgain} 
+                      textBtn="VOLVER A BUSCAR"
+                      action={btnSearchAgain}
+                  />
+              </div>
+          </>
 
-
-        <BtnNext 
-            btn={btnSearchAgain} 
-            textBtn="VOLVER A BUSCAR"
-        />
-
-      </div>
+          } 
+       
 
       <footer className="bottom__icon-box">
         <BtnMainIcons />
