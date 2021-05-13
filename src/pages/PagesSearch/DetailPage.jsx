@@ -1,32 +1,61 @@
 import React, { useContext, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // CSS
 import './Main.css';
+
+// Assets
+import iconHeart from './../../assets/icon__heart.svg';
+import iconHeartFill from './../../assets/icon__heart-fill.svg';
+import iconHand from './../../assets/icon__down-hand.svg';
+
+// CONTEXTS
+import LoggedContext from './../../context/loggedContext';
+import HistoryContext from './../../context/historyContext';
 
 // Hooks
 import { useHistory } from 'react-router';
 
 // Componentes
-import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
-import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
-import { BtnBack } from '../../components/BtnBack/BtnBack';
 import { TimePrice } from '../../components/TimePrice/TimePrice';
 import { Ingredients } from '../../components/Ingredients/Ingredients';
 import { Elaboration } from '../../components/Elaboration/Elaboration';
-import LoggedContext from './../../context/loggedContext';
 import  BtnLikeDislike from '../../components/BtnLikeDislike/BtnLikeDislike';
 import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
-import backArrow from './../../assets/back__arrow.svg';
-import { NavBar2 } from '../../components/NavBar2/NavBar2';
+import backArrowWhite from './../../assets/back__arrow-white.svg';
 
+
+
+const testArr = [
+
+    {
+        mainTitle: 'comida',
+        title: 'Pasta con atún',
+        type: 'Pasta',
+        ingredients: [
+        'tomate',
+        'pimiento',
+        'aceite',
+        'ajo',
+        'espirales',
+        'albahaca',
+        ],
+        price: 'Barato / 15 minutos',
+        img:
+        'https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg',
+    }
+
+];
 
 
 export const DetailPage = () => {
 
     // Context de logged
     const {logged, setLogged} = useContext(LoggedContext);
-    
+    const {currentUrl, setCurrentUrl} = useContext(HistoryContext);
+
     let history = useHistory();
+    let location = useLocation();
     
     // Redirect 
     const handleClickBack = () => history.push("/recetas");
@@ -35,57 +64,111 @@ export const DetailPage = () => {
     
     // Estado del botón like. 
     const [ like, setLike ] = useState(false);
-    const [ banned, setBanned ] = useState(true);
-    console.log(like);
+    const [ banned, setBanned ] = useState(false);
+    
     
     // Cambio de estado de encendido a apagado btnFav y btnBanned
-    const handleLikeState = () => { setLike(!like) 
-                                    // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
-                                }
+    const handleLikeState = () => { 
+        setLike(!like)
+    // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
+    }
     const handleBannedState = () => { setBanned(!banned) }
                                 // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
     
     // click en fav sin estar logado
-    const handleClickJoin = () => { history.push('/join') }
- 
-
-
+    const handleClickJoin = () => { 
+        setCurrentUrl( {currentUrl: location.pathname} );
+        history.push('/join') 
+    };
 
     return (
 
         <div className='container'>
            
-            <header>
-                <div className='nav__bar-box'>
-                    <NavBar2 cssClass='back__arrow' actionBack={handleClickBack} backArrow={backArrow} />
+            <header className='detail__header'>
+
+                <div className="detail__btn-back-box">
+
+                    <div onClick={handleClickBack} className="detail__btn-group">
+                        <img className='pa back__arrow-white' src={backArrowWhite} alt="botón de flecha" />
+                        <p className='detail__back-arrow--text pa'>Volver</p>
+                    </div>
+                    
+                    <div className="detail__icon-box">
+
+                        <BtnLikeDislike
+                            action={logged ? handleLikeState  : handleClickJoin } 
+                            stateLike={like} 
+                            iconHeart={iconHeart} 
+                            iconHeartFill={iconHeartFill} 
+                            cssClass='icon__heart' 
+                            alt="icono corazón" 
+                        />
+
+                        <BtnBanned 
+                            action={logged ? handleBannedState : handleClickJoin }
+                            iconHandUp={iconHand} 
+                            className='icon__down-hand' 
+                            alt="icono mano hacia abajo" 
+                        />
+
+                    </div>
+
                 </div>
 
-                {/* <BtnBack textBtn="Volver" action={handleClickBack}/> */}
-            </header>
+                <div className="detail__img-box">
+                    
+                    <img className='detail__img' src={testArr[0].img} alt="imagen receta" />
+                    <h3 className='detail__title'>Espagueti Bolognesa</h3>
 
+                </div>
+                
+            </header>
+                
             <main>
                 <div>
-                    <img src="" alt="IMAGEN DE CABECERA"/>
-                    <HeaderNoLogo text='__ Título de la Receta __' />
-                        <div>
-                        { logged ? <BtnLikeDislike action={handleLikeState} stateLike={like}/> : <BtnLikeDislike action={handleClickJoin} /> }
-                        { logged ? <BtnBanned action={handleBannedState} stateBanned={banned}/> : <BtnBanned action={handleClickJoin} /> }
-                        </div>
+
+                    <div>
+                        {/* {btnDislikeBanned()} */}
+                    {/* { logged 
+                        ? <BtnLikeDislike action={handleLikeState} stateLike={like}/> 
+                        : <BtnLikeDislike action={handleClickJoin} /> }
+
+                    { logged 
+                        ? <BtnBanned action={handleBannedState} stateBanned={banned}/> 
+                        : <BtnBanned action={handleClickJoin} /> } */}
+
+                    </div>
+
                 </div>
 
                 <div>
-                    <TimePrice mainText="Tiempo" secondaryText="20 minutos"/>
-                    <TimePrice mainText="Precio" secondaryText="Barato"/>
+
+                    <TimePrice 
+                        mainText="Tiempo" 
+                        secondaryText="20 minutos"/>
+                    <TimePrice 
+                        mainText="Precio" 
+                        secondaryText="Barato"/>
+
                 </div>
 
                 <div>
+
                     <Ingredients text="Ingrediente a cholón aquí"/>
+
                     <Elaboration text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" />
+
                 </div>
 
             </main>
 
+            
+
             <footer className="icon__box">
+
+                <h2>FOOOOOOOOOOOOTER</h2>
+
             </footer>
 
         

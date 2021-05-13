@@ -5,19 +5,25 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
-const BtnLikeDislike = ({action, cssClass, icon, stateLike}) => {
+const BtnLikeDislike = ({action, cssClass, iconHeart, iconHeartFill, stateLike}) => {
 
     // console.log(stateLike);
     
 
     return (
+
         <div className="btn__back-box">
-
-            <div onClick={action} className={cssClass} type="button" > { stateLike ? <FavoriteIcon />  :  <FavoriteBorderIcon />} </div>
-
+            <img 
+                onClick={action} 
+                className={cssClass} 
+                src={ stateLike ? iconHeartFill  : iconHeart} alt="icono favoritos" />
         </div>
 
     )
         
 }
  export default BtnLikeDislike
+
+            
+                
+                
