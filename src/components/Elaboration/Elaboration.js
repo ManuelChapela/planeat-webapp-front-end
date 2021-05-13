@@ -1,12 +1,12 @@
 import React from 'react';
 import './Elaboration.css';
 
-export const Elaboration = ({text}) => {
+export const Elaboration = ({text, titleCss, ingredientsCss}) => {
     
     return (
         <>
-            <h3>Elaboración</h3>
-            <p>{text} <br/> {text} <br/> {text}  </p>
+            <h3 className={titleCss}>Elaboración</h3>
+            <p className={ingredientsCss}>{text} <br/> {text} <br/> {text}  </p>
         </>
 
     )
