@@ -6,7 +6,7 @@ export const InputModModalDoble = ({text1, text2, type, inputChange, cssClass, p
     return (
         <div  >
             <h4>{text1}</h4>
-            <input className={cssClass} placeholder={placeholder} type={type} onChange={handleChangePass}/>
+            <input className={cssClass} placeholder={placeholder} type={type} onChange={handleChangePass} />
            
             <h4>{text2}</h4>
             <input className={cssClass} placeholder={placeholder} type={type} onChange={handleChangeNewPass}/>

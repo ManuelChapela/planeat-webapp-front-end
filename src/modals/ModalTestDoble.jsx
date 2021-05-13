@@ -6,11 +6,12 @@ import { InputModModal } from '../components/InputModModal/InputModModal'
 import closeIcon from './../assets/closeIcon.svg'
 
 
-export const ModalTestDoble = ({mainText, action1, action2, secondText, secondText2, leftBtn, rigthBtn, reset}) => {
+export const ModalTestDoble = ({mainText, action1, action2, secondText, secondText2, leftBtn, rigthBtn, reset, modal}) => {
     
 
     const [pass, setPass] = useState()
     const [newPass, setNewPass] = useState()
+   
 
     const testNewPass = () => action2(newPass);
     const errorPass = () => console.log("Ha habido un error con las contraseñas");
