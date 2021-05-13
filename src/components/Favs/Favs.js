@@ -1,6 +1,6 @@
 import React from 'react';
 import { BtnNext } from '../BtnNext/BtnNext';
-import { TimePrice } from '../TimePrice/TimePrice';
+// import { TimePrice } from '../TimePrice/TimePrice';
 // import { useHistory } from 'react-router';
 
 import './Favs.css';
@@ -21,8 +21,8 @@ export const Favs = () => {
                 <h3>Salmón a la plancha</h3>                
 
             <div>
-                <TimePrice mainText="Tiempo" secondaryText="20 minutos"/>
-                <TimePrice mainText="Precio" secondaryText="Barato"/>
+                {/* <TimePrice mainText="Tiempo" secondaryText="20 minutos"/>
+                <TimePrice mainText="Precio" secondaryText="Barato"/> */}
             </div>
 
             <BtnNext textBtn="VER RECETA"/>
