@@ -1,25 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-export const InputModModalDoble = ({text1, text2, type, inputChange, cssClass, placeholder}) => {
+export const InputModModalDoble = ({text1, text2, type, inputChange, cssClass, placeholder, handleChangePass, handleChangeNewPass}) => {
 
-    const [pass, setPass] = useState()
-    const [newPass, setNewPass] = useState()
-
-  
-
-const handleChangePass = (e) => {
-    console.log(e.target.value);
-    setPass(e.target.value)
-}
-const handleChangeNewPass = (e) => {
-    console.log(e.target.value);
-    setNewPass(e.target.value)
-}
-
-
-
-console.log("pass", pass);
-console.log("newPass", newPass);
 
     return (
         <div  >

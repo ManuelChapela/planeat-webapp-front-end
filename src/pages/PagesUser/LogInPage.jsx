@@ -48,7 +48,7 @@ export const LogInPage = () => {
 
   const logHistory = () => { setToken(fetchState.data.token)  
                              setLogged(true)
-                             history.push('/signup')
+                             history.push('/nevera')
                             }
 
   const handleClick = () => {

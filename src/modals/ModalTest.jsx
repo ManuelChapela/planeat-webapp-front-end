@@ -9,13 +9,7 @@ export const ModalTest = ({mainText, action, secondText, leftBtn, rigthBtn, rese
     
     const [newName, setNewName] = useState()
 
-    const handleChange = (e) => {
-        setNewName(e.target.value)
-    }
-    
-    console.log(newName);
-    
-
+    const handleChange = (e) => { setNewName(e.target.value)}
     const testNewName = () => action2(newName);
     
     
@@ -23,29 +17,19 @@ export const ModalTest = ({mainText, action, secondText, leftBtn, rigthBtn, rese
         <div className="modal">
             
             <div className="modal-content">
-                
+
                 <div className="modal-header">
                     <img src={closeIcon} onClick={reset} alt="Cerrar pestaña"/>
                     <HeaderNoLogo text={mainText}/>
                 </div>
 
-                {/* <div className="modal-body">
-                    <h3>{secondText}</h3>
-                    <EditPass text={leftBtn} text2={rigthBtn} />
-                </div> */}
+                <InputModModal cssClass="input__style" text1={mainText} text2={secondText} handleChange={handleChange}/>
 
-            <InputModModal cssClass="input__style" text1={mainText} text2={secondText} handleChange={handleChange}/>
-
-
-
-            <div>
-                <button onClick={action1} >{leftBtn}</button>
-                <button onClick={testNewName} > {rigthBtn}</button>
+                <div>
+                    <button onClick={action1} >{leftBtn}</button>
+                    <button onClick={testNewName} > {rigthBtn}</button>
+                </div>
             </div>
-               
-
-            </div>
-            
         </div>
     )
 }
