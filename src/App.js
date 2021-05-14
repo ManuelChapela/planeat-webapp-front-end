@@ -35,7 +35,10 @@ function App() {
   const [prefs, setPrefs] = useState({});
   const [currentUrl, setCurrentUrl] = useState({});
 
+
+
   return (
+
     <div className="App">
       <LoggedProvider value={{ logged, setLogged }}>
         <HistoryProvider value={{ currentUrl, setCurrentUrl }}>
@@ -69,5 +72,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;

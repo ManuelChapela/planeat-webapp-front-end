@@ -23,20 +23,16 @@ import btnSearchRecipe from './../../assets/icon__ver-receta.svg';
 
 // MAIN FUNCTION
 const Carousell = ({data, recetas}) => {
+  
+    let history = useHistory();
     
     const handleClickDetail = (id) => {
-        console.log(data[id]);
+        console.log("data[id] Carrousel.js", data[id].id);
+        history.push(`/receta-detalle/${data[id].id}`)
     }
-    
-
-    let history = useHistory();
-    const handleClickkk = () => history.push(`/receta-detalle/${data.id}`);
 
         // Context de logged
         const {logged, setLogged} = useContext(LoggedContext);
-
-        // Redirect 
-        // const handleClickBack = () => history.push("/recetas");
     
     // GESTION DE LIKE, DISLIKE y BANNEAR. 
         
@@ -58,14 +54,12 @@ const Carousell = ({data, recetas}) => {
 
        
     
-const printRecetas = () => data.map( item =>  drawRecetas(item))
+const printRecetas = () => data.map( item => drawRecetas(item))
         
-
 const drawRecetas = (item) => {
     
     return(
         <>
-
             <div className="suggest__img-box">
                 <h2>{item.mainTitle}</h2>
                 <img src={item.img} alt="imgEJEMPLO"/>
@@ -92,10 +86,9 @@ const drawRecetas = (item) => {
                 </div>
             </div>
 
-
-            <img className='btn__see-recipe' onClick={handleClickkk} src={btnSearchRecipe} alt="Botón ver receta" />
+            <img className='btn__see-recipe' data={data} src={btnSearchRecipe} alt="Botón ver receta" />
             {/* <BtnNext textBtn="VER RECETA" icon={btnReceta} action={handleClickkk}/> */}
-    </>
+        </>
     ) 
 }
 
