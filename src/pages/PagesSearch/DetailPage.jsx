@@ -81,6 +81,7 @@ export const DetailPage = () => {
     // Cambio de estado de encendido a apagado btnFav y btnBanned
     const handleLikeState = () => { 
         setLike(!like)
+        console.log(like);
     // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
     }
     const handleBannedState = () => { setBanned(!banned) }

@@ -630,7 +630,9 @@ main {
 }
 .detail__img {
     width: 100%;
+    height: 235px;   
 }
+
 .detail__title {
     position: absolute;
     top: 35%;
