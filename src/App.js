@@ -53,7 +53,7 @@ function App() {
                   <Route exact path="/favoritos" component={FavsPage} />
 
                   <Route exact path="/recetas" component={MasterPage} />
-                  <Route exact path="/receta-detalle" component={DetailPage} />
+                  <Route exact path="/receta-detalle/:id" component={DetailPage} />
 
                 {/* USER */}
                 <Route exact path="/signup" component={SignUpPage} />

@@ -21,7 +21,7 @@ const Carousell = ({data, recetas}) => {
     
 
     let history = useHistory();
-    const handleClickkk = () => history.push("/receta-detalle");
+    const handleClickkk = () => history.push(`/receta-detalle/${data.id}`);
 
         // Context de logged
         const {logged, setLogged} = useContext(LoggedContext);
@@ -111,20 +111,6 @@ const drawRecetas = (item) => {
                 showStatus={false}    
                 // width={300}
                 >
-                {/* <div>
-                    <img src={random1} style={{padding: 20}}/>
-                </div>
-                <div>
-                    <img src={random2} style={{padding: 20}} />
-                </div>
-                <div>
-                    <img src={random3} style={{padding: 20}}/>
-                </div> */}
-
-                
-
-
-
 
                 {printRecetas()}
 
