@@ -746,6 +746,90 @@ text-align: left;
 /* RECIPES PAGE */
 
 
+.card {
+    width: 90%;
+    /* height: 60vh; */
+    margin: 0 auto;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+    border-radius: 1rem;
+}
+.card__img-box {
+    width: 100%;
+    height: 15rem;
+    position: relative;
+}
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+.card__title-box {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card__icon-box {
+    width: 8rem;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.2rem;
+}
+.card__title-des--box {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.2rem;
+}
+.card__title-des--box h2 {
+    text-align: left;
+}
+.card__title-des--box h4 {
+    text-align: left;
+}
+.card__preferences {
+    display: flex;
+    padding: 0 1.2rem;
+}
+.card__ingredients-box {
+    display: flex;
+    justify-content: flex-start;
+}
+.card__ing-text {
+    text-align: left;
+    padding: 0 1.2rem;
+}
+.card__ingredients {
+    height: 180%;
+}
+.card__ingredients p {
+    text-align: left;
+    padding: 0 1.2rem;
+}
+.ingredients__stickers-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.master__page-Carousel {
+    height: 100%;
+}
+.slider-wrapper {
+    height: 30rem;
+}
+.control-arrow {
+    height: 8rem;
+    background: none;
+}
+
+
+
+
+
+
 
 /* -------------------------------------------------------------------- */
 /* ICONS SEARCH BAR */
