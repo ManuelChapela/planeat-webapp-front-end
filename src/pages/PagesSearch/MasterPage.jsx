@@ -23,6 +23,8 @@ import { NavBar2 } from '../../components/NavBar2/NavBar2';
 import backArrow from './../../assets/back__arrow.svg';
 import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
+import { Card } from '../../components/Card/Card';
+
 
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
@@ -118,17 +120,20 @@ export const MasterPage = () => {
       </header>
 
 
-      { recipes.length > 0 ?  
-          <main className='master__page-Carousel'>
-            <Carousell recetas={recetas} data={recipes} />
-          </main>
+      { recipes.length > 0 
 
-          : <>
+        ?   <main className='master__page-Carousel'>
+              <Carousell recetas={recetas} data={recipes} />
+              {/* <Card /> */}
+            </main>
+
+        :   <>
               <main className='master__page-main'>
-                  <NoSuggest img={emptyPlate} />
+                <NoSuggest img={emptyPlate} />
               </main>
-        
+      
               <div className="master__btn-again">
+
                   <div className="master__text-box">
                       <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
                   </div>
@@ -138,15 +143,20 @@ export const MasterPage = () => {
                       textBtn="VOLVER A BUSCAR"
                       action={btnSearchAgain}
                   />
-              </div>
-          </>
 
-          } 
+              </div>
+
+            </>
+
+      }; 
        
 
       <footer className="bottom__icon-box">
         <BtnMainIcons />
       </footer>
+
     </div>
+
   );
+
 };
