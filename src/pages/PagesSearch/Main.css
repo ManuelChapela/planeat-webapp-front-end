@@ -686,6 +686,60 @@ main {
     margin-bottom: 4rem;
 }
 
+.icon__time-left--subox {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.icon__time-right--subox{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.icon__time-left--subox img {
+    margin-right: 5px;
+}
+.icon__time-right--subox img {
+    margin-right: 5px;
+}
+
+.icon__time h2 {
+font-family: Lato;
+font-size: 19px;
+font-style: normal;
+font-weight: 400;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+.icon__time p {
+    font-family: Lato;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.0125em;
+    text-align: left;
+    width: 80px;
+    
+}
+
+.sub__title{
+    font-family: Lato;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.ingredients__text {
+    list-style-type: none;
+}
+
 /* -------------------------------------------------------------------- RECIPES PAGE*/
 /* RECIPES PAGE */
 

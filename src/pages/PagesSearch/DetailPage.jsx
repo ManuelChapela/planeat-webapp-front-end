@@ -171,19 +171,19 @@ export const DetailPage = () => {
 
                 <div className='detail__price-icon--box'>
 
-                    <div className='icon__time-left'>
+                    <div className='icon__time'>
                         <h2>TIEMPO</h2>
                         <div className='icon__time-left--subox'>
                             <img src={iconReloj} alt=""/>
-                            <h3>{recipesState.time} minutos</h3>
+                            <p>{recipesState.time} minutos</p>
                         </div>
                     </div>
 
-                    <div className='icon__time-right'>
+                    <div className='icon__time'>
                         <h2>PRECIO</h2>
                         <div className='icon__time-right--subox'>
                             <img src={iconMoneda} alt=""/>
-                            <h3>{recipesState.costs}</h3>
+                            <p>{recipesState.costs}</p>
                         </div>
                     </div>
 
