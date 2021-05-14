@@ -1,15 +1,24 @@
 import React, { Component, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
+import { useHistory } from 'react-router';
+
+// Carrousel
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 // import { Suggest } from '../../components/Suggest/Suggest';
 // import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
-import BtnLikeDislike from './../../components/BtnLikeDislike/BtnLikeDislike'
-import {BtnBanned} from './../../components/BtnLikeDislike/BtnBanned'
-import { useHistory } from 'react-router';
-import LoggedContext from './../../context/loggedContext';
+
+// Componentes
+import BtnLikeDislike from './../../components/BtnLikeDislike/BtnLikeDislike';
+import {BtnBanned} from './../../components/BtnLikeDislike/BtnBanned';
 import { BtnNext } from '../BtnNext/BtnNext';
-import btnReceta from './../../assets/btnReceta.svg'
+
+// Contexts
+import LoggedContext from './../../context/loggedContext';
+
+// Assets
+import btnReceta from './../../assets/btnReceta.svg';
+import btnSearchRecipe from './../../assets/icon__ver-receta.svg';
 
 
 // MAIN FUNCTION
@@ -17,11 +26,11 @@ const Carousell = ({data, recetas}) => {
     
     const handleClickDetail = (id) => {
         console.log(data[id]);
-       }
+    }
     
 
     let history = useHistory();
-    const handleClickkk = () => history.push("/receta-detalle");
+    const handleClickkk = () => history.push(`/receta-detalle/${data.id}`);
 
         // Context de logged
         const {logged, setLogged} = useContext(LoggedContext);
@@ -83,7 +92,9 @@ const drawRecetas = (item) => {
                 </div>
             </div>
 
-            <BtnNext textBtn="VER RECETA" icon={btnReceta} action={handleClickkk}/>
+
+            <img className='btn__see-recipe' onClick={handleClickkk} src={btnSearchRecipe} alt="Botón ver receta" />
+            {/* <BtnNext textBtn="VER RECETA" icon={btnReceta} action={handleClickkk}/> */}
     </>
     ) 
 }
