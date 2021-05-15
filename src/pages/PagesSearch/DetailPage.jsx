@@ -210,7 +210,6 @@ console.log("estado del fetch", fetchState)
                 <div>
 
                     <Ingredients titleCss='sub__title' ingredientsCss='ingredients__text' text={recipesState.ingredients}/>
-
                     <Elaboration titleCss='sub__title' ingredientsCss='ingredients__text' text={recipesState.steps} />
 
                 </div>
