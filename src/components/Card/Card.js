@@ -46,11 +46,18 @@ export const Card = ({item}) => {
                             <p>sticker</p>
                             <p>sticker</p>
                             <p>sticker</p>
+                            <p>sticker</p>
+                            <p>sticker</p>
+                            <p>sticker</p>
                            
                         </div>
-                    </div>
 
-                    <button>Ver Receta</button>
+                        <div className="card__button-box">
+                            <button className='card__button'>Ver Receta</button>
+                        </div>
+                    </div>
+                    
+
 
                 </div>
 

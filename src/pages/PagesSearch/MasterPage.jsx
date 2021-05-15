@@ -123,8 +123,10 @@ export const MasterPage = () => {
       { recipes.length > 0 
 
         ?   <main className='master__page-Carousel'>
-              <Carousell recetas={recetas} data={recipes} />
+              <Carousell  recetas={recetas} data={recipes} />
               {/* <Card /> */}
+              
+
             </main>
 
         :   <>
