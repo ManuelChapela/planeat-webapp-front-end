@@ -9,16 +9,16 @@ export const BtnBanned = ({action, cssClass, iconHandUp, stateBanned}) => {
     
 
     return (
-
-        <div className="btn__back-box">
-            <img 
-                onClick={action} 
-                className={cssClass} 
-                src={ iconHandUp } 
-                alt="icono favoritos" 
-                
-                />
-        </div>
-
-    )
+      <div className="btn__back-box">
+        <img
+          onClick={action}
+          className={cssClass}
+          // TODO VER DE DONDE SACAR EL ICONO RELLENO
+          src={stateBanned ? iconHandUp : iconHandUp}
+          alt="icono favoritos"
+        />
+        {/* // TODO Quitar esto */}
+        {stateBanned ? <p>Banned</p> : <p>Nop</p>}
+      </div>
+    );
 }

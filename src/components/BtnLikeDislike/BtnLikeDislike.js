@@ -11,15 +11,15 @@ const BtnLikeDislike = ({action, cssClass, iconHeart, iconHeartFill, stateLike})
     
 
     return (
-
-        <div className="btn__back-box">
-            <img 
-                onClick={action} 
-                className={cssClass} 
-                src={ stateLike ? iconHeartFill  : iconHeart} alt="icono favoritos" />
-        </div>
-
-    )
+      <div className="btn__back-box">
+        <img
+          onClick={action}
+          className={cssClass}
+          src={stateLike ? iconHeartFill : iconHeart}
+          alt="icono favoritos"
+        />
+      </div>
+    );
         
 }
  export default BtnLikeDislike
