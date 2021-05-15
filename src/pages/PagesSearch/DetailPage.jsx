@@ -101,7 +101,6 @@ export const DetailPage = () => {
   };
 
   // HACER UN FETCH QUE TE REDIRECCIONE A LA RECETA DE BACK LA CUAL COINCIDA CON EL ID
-  // Tengo que sacar el token con el hook
   const { id } = useParams();
   const [token, setToken] = useLocalStorage('token', '');
   const [fetchState, fetchData] = useFetch();
