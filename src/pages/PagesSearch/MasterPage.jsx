@@ -118,34 +118,41 @@ export const MasterPage = () => {
 
         <HeaderNoLogo cssClass="master__title" text="Recetas sugeridas" />
       </header>
-      {recipes.length > 0 ? (
-        <main className="master__page-Carousel">
-          <Carousell recetas={recetas} data={recipes} />
-          {/* <Card /> */}
-        </main>
-      ) : (
-        <>
-          <main className="master__page-main">
-            <NoSuggest img={emptyPlate} />
-          </main>
 
-          <div className="master__btn-again">
-            <div className="master__text-box">
-              <p className="master__text">
-                Lo sentimos, aún no hemos cocinado ese plato, prueba con otra
-                búsqueda, tenemos recetas muy rápidas y sencillas
-              </p>
-            </div>
 
-            <BtnNext
-              btn={searchAgain}
-              textBtn="VOLVER A BUSCAR"
-              action={btnSearchAgain}
-            />
-          </div>
-        </>
-      )}
-      ;
+      { recipes.length > 0 
+
+        ?   <main className='master__page-Carousel'>
+              <Carousell state={ {recipes, setRecipes} } />
+              {/* <Card /> */}
+              
+
+            </main>
+
+        :   <>
+              <main className='master__page-main'>
+                <NoSuggest img={emptyPlate} />
+              </main>
+      
+              <div className="master__btn-again">
+
+                  <div className="master__text-box">
+                      <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
+                  </div>
+        
+                  <BtnNext 
+                      btn={searchAgain} 
+                      textBtn="VOLVER A BUSCAR"
+                      action={btnSearchAgain}
+                  />
+
+              </div>
+
+            </>
+
+      }
+       
+
       <footer className="bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import LoggedContext from './../../context/loggedContext';
 
 // CSS
@@ -16,6 +16,13 @@ import backArrow from './../../assets/back__arrow.svg';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
+import useFetch from './../../Hooks/useFetch';
+import useLocalStorage from './../../Hooks/useLocalStorage';
+import { useParams } from 'react-router-dom';
+
+
+
+
 
 export const FavsPage = () => {
     
@@ -30,6 +37,43 @@ export const FavsPage = () => {
     useEffect(() => {
         !logged && history.push('/join');
     }, [logged])
+
+
+    // FETCH A FAVORITOS QUE TRAIGA LAS RECETAS TOTALES.
+    const { id } = useParams();
+    const [token, setToken] = useLocalStorage('token', '');
+    const [fetchState, fetchData] = useFetch();
+
+
+    const [recipesState, setRecipesState] = useState({
+        ingredients: [],
+        steps: [],
+      });
+
+      useEffect(() => {
+        fetchState.isSuccess &&
+          fetchState.data.OK &&
+          setRecipesState(fetchState.data.Favs);
+      }, [fetchState]);
+      
+      // FETCH QUE NOS TRAE RECETAS DE BACK
+      useEffect(() => {
+          const url = `${process.env.REACT_APP_BACKEND_URL}/user/fav`;
+          const method = 'GET';
+          const headers = { authorization: `Bearer ${token}` };
+          fetchData({ url, method, headers });
+        }, [fetchData]);
+        
+
+    console.log('Recetas', recipesState)
+
+
+
+
+
+
+
+
 
     return (
         <>
@@ -49,10 +93,11 @@ export const FavsPage = () => {
 
                 <main>
 
-                    {logged && fav 
-                        ?  <Favs/> 
+                    <Favs recetas={recipesState}/> 
+                    {/* {logged && fav 
+                    ?  <Favs/> 
                         :  <EmptyFav cssClass='icon__like-fav' />
-                    }
+                    } */}
                     
                 </main>
 

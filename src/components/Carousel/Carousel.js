@@ -2,6 +2,8 @@ import React, { Component, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 // Carrousel
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -25,35 +27,40 @@ import btnSearchRecipe from './../../assets/icon__ver-receta.svg';
 
 
 // MAIN FUNCTION
-const Carousell = ({data, recetas}) => {
+const Carousell = ({state}) => {
   
+    const {recipes: data, setRecipes} = state;
+    console.log(data);
+
+
     let history = useHistory();
     
     const handleClickDetail = (id) => {
-        console.log("data[id] Carrousel.js", data[id].id);
-        history.push(`/receta-detalle/${data[id].id}`)
+        // console.log("data[id] Carrousel.js", data[id].id);
+        console.log(data);
+        history.push(`/receta-detalle/${id}`)
     }
 
         // Context de logged
-        const {logged, setLogged} = useContext(LoggedContext);
+        // const {logged, setLogged} = useContext(LoggedContext);
     
     // GESTION DE LIKE, DISLIKE y BANNEAR. 
         
     // Estado del botón like. 
-    const [ like, setLike ] = useState(false);
-    const [ banned, setBanned ] = useState(true);
+    // const [ like, setLike ] = useState(false);
+    // const [ banned, setBanned ] = useState(true);
 
     // Cambio de estado de encendido a apagado btnFav y btnBanned
-    const handleLikeState = () => setLike(!like);
+    // const handleLikeState = () => setLike(!like);
 
     // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
-    const handleBannedState = () => setBanned(!banned);
+    // const handleBannedState = () => setBanned(!banned);
     // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
     // click en fav sin estar logado
-    const handleClickJoin = () => history.push('/join');
+    // const handleClickJoin = () => history.push('/join');
     
     // const printRecetas = () => data.map( item =>  drawRecetas(item))
-    const printRecetas = () => data.map( item => <Card item={item} /> )
+    const printRecetas = () => data.map( item => <Card action={handleClickDetail} recipesState={ {recipes: data, setRecipes} } item={item} /> )
     
 
 
@@ -108,13 +115,14 @@ const Carousell = ({data, recetas}) => {
                 centerMode={true}
                 showArrows={true}  
                 dynamicHeight={false}
-                onClickItem={handleClickDetail}
+                // onClickItem={handleClickDetail}
                 showThumbs={false}      
                 showIndicators={false}
                 showStatus={false}
                   
                 // width={100}
                 >
+                    
 
                 {printRecetas()}
 
@@ -124,9 +132,9 @@ const Carousell = ({data, recetas}) => {
 
         </>
 
-    );
+    )
 
-};
+}
 
 export default Carousell
 

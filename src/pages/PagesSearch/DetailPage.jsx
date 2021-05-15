@@ -28,27 +28,9 @@ import useLocalStorage from './../../Hooks/useLocalStorage';
 // import { TimePrice } from '../../components/TimePrice/TimePrice';
 import { Ingredients } from '../../components/Ingredients/Ingredients';
 import { Elaboration } from '../../components/Elaboration/Elaboration';
-import BtnLikeDislike from '../../components/BtnLikeDislike/BtnLikeDislike';
+import {BtnLikeDislike} from '../../components/BtnLikeDislike/BtnLikeDislike';
 import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
 import backArrowWhite from './../../assets/back__arrow-white.svg';
-
-const testArr = [
-  {
-    mainTitle: 'comida',
-    title: 'Pasta con atún',
-    type: 'Pasta',
-    ingredients: [
-      'tomate',
-      'pimiento',
-      'aceite',
-      'ajo',
-      'espirales',
-      'albahaca',
-    ],
-    price: 'Barato / 15 minutos',
-    img: 'https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg',
-  },
-];
 
 export const DetailPage = () => {
   // Context de logged
@@ -101,7 +83,6 @@ export const DetailPage = () => {
   };
 
   // HACER UN FETCH QUE TE REDIRECCIONE A LA RECETA DE BACK LA CUAL COINCIDA CON EL ID
-  // Tengo que sacar el token con el hook
   const { id } = useParams();
   const [token, setToken] = useLocalStorage('token', '');
   const [fetchState, fetchData] = useFetch();
