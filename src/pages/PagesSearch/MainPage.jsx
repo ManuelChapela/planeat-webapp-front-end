@@ -38,7 +38,7 @@ export const MainPage = () => {
   Object.keys(prefs).length === 0 && history.push('/nevera');
 
   return (
-    <div className="container">
+    <div className="main__page-container">
       <header>
         <div className="nav__bar-box">
           <NavBar2
@@ -63,9 +63,6 @@ export const MainPage = () => {
         
         </div>
       </main>
-
-      <div className="btn__box">
-      </div>
 
       <footer className="bottom__icon-box" context={logged}>
         <BtnMainIcons />

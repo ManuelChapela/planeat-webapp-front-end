@@ -311,6 +311,13 @@ main {
 
 /* -----------------------------------------------------------MAIN PAGE [ /horario ] */
 /* MAIN PAGE */
+
+.main__page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .main__title-box {
     width: 90%;
     margin: 0 auto;
@@ -324,7 +331,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 48rem;
+    height: 50rem;
     margin-bottom: 1rem;
     width: 300px;
 }
@@ -376,12 +383,16 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 80vh;
+    height: 65vh;
     width: 95vw;
+}
+.food__selection-box {
+    height: 20%;
 }
 .price__selection-box{
     display: flex;
     flex-direction: column;
+    height: 20%;
 }
 .price__selection{
     display: flex;
@@ -394,11 +405,14 @@ main {
 }
 .time__selection-box {
     text-align: center;
+    height: 20%;
+}
+.btn__selection-next {
+    height: 18%;
+    display: flex;
+    align-self: center;
 }
 
-.btn__selection-next img {
-    margin-bottom: 3.8rem;
-}
 
 
 
@@ -780,10 +794,10 @@ text-align: left;
 .card__icon-box {
     width: 8rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     position: absolute;
-    bottom: 1.2rem;
-    right: 1.2rem;
+    right: .2rem;
+    bottom: -1rem;
 
     z-index: 200;
 }
