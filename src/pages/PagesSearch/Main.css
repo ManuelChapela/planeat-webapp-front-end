@@ -123,6 +123,10 @@ main {
     flex-direction: column;
 }
 
+.sticker {
+    margin: 0 .2rem;
+}
+
 /* .stickers__container {
     display: flex;
     justify-content: center;
@@ -195,7 +199,6 @@ main {
     width: 100vw;
     background-color: var(--primary-color-light-top);
     box-shadow: 0px 2px 2px var(--primary-color);
-    margin-bottom: 1.6rem;
 }
 .back__arrow {
     width: .8rem;
@@ -210,6 +213,7 @@ main {
 .btn__back-box {
     display: flex;
     align-items: center;
+    z-index: 100;
 }
 
 
@@ -307,6 +311,13 @@ main {
 
 /* -----------------------------------------------------------MAIN PAGE [ /horario ] */
 /* MAIN PAGE */
+
+.main__page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .main__title-box {
     width: 90%;
     margin: 0 auto;
@@ -320,7 +331,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 48rem;
+    height: 50rem;
     margin-bottom: 1rem;
     width: 300px;
 }
@@ -372,12 +383,16 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 80vh;
+    height: 65vh;
     width: 95vw;
+}
+.food__selection-box {
+    height: 20%;
 }
 .price__selection-box{
     display: flex;
     flex-direction: column;
+    height: 20%;
 }
 .price__selection{
     display: flex;
@@ -390,11 +405,14 @@ main {
 }
 .time__selection-box {
     text-align: center;
+    height: 20%;
+}
+.btn__selection-next {
+    height: 18%;
+    display: flex;
+    align-self: center;
 }
 
-.btn__selection-next img {
-    margin-bottom: 3.8rem;
-}
 
 
 
@@ -418,8 +436,8 @@ main {
 .master__title {
     text-align: left;
     font-size: 1.6rem;
-    margin-bottom: 2rem;
-    padding-left: 3rem;
+    padding: .6rem 2rem;
+
 }
 .master__text {
     text-align: center;
@@ -745,19 +763,11 @@ text-align: left;
 /* -------------------------------------------------------------------- RECIPES PAGE*/
 /* RECIPES PAGE */
 
-.master__page-Carousel {
-    /* width: 100%; */
-    height: 100%;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
-}
-.carru {
-    height: 100% !important;
-}
+
 
 .card {
     width: 90%;
+    height: 38rem;
     /* height: 60vh; */
     margin: 0 auto;
     box-shadow: 0 0 4px rgba(0, 0, 0, .5);
@@ -784,10 +794,12 @@ text-align: left;
 .card__icon-box {
     width: 8rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     position: absolute;
-    bottom: 1.2rem;
-    right: 1.2rem;
+    right: .2rem;
+    bottom: -1rem;
+
+    z-index: 200;
 }
 .card__title-des--box {
     display: flex;
@@ -802,6 +814,7 @@ text-align: left;
 }
 .card__preferences {
     display: flex;
+    align-self: flex-start;
     padding: 0 1.2rem;
 }
 .card__ingredients-box {
@@ -812,8 +825,19 @@ text-align: left;
     text-align: left;
     padding: 0 1.2rem;
 }
+.card__detail-text--box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 10rem;
+}
 
-
+.card__ingredients {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .card__ingredients p {
     text-align: left;
     padding: 0 1.2rem;
@@ -822,32 +846,30 @@ text-align: left;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 2rem;
+    height: 7rem;
 }
 
-.slider-wrapper {
+/* .slider-wrapper {
     height: 30rem;
-}
+} */
 .control-arrow {
     height: 8rem;
     background: none;
 }
+
 .card__button-box {
-    width: 100%;
+    width: 15rem;
+    height: 4rem;
     display: flex;
     justify-content: center;
 }
-.card__button {
-    width: 8rem;
-    
-}
 
-.carousel-root {
+
+
+
+/* .carousel-root {
     margin-bottom: 4rem;
-}
-
-
-
+} */
 
 
 

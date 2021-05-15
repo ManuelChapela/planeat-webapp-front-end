@@ -21,6 +21,8 @@ import { Header } from './../../components/Header/Header';
 import { Painter } from '../../components/Painter/Painter';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
+import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 
 
 

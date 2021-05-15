@@ -5,7 +5,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
-const BtnLikeDislike = ({action, cssClass, iconHeart, iconHeartFill, stateLike}) => {
+export const BtnLikeDislike = ({action, cssClass, iconHeart, iconHeartFill, stateLike}) => {
 
     // console.log(stateLike);
     
@@ -22,7 +22,7 @@ const BtnLikeDislike = ({action, cssClass, iconHeart, iconHeartFill, stateLike})
     );
         
 }
- export default BtnLikeDislike
+
 
             
                 

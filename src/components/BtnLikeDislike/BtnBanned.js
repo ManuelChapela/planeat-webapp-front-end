@@ -17,8 +17,6 @@ export const BtnBanned = ({action, cssClass, iconHandUp, stateBanned}) => {
           src={stateBanned ? iconHandUp : iconHandUp}
           alt="icono favoritos"
         />
-        {/* // TODO Quitar esto */}
-        {stateBanned ? <p>Banned</p> : <p>Nop</p>}
       </div>
     );
 }
