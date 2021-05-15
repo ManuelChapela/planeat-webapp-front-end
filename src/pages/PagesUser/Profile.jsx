@@ -31,12 +31,14 @@ export const Profile = () => {
     // const handleClickGoogle = () => history.push("/1");
     
     // Hooks state & setState
-    const [modal, setModal] = useState()
+    const [modal, setModal] = useState();
+    const [profile, setProfile] = useState();
     
     // HistoryPush
     let history = useHistory();
 
 
+    
 
     // Functions setState --> activate Modal + historyPush('/PROFILE')
     const handleClickUser = () => {
@@ -71,6 +73,7 @@ export const Profile = () => {
     // Context, Hook Fetch y Hook Token 
     const [fetchState, fetchData] = useFetch();
     const [fetchStateLogout, fetchDataLogout] = useFetch();
+    const [fetchStateProfile, fetchProfile] = useFetch();
     const [token, setToken] = useLocalStorage("token", "");
     const {logged, setLogged} = useContext(loggedContext) 
 
@@ -125,7 +128,9 @@ export const Profile = () => {
 
         fetchDataLogout({ url, method, headers })
         // setToken("")
-    }   
+    }  
+    
+    
     
     useEffect (()=> {
         fetchState.isSuccess && fetchState.data.OK && reset();
@@ -140,9 +145,21 @@ export const Profile = () => {
         setLogged(false)
     }
 
-      useEffect (()=> {
-       !logged && history.push('/nevera')
-        }, [logged])
+    useEffect (()=> {
+    !logged && history.push('/nevera')
+    }, [logged])
+
+
+    useEffect ( () => {
+        const url = `${process.env.REACT_APP_BACKEND_URL}/user`;
+        const method = 'GET';
+        const headers = { authorization: `Bearer ${token}` }
+        fetchProfile({url, method, headers})
+    }, [fetchProfile] )
+
+    useEffect( () => {
+        fetchStateProfile.isSuccess && fetchStateProfile.data.OK && setProfile(fetchStateProfile.data.profile);
+    })
    
 
     // const handleClickCamera = () => {console.log("Clicaste el botón de la cámara")}
@@ -182,8 +199,9 @@ export const Profile = () => {
             </header>
 
             <main className='profile__main'>
-                <EditUser cssClass='btn__edit' text="Nombre de usuario" textBtn="..." action={handleClickUser}/>
-                <EditUser cssClass='btn__edit' text="Dirección de email" textBtn="..." action={handleClickEmail}/>
+                <EditUser cssClass='btn__edit' 
+                    text={profile.name} textBtn="..." action={handleClickUser}/>
+                <EditUser cssClass='btn__edit' text={profile.email} textBtn="..." action={handleClickEmail}/>
                 <EditUser cssClass='btn__edit' text="Contraseña" textBtn="..." action={handleClickPass}/>
                 <EditUser cssClass='btn__edit' text="Preferencias" textBtn="..." action={handleClickPrefs}/>
                 
