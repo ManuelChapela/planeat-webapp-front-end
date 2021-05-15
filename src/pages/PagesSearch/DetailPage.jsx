@@ -81,9 +81,22 @@ export const DetailPage = () => {
     // Cambio de estado de encendido a apagado btnFav y btnBanned
     const handleLikeState = () => { 
         setLike(!like)
-        console.log(like);
-    // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
+      
     }
+        console.log("like", like);
+        // // FETCH
+        // useEffect (()=> {
+        //     const url = `${process.env.REACT_APP_BACKEND_URL}/search/${ id }`;
+        //     const method = 'PATCH';
+        //     const body = {fav: !fav}
+        //     const headers = { authorization: `Bearer ${token}` }
+        //     fetchData({ url, method, body, headers })
+        // }, [])
+
+        
+
+
+    
     const handleBannedState = () => { setBanned(!banned) }
                                 // TODO: hacer un fetch que pida a un endpoint que añada/elimine según el click
     
@@ -122,7 +135,7 @@ export const DetailPage = () => {
         fetchData({ url, method, headers })
     }, [])
 
-
+console.log("estado del fetch", fetchState)
 
     return (
 
