@@ -148,7 +148,7 @@ export const MasterPage = () => {
 
             </>
 
-      }; 
+      }
        
 
       <footer className="bottom__icon-box">

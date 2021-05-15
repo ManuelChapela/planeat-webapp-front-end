@@ -125,9 +125,9 @@ const Carousell = ({data, recetas}) => {
 
         </>
 
-    );
+    )
 
-};
+}
 
 export default Carousell
 
