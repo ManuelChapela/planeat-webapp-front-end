@@ -123,7 +123,7 @@ export const MasterPage = () => {
       { recipes.length > 0 
 
         ?   <main className='master__page-Carousel'>
-              <Carousell  recetas={recetas} data={recipes} />
+              <Carousell state={ {recipes, setRecipes} } />
               {/* <Card /> */}
               
 
@@ -150,7 +150,7 @@ export const MasterPage = () => {
 
             </>
 
-      }; 
+      } 
        
 
       <footer className="bottom__icon-box">
