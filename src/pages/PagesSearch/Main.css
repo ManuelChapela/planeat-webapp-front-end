@@ -745,6 +745,16 @@ text-align: left;
 /* -------------------------------------------------------------------- RECIPES PAGE*/
 /* RECIPES PAGE */
 
+.master__page-Carousel {
+    /* width: 100%; */
+    height: 100%;
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+}
+.carru {
+    height: 100% !important;
+}
 
 .card {
     width: 90%;
@@ -802,9 +812,8 @@ text-align: left;
     text-align: left;
     padding: 0 1.2rem;
 }
-.card__ingredients {
-    height: 180%;
-}
+
+
 .card__ingredients p {
     text-align: left;
     padding: 0 1.2rem;
@@ -813,16 +822,28 @@ text-align: left;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 2rem;
 }
-.master__page-Carousel {
-    height: 100%;
-}
+
 .slider-wrapper {
     height: 30rem;
 }
 .control-arrow {
     height: 8rem;
     background: none;
+}
+.card__button-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.card__button {
+    width: 8rem;
+    
+}
+
+.carousel-root {
+    margin-bottom: 4rem;
 }
 
 
@@ -959,5 +980,5 @@ width: 190px;
 /* ---------------------- TEST */
 .master__page-Carousel{
     width: 100%;
-    height: 100%;
+    height: 80%;
 }

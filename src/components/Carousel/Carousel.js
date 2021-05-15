@@ -102,7 +102,6 @@ const Carousell = ({data, recetas}) => {
     return (
         <>
             <Carousel 
-
                 infiniteLoop={true} 
                 swipeable={true}
                 autoPlay={false}
@@ -112,7 +111,7 @@ const Carousell = ({data, recetas}) => {
                 onClickItem={handleClickDetail}
                 showThumbs={false}      
                 showIndicators={false}
-                showStatus={false}  
+                showStatus={false}
                   
                 // width={100}
                 >
