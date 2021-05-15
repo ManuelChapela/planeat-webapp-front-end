@@ -32,12 +32,13 @@ export const Profile = () => {
     
     // Hooks state & setState
     const [modal, setModal] = useState()
+
     
     // HistoryPush
     let history = useHistory();
-
-
-
+    
+    
+    
     // Functions setState --> activate Modal + historyPush('/PROFILE')
     const handleClickUser = () => {
         setModal("user")
@@ -47,33 +48,35 @@ export const Profile = () => {
     const handleClickEmail = () => {
         setModal("email")
         history.push('/profile')
-        }
-
+    }
+    
     const handleClickPass = () => {
         setModal("pass")
         history.push('/profile')
-        }
-
+    }
+    
     const handleClickPrefs = () => setModal("prefs")
-
+    
     // const handleClickExit = () => { 
-    //     // setModal("exit")
-    //     clicBtnLogOut()
-    //     console.log("Has hecho click en log out");
-    // }
-
-    const handleClickBack = () => console.log('hola volver');
-
-    // Reset State
-    const reset = () => setModal("")
-
-
-    // Context, Hook Fetch y Hook Token 
-    const [fetchState, fetchData] = useFetch();
-    const [fetchStateLogout, fetchDataLogout] = useFetch();
-    const [token, setToken] = useLocalStorage("token", "");
-    const {logged, setLogged} = useContext(loggedContext) 
-
+        //     // setModal("exit")
+        //     clicBtnLogOut()
+        //     console.log("Has hecho click en log out");
+        // }
+        
+        const handleClickBack = () => console.log('hola volver');
+        
+        // Reset State
+        const reset = () => setModal("")
+        
+        
+        // Context, Hook Fetch y Hook Token 
+        const [fetchState, fetchData] = useFetch();
+        const [fetchStateLogout, fetchDataLogout] = useFetch();
+        const [token, setToken] = useLocalStorage("token", "");
+        const {logged, setLogged} = useContext(loggedContext) 
+        
+        
+        
     console.log("logged", logged);
     // Botones 
     const clicBtnLeft = () => {

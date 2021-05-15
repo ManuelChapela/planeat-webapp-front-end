@@ -1,41 +1,55 @@
-import React from 'react';
+import React , {useContext} from 'react';
+import { useLocation } from 'react-router-dom';
+
 import { BtnNext } from '../BtnNext/BtnNext';
 
 import iconReloj from './../../assets/icon__reloj.svg'
 import iconMoneda from './../../assets/icon__moneda.svg'
 import verReceta from './../../assets/icon__ver-receta.svg'
 // import { TimePrice } from '../TimePrice/TimePrice';
-// import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
+import HistoryContext from './../../context/historyContext';
+
 
 import './Favs.css';
 
 export const Favs = (recetas) => {
 
-    
-    const handleClick = () => {console.log("holi", recetasNombre);}
+    const history = useHistory();
     console.log(recetas.recetas);
+
+    const location = useLocation();
+    const { currentUrl, setCurrentUrl } = useContext(HistoryContext);
+
+    
     
     const recetasNombre = recetas.recetas.length ? recetas.recetas.map((item) =>  {
-     
-
+        
+        const handleClick = () => {
+            // console.log("ID-RECETA", item.IdReceta)
+            setCurrentUrl({ currentUrl: location.pathname });
+            history.push(`/receta-detalle/${item.id}`)
+        }
+        console.log("URL Actual", currentUrl);
+        
         return (
         
         <>
         <div className="fav__main-box">
             
             <div className="fav__img-box">
-                <img src={item.Imagen} alt=""/>
+                <img src={item.img} alt=""/>
                 {/* <img src="" alt="Icon Like"/> */}
             </div>
            
             <div className='fav__price'>
-                <p>{item.Nombre}</p>
+                <p>{item.title}</p>
                 <div className="fav__price-icon--box">
                     <div className="fav__icon-time">
                         <h2>Tiempo</h2>
                         <div className="fav__time-left--subox">
                             <img src={iconReloj} alt="Reloj"/>
-                            <p>{item.IdTiempo}0 minutos</p>
+                            <p>{item.time} minutos</p>
                         </div>
                     </div>
                     <div className="fav__icon-time">
@@ -46,10 +60,11 @@ export const Favs = (recetas) => {
                         </div>
                     </div>
                 </div>
-                        <img className="btnRecipe" src={verReceta} alt=""/>
+                        <img onClick={handleClick} className="btnRecipe" src={verReceta} alt=""/>
             </div>
 
-
+            {
+        },
 
 
         </div>
@@ -66,7 +81,7 @@ export const Favs = (recetas) => {
     return (
 <>
 
-<div onClick={handleClick()}>{recetasNombre}</div> 
+<div >{recetasNombre}</div> 
         {/* <div className="fav__main-box">
             <div className="fav__img-box">
                     <img src="" alt="imgEJEMPLO"/>
