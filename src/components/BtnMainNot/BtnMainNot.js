@@ -30,32 +30,36 @@ export const BtnMainNot = () => {
 
   return (
     <div className="btn__not-container">
-
       <div className="btn__not-box">
-        <img 
-          src={iconCarne} 
-          alt="icono carne" 
+        <img
+          src={iconCarne}
+          alt="icono carne"
           id="0"
-          className={categories[0].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[0].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         />
 
-        <img 
-          src={iconFish} 
-          alt="icono carne" 
+        <img
+          src={iconFish}
+          alt="icono carne"
           id="1"
-          className={categories[1].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[1].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         />
 
-        <img 
-          src={iconMarisco} 
-          alt="icono carne" 
+        <img
+          src={iconMarisco}
+          alt="icono carne"
           id="2"
-          className={categories[2].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[2].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
-        />      
-
+        />
 
         {/* <button
           id="0"
@@ -89,30 +93,31 @@ export const BtnMainNot = () => {
       </div>
 
       <div className="btn__not-box">
-
-      <img 
-          src={iconLacteos} 
-          alt="icono carne" 
+        <img
+          src={iconLacteos}
+          alt="icono carne"
           id="3"
-          className={categories[3].value ? selectedClass : defaultClass}
+          className={
+            categories && categories[3].value ? selectedClass : defaultClass
+          }
           onClick={categoryClickHandler}
         />
 
-        <img 
-          src={iconVerduras} 
-          alt="icono carne" 
+        <img
+          src={iconVerduras}
+          alt="icono carne"
           id="4"
-          className={categories[4].value ? selectedClass : defaultClass}
+          className={categories && categories[4].value ? selectedClass : defaultClass}
           onClick={categoryClickHandler}
         />
 
-        <img 
-          src={iconPanBollo} 
-          alt="icono carne" 
+        <img
+          src={iconPanBollo}
+          alt="icono carne"
           id="5"
-          className={categories[5].value ? selectedClass : defaultClass}
+          className={categories && categories[5].value ? selectedClass : defaultClass}
           onClick={categoryClickHandler}
-        /> 
+        />
         {/* <button
           id="3"
           className={

@@ -191,7 +191,7 @@ export const Profile = () => {
             </main>
 
             <footer className='bottom__icon-box'>
-                <BtnMainIcons />
+                <BtnMainIcons context={logged} />
             </footer>
 
             <div> 

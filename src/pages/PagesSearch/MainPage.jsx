@@ -68,7 +68,7 @@ export const MainPage = () => {
       </div>
 
       <footer className="bottom__icon-box" context={logged}>
-        <BtnMainIcons />
+        <BtnMainIcons context = {logged}/>
       </footer>
     </div>
   );

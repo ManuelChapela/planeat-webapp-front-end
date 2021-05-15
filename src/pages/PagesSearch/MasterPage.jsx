@@ -10,6 +10,7 @@ import emptyPlate from './../../assets/empty__plate.svg';
 // Hooks
 import { useHistory } from 'react-router';
 import PrefsContext from './../../context/prefsContext';
+import LoggedContext from './../../context/loggedContext';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
@@ -25,10 +26,10 @@ import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { Card } from '../../components/Card/Card';
 
-
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
   const { prefs, setPrefs } = useContext(PrefsContext);
+  const { logged, setLogged } = useContext(LoggedContext);
   const [token, setToken] = useLocalStorage('token', '');
   const [recipes, setRecipes] = useState([]);
 
@@ -42,10 +43,15 @@ export const MasterPage = () => {
     fetchData({ url, method, body: prefs, headers });
   }, [fetchData, prefs, token]);
 
-  useEffect (() => {
-    fetchState.isSuccess && setRecipes(fetchState.data.recipes);
-  },[fetchState])
+  const fetchRecipes = () => {
+    console.log("LOGGED",fetchState.data.recipes.logged);
+    setLogged(fetchState.data.recipes.logged);
+    setRecipes(fetchState.data.recipes.recipes);
+  };
 
+  useEffect(() => {
+    fetchState.isSuccess && fetchRecipes();
+  }, [fetchState]);
 
   // const hardcodedItems = [
   //   {
@@ -53,7 +59,7 @@ export const MasterPage = () => {
   //     title: 'Espagueti Boloñesa',
   //     type: 'Pasta',
   //     ingredients: ['tomate', 'aceite', 'ajo', 'espaguetis', 'albahaca'],
-  //     price: 'Barato', 
+  //     price: 'Barato',
   //     time: '15 minutos',
   //     img:
   //       'https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg',
@@ -95,70 +101,54 @@ export const MasterPage = () => {
   const recetas = true;
 
   const handleBack = () => history.push('/horario');
-  const btnSearchAgain = () => history.push('/nevera')
+  const btnSearchAgain = () => history.push('/nevera');
 
-
-  console.log("Recetiñas", recipes);
+  console.log('Recetiñas', recipes);
 
   return (
-
-    
     <div className="container">
+      <header className="master__page-header">
+        <div className="nav__bar-box">
+          <NavBar2
+            cssClass="back__arrow"
+            actionBack={handleBack}
+            backArrow={backArrow}
+          />
+        </div>
 
-      <header className='master__page-header'>
-    
-          <div className="nav__bar-box">
-                <NavBar2 
-                    cssClass='back__arrow' 
-                    actionBack={handleBack} 
-                    backArrow={backArrow} 
-                />
-          </div>
-                    
-          <HeaderNoLogo cssClass='master__title' text="Recetas sugeridas" />
-
+        <HeaderNoLogo cssClass="master__title" text="Recetas sugeridas" />
       </header>
+      {recipes.length > 0 ? (
+        <main className="master__page-Carousel">
+          <Carousell recetas={recetas} data={recipes} />
+          {/* <Card /> */}
+        </main>
+      ) : (
+        <>
+          <main className="master__page-main">
+            <NoSuggest img={emptyPlate} />
+          </main>
 
+          <div className="master__btn-again">
+            <div className="master__text-box">
+              <p className="master__text">
+                Lo sentimos, aún no hemos cocinado ese plato, prueba con otra
+                búsqueda, tenemos recetas muy rápidas y sencillas
+              </p>
+            </div>
 
-      { recipes.length > 0 
-
-        ?   <main className='master__page-Carousel'>
-              <Carousell  recetas={recetas} data={recipes} />
-              {/* <Card /> */}
-              
-
-            </main>
-
-        :   <>
-              <main className='master__page-main'>
-                <NoSuggest img={emptyPlate} />
-              </main>
-      
-              <div className="master__btn-again">
-
-                  <div className="master__text-box">
-                      <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
-                  </div>
-        
-                  <BtnNext 
-                      btn={searchAgain} 
-                      textBtn="VOLVER A BUSCAR"
-                      action={btnSearchAgain}
-                  />
-
-              </div>
-
-            </>
-
-      }; 
-       
-
+            <BtnNext
+              btn={searchAgain}
+              textBtn="VOLVER A BUSCAR"
+              action={btnSearchAgain}
+            />
+          </div>
+        </>
+      )}
+      ;
       <footer className="bottom__icon-box">
-        <BtnMainIcons />
+        <BtnMainIcons context={logged} />
       </footer>
-
     </div>
-
   );
-
 };

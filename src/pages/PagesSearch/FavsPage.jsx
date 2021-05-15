@@ -57,7 +57,7 @@ export const FavsPage = () => {
                 </main>
 
                 <footer className="bottom__icon-box">
-                    <BtnMainIcons />
+                    <BtnMainIcons context={logged}  />
                 </footer>
             
             </div>
