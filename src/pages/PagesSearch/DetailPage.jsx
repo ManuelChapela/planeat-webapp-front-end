@@ -66,7 +66,6 @@ export const DetailPage = () => {
     const method = 'POST';
     const headers = { Authorization: `Bearer ${token}` };
     const body = { idRecipe: id };
-    console.log('BANEADO???', recipesState.ban);
     if (recipesState.ban) {
       const url = `${process.env.REACT_APP_BACKEND_URL}/user/delnofav`;
       fetchDataNoFav({ url, method, headers, body });
@@ -94,8 +93,6 @@ export const DetailPage = () => {
     steps: [],
   });
 
-  console.log('TODAS LAS RECETAS', recipesState);
-  console.log('1', recipesState.ingredients);
 
   // FETCHS
   useEffect(() => {

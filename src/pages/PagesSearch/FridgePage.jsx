@@ -43,7 +43,6 @@ export const FridgePage = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
     const method = 'GET';
     const headers = { Authorization: `Bearer ${token}` };
-    console.log('AUTH', headers);
     fetchData({ url, method, headers });
   }, [fetchData, token]);
 

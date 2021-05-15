@@ -4,10 +4,7 @@ const headersPredef = {
 };
 
 export default async function sendRequest({ url, method, body, headers }) {
-  console.log(url, method, body, headers);
-  console.log(JSON.stringify(body));
   const newHeaders = { ...headersPredef, ...headers };
-  console.log("HEADERS",newHeaders)
   const response = await fetch(url, {
     method,
     headers: newHeaders,

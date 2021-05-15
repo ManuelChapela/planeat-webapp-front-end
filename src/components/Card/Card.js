@@ -36,7 +36,7 @@ export const Card = ({ item, action, recipesState }) => {
   let history = useHistory();
   let location = useLocation();
 
-  const [recipe, setRecipe] = useState({ item });
+  const [recipe, setRecipe] = useState( item );
 
   //Fetch
   const [fetchStateFav, fetchDataFav] = useFetch();
@@ -74,6 +74,7 @@ export const Card = ({ item, action, recipesState }) => {
     const method = 'POST';
     const headers = { Authorization: `Bearer ${token}` };
     const body = { idRecipe: item.id };
+    console.log("BODU", body)
 
     if (recipe.fav) {
       const url = `${process.env.REACT_APP_BACKEND_URL}/user/delfav`;
@@ -92,7 +93,6 @@ export const Card = ({ item, action, recipesState }) => {
     const method = 'POST';
     const headers = { Authorization: `Bearer ${token}` };
     const body = { idRecipe: item.id };
-    console.log('BANEADO???', recipe.ban);
     if (recipe.ban) {
       const url = `${process.env.REACT_APP_BACKEND_URL}/user/delnofav`;
       fetchDataNoFav({ url, method, headers, body });
@@ -104,10 +104,10 @@ export const Card = ({ item, action, recipesState }) => {
 
   // UseEffects
   useEffect(() => {
-    console.log(recipe);
     fetchStateFav.isSuccess &&
       fetchStateFav.data.OK &&
       setRecipe({ ...recipe, fav: !recipe.fav });
+      console.log("RECIPE FAV", recipe)
   }, [fetchStateFav]);
 
   useEffect(() => {
@@ -115,10 +115,7 @@ export const Card = ({ item, action, recipesState }) => {
   }, [fetchStateNoFav]);
 
   const delBannedRecipe = () => {
-    console.log('RECETA A BORRAR', recipe.item.id);
-    console.log('RECETAS EN ESTADO', recipes);
-    const newRecipes = recipes.filter((el) => el.id !== recipe.item.id);
-    console.log('NEW RECIPES', newRecipes);
+    const newRecipes = recipes.filter((el) => el.id !== recipe.id);
     setRecipes(newRecipes);
   };
 
@@ -128,7 +125,7 @@ export const Card = ({ item, action, recipesState }) => {
         <img className="card__img" src={item.img} alt="" />
 
         <div className="card__title-box">
-          <h3>{item.mainTitle}</h3>
+          <h3>{ item.mainTitle}</h3>
         </div>
 
         <div className="card__icon-box">

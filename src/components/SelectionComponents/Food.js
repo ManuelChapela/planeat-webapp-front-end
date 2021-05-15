@@ -6,7 +6,6 @@ export const Food = ({ icons, prefsContext }) => {
 
   const categoryClickHandler = (e) => {
     categories[e.target.id].value = !categories[e.target.id].value;
-    console.log(e.target.id, categories[e.target.id].value);
     setPrefs({ ...prefs, categories });
   };
   return (

@@ -25,7 +25,6 @@ export const JoinPage = () => {
 
     const {currentUrl, setCurrentUrl} = useContext(HistoryContext);
     let url = currentUrl.currentUrl;
-    console.log(url);
 
     let history = useHistory();
 

@@ -77,11 +77,9 @@ export const Profile = () => {
     const [token, setToken] = useLocalStorage("token", "");
     const {logged, setLogged} = useContext(loggedContext) 
 
-    console.log("logged", logged);
     // Botones 
     const clicBtnLeft = () => {
         reset()
-        console.log("clicaste en el boton de la izquierda");
     }
 
     const clicBtnLeftDelete = () => {

@@ -16,7 +16,6 @@ import './Favs.css';
 export const Favs = (recetas) => {
 
     const history = useHistory();
-    console.log(recetas.recetas);
 
     const location = useLocation();
     const { currentUrl, setCurrentUrl } = useContext(HistoryContext);
@@ -26,11 +25,9 @@ export const Favs = (recetas) => {
     const recetasNombre = recetas.recetas.length ? recetas.recetas.map((item) =>  {
         
         const handleClick = () => {
-            // console.log("ID-RECETA", item.IdReceta)
             setCurrentUrl({ currentUrl: location.pathname });
             history.push(`/receta-detalle/${item.id}`)
         }
-        console.log("URL Actual", currentUrl);
         
         return (
         
@@ -113,7 +110,6 @@ export const Favs = (recetas) => {
 // export const Favs = (recetas) => {
 
 
-//     console.log(recetas.recetas);
 
 //     const recetasMap = recetas.recetas.length ? recetas.recetas.map((item) =>  { <p>{item.IdTipo}</p>
                

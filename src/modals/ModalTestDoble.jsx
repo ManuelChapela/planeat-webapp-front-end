@@ -24,7 +24,6 @@ export const ModalTestDoble = ({mainText, action1, action2, secondText, secondTe
         setNewPass(e.target.value)
     }
 
-console.log("3", newPass);
     // const newPass = () => {}
    
     return (

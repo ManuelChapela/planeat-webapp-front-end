@@ -27,7 +27,6 @@ import { useParams } from 'react-router-dom';
 export const FavsPage = () => {
     
     const {logged, setLogged} = useContext(LoggedContext);
-    console.log(logged);
     
     let history = useHistory();
     const handleClick = () => history.push("/recetas");
@@ -65,7 +64,6 @@ export const FavsPage = () => {
         }, [fetchData]);
         
 
-    console.log('Recetas', recipesState)
 
 
 

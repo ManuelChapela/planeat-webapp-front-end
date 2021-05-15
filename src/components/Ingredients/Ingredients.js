@@ -3,7 +3,6 @@ import './Ingredients.css';
 
 export const Ingredients = ({text, titleCss, ingredientsCss}) => {
 
-    console.log("text en ingredients", text);
     const ingredientes = text.map((item) => <li>{item}</li>)
 
     

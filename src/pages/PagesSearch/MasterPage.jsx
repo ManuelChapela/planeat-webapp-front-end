@@ -44,7 +44,6 @@ export const MasterPage = () => {
   }, [fetchData, prefs, token]);
 
   const fetchRecipes = () => {
-    console.log("LOGGED",fetchState.data.recipes.logged);
     setLogged(fetchState.data.recipes.logged);
     setRecipes(fetchState.data.recipes.recipes);
   };

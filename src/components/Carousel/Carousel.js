@@ -30,14 +30,11 @@ import btnSearchRecipe from './../../assets/icon__ver-receta.svg';
 const Carousell = ({state}) => {
   
     const {recipes: data, setRecipes} = state;
-    console.log(data);
 
 
     let history = useHistory();
     
     const handleClickDetail = (id) => {
-        // console.log("data[id] Carrousel.js", data[id].id);
-        console.log(data);
         history.push(`/receta-detalle/${id}`)
     }
 

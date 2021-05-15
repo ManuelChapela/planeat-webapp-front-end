@@ -6,10 +6,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
 export const BtnLikeDislike = ({action, cssClass, iconHeart, iconHeartFill, stateLike}) => {
-
-    // console.log(stateLike);
     
-
     return (
       <div className="btn__back-box">
         <img

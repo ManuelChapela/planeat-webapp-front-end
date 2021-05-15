@@ -17,12 +17,6 @@ import icon4 from './../../assets/icon__ensaladas.svg';
 const BtnCarousel = () => {
     
     
-    // const handleClickDetail = (id) => {
-
-
-    //     console.log("BTNCARR__id", id);
-    //     console.log("BTNCARR__categories", categories);
-    //     console.log("BTNCARR__prefs", prefs);
     // }
        
     const { prefs, setPrefs } = useContext(PrefsContext);

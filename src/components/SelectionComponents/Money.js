@@ -18,7 +18,6 @@ export const Money = ({ iconsMoney, prefsContext }) => {
 
     cost[e.target.id].value = !cost[e.target.id].value;
 
-    console.log(e.target.id, cost[e.target.id].value);
     setPrefs({ ...prefs, cost });
   };
 

@@ -16,7 +16,6 @@ export const Time = ({ iconsTime, prefsContext }) => {
     }
 
     time[e.target.id].value = !time[e.target.id].value;
-    console.log(e.target.id, time[e.target.id].value);
     setPrefs({ ...prefs, time });
   };
 
