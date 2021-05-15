@@ -49,15 +49,15 @@ export const Profile = () => {
     const handleClickEmail = () => {
         setModal("email")
         history.push('/profile')
-        }
-
+    }
+    
     const handleClickPass = () => {
         setModal("pass")
         history.push('/profile')
-        }
-
+    }
+    
     const handleClickPrefs = () => setModal("prefs")
-
+    
     // const handleClickExit = () => { 
     //     // setModal("exit")
     //     clicBtnLogOut()

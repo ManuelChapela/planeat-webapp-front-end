@@ -23,6 +23,7 @@ import { useParams } from 'react-router-dom';
 
 
 
+
 export const FavsPage = () => {
     
     const {logged, setLogged} = useContext(LoggedContext);
@@ -42,8 +43,7 @@ export const FavsPage = () => {
     const { id } = useParams();
     const [token, setToken] = useLocalStorage('token', '');
     const [fetchState, fetchData] = useFetch();
-    // const [fetchStateFav, fetchDataFav] = useFetch();
-    // const [fetchStateNoFav, fetchDataNoFav] = useFetch();
+
 
     const [recipesState, setRecipesState] = useState({
         ingredients: [],
