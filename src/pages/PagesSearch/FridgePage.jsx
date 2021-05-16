@@ -71,7 +71,7 @@ export const FridgePage = () => {
 
     <div className="container">
       <header className='fridge__header-box'>
-        <Header logo={iconNevera} cssClass='fridge__header-title' text="¿Qué tienes en la nevera?" />
+        <Header logo={iconNevera} cssClassUnderline='underlineText' cssClass='fridge__header-title' text="¿Qué tienes en la nevera?" />
       </header>
 
       <main className='fridge__main'>

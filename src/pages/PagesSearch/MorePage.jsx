@@ -45,7 +45,7 @@ export const MorePage = () => {
 
         <HeaderNoLogo
           cssClass="say__not-title"
-          text="¿Hay algo que no quieras comer?"
+          text="¿Qué ingredientes no quieres usar?"
         />
       </header>
 
