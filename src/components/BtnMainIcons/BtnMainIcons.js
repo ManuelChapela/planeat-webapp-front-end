@@ -5,6 +5,9 @@ import { BtnSearch } from './BtnSearch/BtnSearch';
 import { BtnUser } from './BtnUser/BtnUser';
 import { BtnLike } from './BtnLike/BtnLike';
 
+// ASSETS
+import btnLikeOn from './../../assets/icon__heart.svg'
+
 
 import HistoryContext from './../../context/historyContext';
 
@@ -50,6 +53,7 @@ export const BtnMainIcons = ( {context} ) => {
             history.push('./join')
         };
     }
+
     
     return (
         
