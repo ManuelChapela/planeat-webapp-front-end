@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react';
+import {useLocation} from 'react-router';
+import queryString from 'query-string'
 
 // CONTEXTS
 import LoggedContext from './../../context/loggedContext';
@@ -37,9 +39,17 @@ export const FridgePage = () => {
 
   const [token, setToken] = useLocalStorage('token', '');
 
-  let history = useHistory();
+  const location = useLocation();
+
+  const history = useHistory();
 
   useEffect(() => {
+    //si existe token de google Oauth lo mete en localStorage.
+    const search = queryString.parse(location.search);
+    search.token && setToken(search.token);
+    history.replace('/nevera');
+
+    // hacemos un fetch para obtener el objeto inicial de búsqueda
     const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
     const method = 'GET';
     const headers = { Authorization: `Bearer ${token}` };
