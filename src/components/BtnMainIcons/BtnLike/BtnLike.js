@@ -1,12 +1,25 @@
 import React from 'react';
 
 // Assets
-import iconLike from './../../../assets/icon__like.svg';
+import iconLikeOff from './../../../assets/iconLikeOff.svg';
+import iconLikeOn from './../../../assets/iconLikeOn.svg';
+
+import { useLocation } from 'react-router-dom';
+
 
 export const BtnLike = ({action}) => {
+
+    const location = useLocation();
+
+    console.log("BTN LIKE", location.pathname);
+
     return (
         <div className='icon__like' onClick={action}>
-            <img src={iconLike} alt="icono favoritos" />
+           {
+            location.pathname === '/favoritos' ? <img src={iconLikeOn} alt="icono lupa" />
+            : <img src={iconLikeOff} alt="icono lupa" />
+            }
+
         </div>
     )
 }

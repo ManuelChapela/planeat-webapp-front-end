@@ -2,6 +2,7 @@ import React from 'react';
 
 import iconLens from './../../../assets/icon__lens.svg';
 import iconLensOn from './../../../assets/icon__lens-on.svg';
+
 import { useLocation } from 'react-router-dom';
 
 
@@ -20,8 +21,19 @@ export const BtnSearch = ({ action }) => {
 
     return (
         <div className='icon__search' onClick={action} >
-           { location.pathname === '/nevera' ? <img src={iconLensOn} alt="icono lupa" /> : 
-            location.pathname === '/noquiero' ? <img src={iconLensOn} alt="icono lupa" /> : <img src={iconLens} alt="icono lupa" /> }
+           {
+            location.pathname === '/nevera' ? <img src={iconLensOn} alt="icono lupa" /> 
+            : 
+            location.pathname === '/noquiero' ? <img src={iconLensOn} alt="icono lupa" /> 
+            : 
+            location.pathname === '/seleccion' ? <img src={iconLensOn} alt="icono lupa" />
+            : 
+            location.pathname === '/horario' ? <img src={iconLensOn} alt="icono lupa" />
+            : 
+            location.pathname === '/recetas' ? <img src={iconLensOn} alt="icono lupa" />
+            : 
+            <img src={iconLens} alt="icono lupa" />
+            }
         </div>
     )
 }
