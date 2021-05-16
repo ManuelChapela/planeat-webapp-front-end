@@ -10,8 +10,7 @@ import { useParams } from 'react-router-dom';
 import iconHeart from './../../assets/icon__heart.svg';
 import iconHeartFill from './../../assets/icon__heart-fill.svg';
 import iconHand from './../../assets/icon__down-hand.svg';
-import iconPrice from './../../assets/icon__recipe-price.svg';
-import iconTime from './../../assets/icon__recipe-time.svg';
+import iconHandOn from './../../assets/icon__down-handOn.svg';
 import iconReloj from './../../assets/icon__reloj.svg';
 import iconMoneda from './../../assets/icon__moneda.svg';
 
@@ -31,6 +30,10 @@ import { Elaboration } from '../../components/Elaboration/Elaboration';
 import {BtnLikeDislike} from '../../components/BtnLikeDislike/BtnLikeDislike';
 import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
 import backArrowWhite from './../../assets/back__arrow-white.svg';
+import { ModalBanned } from '../../modals/ModalBanned';
+
+import btnCancel from './../../assets/modalBtnCancel.svg'
+import btnBanned from './../../assets/btnBanned.svg'
 
 export const DetailPage = () => {
   // Context de logged
@@ -48,6 +51,7 @@ export const DetailPage = () => {
 
   // Estado del botón like.
   const [banned, setBanned] = useState(false);
+  const [modal, setModal] = useState("")
 
   // Cambio de estado de encendido a apagado btnFav y btnBanned
   const handleLikeState = () => {
@@ -75,6 +79,14 @@ export const DetailPage = () => {
     }
   };
 
+  console.log("MODAL", modal);
+  const handleBannedPrev = () => {
+    setModal("modal")
+    // Aquí entra al hacer clic, cambia el estado a "modal" --> Si calco en 
+                                                                      // SI --> cambio el estado a "" y handleBannedState
+                                                                      // NO --> vuelvo a la página en la que estoy 
+  }
+
   // click en fav sin estar logado
   const handleClickJoin = () => {
     setCurrentUrl({ currentUrl: location.pathname });
@@ -87,6 +99,8 @@ export const DetailPage = () => {
   const [fetchState, fetchData] = useFetch();
   const [fetchStateFav, fetchDataFav] = useFetch();
   const [fetchStateNoFav, fetchDataNoFav] = useFetch();
+
+
 
   const [recipesState, setRecipesState] = useState({
     ingredients: [],
@@ -120,6 +134,21 @@ export const DetailPage = () => {
     fetchData({ url, method, headers });
   }, [fetchData, id, token]);
 
+
+
+
+  // MODAL
+  const modalBtnClose = () => {
+      console.log("Has clicado en salir");
+      setModal('')}
+  const clicBtnLeft = () => {setModal("")}
+  const clicBtnRightUser = () => {
+    handleBannedState()
+    history.push('/recetas')} 
+
+
+
+
   return (
     <div className="container">
       <header className="detail__header">
@@ -144,9 +173,11 @@ export const DetailPage = () => {
             />
 
             <BtnBanned
-              action={logged ? handleBannedState : handleClickJoin}
+              action={logged ? handleBannedPrev : handleClickJoin}
               stateBanned={recipesState.ban}
+              modal={modal}
               iconHandUp={iconHand}
+              iconHandUpBanned={iconHandOn}
               className="icon__down-hand"
               alt="icono mano hacia abajo"
             />
@@ -200,6 +231,22 @@ export const DetailPage = () => {
           />
         </div>
       </main>
+      
+      <div>
+      { modal === "modal" ? 
+        <ModalBanned
+            leftBtn={btnCancel}
+            rigthBtn={btnBanned}
+            secondText="Vetar receta"
+            mainText="Vetar receta"
+            reset={modalBtnClose}
+            action1={clicBtnLeft}
+            action2={clicBtnRightUser}
+            />
+         : '' } 
+            </div>
+        
+
     </div>
   );
 };

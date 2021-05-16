@@ -1133,3 +1133,29 @@ width: 190px;
     width: 100vw;
     height: 76vh;
 } */
+
+
+
+
+/*-------------------------------------- MODAL BANNED */
+.main__text-modal {
+    margin: 25px 0px;
+
+    width: 244px;
+    left: 24px;
+    top: 67px;
+
+    /* BUTTON/Regular/Lato */
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.0125em;
+
+    /* Neutral/Grey/Dark */
+
+    color: #5F6C4C;
+
+}
