@@ -104,7 +104,7 @@ export const Favs = ({recetas, toggleState, idClick}) => {
                         </div>
                     </div>
                 </div>
-                        <img onClick={handleClick} className="btnRecipe" src={verReceta} alt=""/>
+                    <img onClick={handleClick} className="btnRecipe" src={verReceta} alt=""/>
             </div>
 
             {
@@ -141,7 +141,7 @@ export const Favs = ({recetas, toggleState, idClick}) => {
 
             </div>
         </div> */}
-            <BtnNext textBtn="VER RECETA"/>
+            {/* <BtnNext textBtn="VER RECETA"/> */}
 
         </>
     )
