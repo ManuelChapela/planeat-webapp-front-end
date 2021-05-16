@@ -82,14 +82,20 @@ export const FavsPage = () => {
             {/* si NO HAY Favoritos en base de datos */}
             
             <div className='fav__container'>
+
                 <header>
+                    <div className="nav__bar-box--favs nav__bar-box">
+
                     <NavBar2 
+
                         cssClass='back__arrow' 
                         actionBack={handleClick} 
                         backArrow={backArrow} 
-                    />
+                        />
                     
-                    <HeaderNoLogo text='Recetas favoritas' />
+                    </div>
+
+                    <HeaderNoLogo cssClass='fav__main-title' text='Recetas favoritas' />
 
                 </header>
 
@@ -104,7 +110,7 @@ export const FavsPage = () => {
                     
                 </section>
 
-                <footer className="bottom__icon-box">
+                <footer className="sticky__footer bottom__icon-box">
                     <BtnMainIcons context={logged}  />
                 </footer>
             

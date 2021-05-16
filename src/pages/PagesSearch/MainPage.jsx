@@ -10,7 +10,6 @@ import iconBreakfast from './../../assets/icon__breakfast.svg';
 import iconLunch from './../../assets/icon__lunch.svg';
 import iconDinner from './../../assets/icon__dinner.svg';
 import backArrow from './../../assets/back__arrow.svg';
-import btnNext from './../../assets/btnNext.svg';
 
 // Hooks
 import PrefsContext from './../../context/prefsContext';
@@ -59,7 +58,7 @@ export const MainPage = () => {
             iconsFoodHours={iconsFoodHours}
           />
 
-          <BtnNext btn={btnNext} action={handleClick} icon={btnNextRec} textBtn="Buscar" />
+          <BtnNext btn={btnNextRec} action={handleClick} textBtn="Buscar" />
         
         </div>
       </main>
