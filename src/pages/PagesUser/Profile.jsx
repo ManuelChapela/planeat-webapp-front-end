@@ -186,7 +186,7 @@ export const Profile = () => {
               />
               <img
                 className="icon__photo"
-                src={iconPhotoUser}
+                src={profile && profile.photo || iconPhotoUser}
                 alt="icono foto"
               />
             </div>
