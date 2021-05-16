@@ -5,38 +5,85 @@ import { BtnNext } from '../BtnNext/BtnNext';
 
 import iconReloj from './../../assets/icon__reloj.svg'
 import iconMoneda from './../../assets/icon__moneda.svg'
+import iconFav from './../../assets/icon__heart-fill.svg'
 import verReceta from './../../assets/icon__ver-receta.svg'
 // import { TimePrice } from '../TimePrice/TimePrice';
 import { useHistory } from 'react-router';
 import HistoryContext from './../../context/historyContext';
 
 
+import useLocalStorage from './../../Hooks/useLocalStorage';
+import useFetch from './../../Hooks/useFetch';
+
+
+
+
 import './Favs.css';
 
-export const Favs = (recetas) => {
+export const Favs = ({recetas, toggleState, idClick}) => {
 
     const history = useHistory();
 
     const location = useLocation();
     const { currentUrl, setCurrentUrl } = useContext(HistoryContext);
+    
+    const [token, setToken] = useLocalStorage('token', '');
+    const [fetchStateFav, fetchDataFav] = useFetch();
+
+   
 
     
-    
-    const recetasNombre = recetas.recetas.length ? recetas.recetas.map((item) =>  {
+    const recetasNombre = recetas.length ? recetas.map((item) =>  {
         
         const handleClick = () => {
             setCurrentUrl({ currentUrl: location.pathname });
             history.push(`/receta-detalle/${item.id}`)
         }
+
         
+        // Boton de Fav / Quitar de fav
+        const handleFav = () => {
+            console.log("Has clicado en favorito con id = ", item.id)
+
+            
+                // const method = 'POST';
+                // const headers = { Authorization: `Bearer ${token}` };
+                // const body = { id: item.id };
+                // if (recipesState.fav) {
+                //   const url = `${process.env.REACT_APP_BACKEND_URL}/user/delfav`;
+                //   fetchDataFav({ url, method, headers, body });
+                // } else {
+                //   const url = `${process.env.REACT_APP_BACKEND_URL}/user/addfav`;
+                //   fetchDataFav({ url, method, headers, body });
+                // }
+              };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return (
         
         <>
         <div className="fav__main-box">
             
             <div className="fav__img-box">
-                <img src={item.img} alt=""/>
-                {/* <img src="" alt="Icon Like"/> */}
+                <img className="fav__comp-img" src={item.img} alt="" />
+                <img className="fav__comp-icon" src={iconFav} onClick={() => toggleState(item.id)} alt="Icon Like"/>
             </div>
            
             <div className='fav__price'>

@@ -44,10 +44,7 @@ export const FavsPage = () => {
     const [fetchState, fetchData] = useFetch();
 
 
-    const [recipesState, setRecipesState] = useState({
-        ingredients: [],
-        steps: [],
-      });
+    const [recipesState, setRecipesState] = useState([]);
 
       useEffect(() => {
         fetchState.isSuccess &&
@@ -63,13 +60,12 @@ export const FavsPage = () => {
           fetchData({ url, method, headers });
         }, [fetchData]);
         
-
-
-
-
-
-
-
+        const handleFav = (id) => {
+            const newRecipeState = recipesState.filter(el => el.id !== id)
+            setRecipesState(newRecipeState)
+            console.log("Has hecho clic en el padre FavPage", id);
+            console.log(newRecipeState);
+        }
 
 
 
@@ -90,12 +86,13 @@ export const FavsPage = () => {
                 </header>
 
                 <main>
-
-                    <Favs recetas={recipesState}/> 
-                    {/* {logged && fav 
-                    ?  <Favs/> 
+                    <div className='fav__main-container-box'>
+                        <Favs recetas={recipesState} toggleState={handleFav} /> 
+                        {/* {logged && fav 
+                        ?  <Favs/> 
                         :  <EmptyFav cssClass='icon__like-fav' />
                     } */}
+                    </div>
                     
                 </main>
 

@@ -54,6 +54,7 @@ main {
     justify-content: space-around;
     box-shadow: 0px -1px 15px var(--box-shadow);
     align-items: center;
+
 }
 .btn__next-box {
     align-self: center;
@@ -1018,6 +1019,8 @@ width: 190px;
     box-shadow: 0px 4px 7px #DADADA;
     border-radius: 10px;
     margin: 15px;
+    box-shadow: 0.5px 0.5px 10px 4px rgb(0 0 0 / 20%);
+    
 }
 /* .fav__main-box{
     display: flex;
@@ -1034,17 +1037,16 @@ width: 190px;
 .fav__img-box {
     display: flex;
     width: 130px;
-    height: 130px;
+    height: 160px;
     /* object-fit: fill;
-    overflow: hidden; */
+     */
 }
 
-.fav__img-box img{
-    /* width: 130px;
-    height: 130px; 
-    */
+.fav__comp-img{
     width: 130px; 
-    height: auto;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px
 
 }
 
@@ -1057,9 +1059,9 @@ width: 190px;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    /* line-height: 29px; */
-    letter-spacing: 0.15000000596046448px;
+    line-height: 20px;
     text-align: left;
+    margin-top: 5px;
 }
 
 .text__box h3{
@@ -1071,7 +1073,7 @@ width: 190px;
 .fav__price-icon--box{
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    padding: 5px;
 }
 
 .fav__price-icon--box p{
@@ -1087,8 +1089,9 @@ width: 190px;
 }
 
 .btnRecipe {
-    width: 140px;
+    width: 170px;
     margin-left: 5px;
+    margin-top: 5px;
 }
 
 .fav__icon-time h2{
@@ -1110,3 +1113,15 @@ width: 190px;
     letter-spacing: 0.015em;
     text-align: left;
 }
+
+.fav__comp-icon {
+    width: 40px;
+    /* height: 29px; */
+    position: absolute;
+    margin: 10px 8px;
+}
+
+/* .fav__main-container-box{
+    width: 100vw;
+    height: 76vh;
+} */
