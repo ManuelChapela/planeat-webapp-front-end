@@ -115,7 +115,7 @@ export const MasterPage = () => {
           />
         </div>
 
-        <HeaderNoLogo cssClass="master__title" text="Recetas sugeridas" />
+        <HeaderNoLogo cssClass="master__title" text={fetchState.isLoading ? 'Buscando recetas'  :  "Recetas sugeridas" } />
       </header>
 
 
@@ -129,30 +129,38 @@ export const MasterPage = () => {
             </main>
 
         :   <>
-              <main className='master__page-main'>
-                <NoSuggest img={emptyPlate} />
-              </main>
-      
-              <div className="master__btn-again">
 
-                  <div className="master__text-box">
-                      <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
-                  </div>
-        
-                  <BtnNext 
-                      btn={searchAgain} 
-                      textBtn="VOLVER A BUSCAR"
-                      action={btnSearchAgain}
-                  />
+        {fetchState.isLoading ? 
+          <div class="loader">Loading...</div>
+        : 
+        <>
 
+          <main className='master__page-main'>
+            <NoSuggest img={emptyPlate} />
+          </main>
+
+          <div className="master__btn-again">
+
+              <div className="master__text-box">
+                  <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
               </div>
+
+              <BtnNext 
+                  btn={searchAgain} 
+                  textBtn="VOLVER A BUSCAR"
+                  action={btnSearchAgain}
+                  />
+          </div>
+
+        </> }
+              
 
             </>
 
       }
        
 
-      <footer className="bottom__icon-box">
+      <footer className="master__bottom-icon--box bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
     </div>

@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+
 :root {
     --white: #fff;
     --black: #000;
@@ -476,6 +477,10 @@ main {
     flex-direction: column;
     align-items: center;
 }
+.master__bottom-icon--box {
+    position: fixed;
+    bottom: 0;
+}
 
 
 
@@ -512,7 +517,7 @@ main {
 }
 .profile__img-box {
     position: absolute;
-    top: 150%;
+    top: 100%;
     left: 50%;
     transform: translate(-50%);
 
@@ -533,6 +538,14 @@ main {
     position: absolute;
     top: 1.5rem;
     z-index: 1;
+}
+.icon__photo-google {
+    border-radius: 50%;
+    width: 6.5rem;
+}
+.profile__box {
+    display: flex;
+    justify-content: flex-end;
 }
 .profile__main {
     height: 60vh;
@@ -1034,8 +1047,10 @@ width: 190px;
 
 
 
+
 .fav__main-title {
     padding: 0 1.2rem;
+    padding-top: 6rem;
     text-decoration: underline solid var(--primary-color);
     text-underline-offset: -4px;
     text-decoration-thickness: 30%;
@@ -1158,11 +1173,13 @@ width: 190px;
 }
 
 .nav__bar-box--favs {
-    margin-bottom: 2rem;
+    position: fixed;
+    z-index: 5;
 }
 
 .sticky__footer {
-    position: sticky;
+    margin-top: 2rem;
+    position: fixed;
     bottom: 0;
     z-index: 1;
 
@@ -1170,15 +1187,22 @@ width: 190px;
 
 }
 
+.final__container-fav:last-child {
+    margin-bottom: 8rem;
+}
 
+<<<<<<< HEAD
 /* .fav__main-container-box{
     width: 100vw;
     height: 76vh;
 } */
+=======
+>>>>>>> searchChris
 
 
 
 
+<<<<<<< HEAD
 /*-------------------------------------- MODAL BANNED */
 .main__text-modal {
     margin: 25px 0px;
@@ -1201,3 +1225,71 @@ width: 190px;
     color: #5F6C4C;
 
 }
+=======
+
+/* SPINNER */
+
+.loader {
+    font-size: 10px;
+    margin: 50px auto;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: #ffffff;
+    background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .loader:before {
+    width: 50%;
+    height: 50%;
+    background: var(--primary-color);
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+  .loader:after {
+    background: #fff;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  @-webkit-keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+>>>>>>> searchChris

@@ -125,7 +125,7 @@ export const Favs = ({recetas, toggleState, idClick}) => {
     return (
 <>
 
-<div >{recetasNombre}</div> 
+<div className='final__container-fav' >{recetasNombre}</div> 
         {/* <div className="fav__main-box">
             <div className="fav__img-box">
                     <img src="" alt="imgEJEMPLO"/>
