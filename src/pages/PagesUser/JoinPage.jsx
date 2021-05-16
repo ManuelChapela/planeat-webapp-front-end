@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, { useContext, useEffect } from 'react';
 import { HeaderJoin } from './../../components/HeaderJoin/HeaderJoin';
 import logoSmall from './../../assets/mainIcon__small.svg';
 import { useHistory } from 'react-router';
-import { BtnMainIcons } from './../../components/BtnMainIcons/BtnMainIcons';
+import useFetch from '../../Hooks/useFetch';
 
 // Componentes
 // import { EditPass } from '../../components/EditPass/EditPass';
@@ -18,109 +18,85 @@ import btnLogin from './../../assets/btn__log-in.svg';
 import btnSignup from './../../assets/btn__sign-up.svg';
 import backArrow from './../../assets/back__arrow.svg';
 
-
-
-
 export const JoinPage = () => {
+  const { currentUrl, setCurrentUrl } = useContext(HistoryContext);
 
-    const {currentUrl, setCurrentUrl} = useContext(HistoryContext);
-    let url = currentUrl.currentUrl;
+  const [fetchLinkState, fetchLink] = useFetch();
 
-    let history = useHistory();
+  useEffect(() => {
+    const url = `${process.env.REACT_APP_BACKEND_URL}/google-link`;
+    const method = 'GET';
+    fetchLink({url, method});
+  }, [fetchLink]);
 
-    const handleClickGoogle = () => history.push("/profile");
-    const handleClickLogIn = () => history.push('/login');
-    const handleClickSignUp = () => history.push("/signup");
-    const handleBack = () => history.push(`${url}`);
+  let url = currentUrl.currentUrl;
 
+  let history = useHistory();
 
-    return (
-        <div className='join__container'>
+  const handleClickSignUp = () => history.push('/profile');
+  const handleClickLogIn = () => history.push('/login');
+  const handleClickGoogle = () => {
+    if (fetchLinkState.isSuccess && fetchLinkState.data.OK)
+      window.location.href = fetchLinkState.data.link;
+    else history.push('/join');
+  };
 
-            <header className='join__header'>
+  const handleBack = () => history.push(`${url}`);
 
-                <div className="nav__bar-box">
-                    <NavBar2
-                        action={handleBack}
-                        cssClass="back__arrow"
-                        // actionBack={handleBack}
-                        backArrow={backArrow}
-                    />
-                </div>
-
-                <HeaderJoin cssClass='logo__join' logo={logoSmall} text="¿Quieres añadir una receta a favoritos o eliminar una receta de tus sugerencias?" />
-
-            </header>
-
-            <main className='join__main'>
-                <h2 className='join__cta'>Únete a Planeat</h2>
-                <h3 className='join__text'>Aprovecha lo que hay en tu nevera con recetas rápidas y sencillas ¡Únete ahora!</h3>
-            </main>
-
-            <footer className='join__footer'>
-
-                <div className='btn__join-box'>
-                    <img 
-                        src={btnGoogle} 
-                        className="btn__google" 
-                        onClick={handleClickGoogle} 
-                        alt="botón de login con google" 
-                    />
-
-                    <img 
-                        src={btnLogin} 
-                        className="btn__log-in" 
-                        onClick={handleClickLogIn} 
-                        alt="botón de login con google" 
-                    />
-
-                    <img 
-                        src={btnSignup} 
-                        className="btn__sign-up" 
-                        onClick={handleClickSignUp} 
-                        alt="botón de login con google" 
-                    />
-
-                </div>
-            </footer>
-
-            
-
-
+  return (
+    <div className="join__container">
+      <header className="join__header">
+        <div className="nav__bar-box">
+          <NavBar2
+            action={handleBack}
+            cssClass="back__arrow"
+            // actionBack={handleBack}
+            backArrow={backArrow}
+          />
         </div>
-    )
-}
 
+        <HeaderJoin
+          cssClass="logo__join"
+          logo={logoSmall}
+          text="¿Quieres añadir una receta a favoritos o eliminar una receta de tus sugerencias?"
+        />
+      </header>
 
+      <main className="join__main">
+        <h2 className="join__cta">Únete a Planeat</h2>
+        <h3 className="join__text">
+          Aprovecha lo que hay en tu nevera con recetas rápidas y sencillas
+          ¡Únete ahora!
+        </h3>
+      </main>
 
+      <footer className="join__footer">
+        <div className="btn__join-box">
+          <img
+            src={btnGoogle}
+            className="btn__google"
+            onClick={handleClickGoogle}
+            alt="botón de login con google"
+          />
 
+          <img
+            src={btnLogin}
+            className="btn__log-in"
+            onClick={handleClickLogIn}
+            alt="botón de login con google"
+          />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <img
+            src={btnSignup}
+            className="btn__sign-up"
+            onClick={handleClickSignUp}
+            alt="botón de login con google"
+          />
+        </div>
+      </footer>
+    </div>
+  );
+};
 
 /*
 import React from 'react';
@@ -146,14 +122,13 @@ export const JoinPage = () => {
             {/* <Header logo={logo} mainText='¿Quieres añadir una receta a favoritos o eliminar una receta de tus sugerencias?'/> 
             <h3>Únete a XXXXXXX</h3>
             <h5>Aprovecha lo que hay en tu nevera con recetas rápidas y sencillas ¡Únete ahora!</h5> */
-            /* <button className="btnGoogle" onClick={handleClickGoogle}>Continúa con Google</button>
+/* <button className="btnGoogle" onClick={handleClickGoogle}>Continúa con Google</button>
             <button className="btnLogIn" onClick={handleClickLogIn}>Regístrate</button>
             <button className="btnSignUp" onClick={handleClickSignUp}>Iniciar sesión</button> */
-            /* <BtnMainIcons cssClass="mainIcons" /> }
+/* <BtnMainIcons cssClass="mainIcons" /> }
         </div>
     );
 };
 
 
 */
-
