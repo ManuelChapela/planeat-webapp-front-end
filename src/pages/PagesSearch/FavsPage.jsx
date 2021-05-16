@@ -42,12 +42,11 @@ export const FavsPage = () => {
     const { id } = useParams();
     const [token, setToken] = useLocalStorage('token', '');
     const [fetchState, fetchData] = useFetch();
+    const [fetchStateFav, fetchDataFav] = useFetch();
 
 
-    const [recipesState, setRecipesState] = useState({
-        ingredients: [],
-        steps: [],
-      });
+
+    const [recipesState, setRecipesState] = useState([]);
 
       useEffect(() => {
         fetchState.isSuccess &&
@@ -63,13 +62,18 @@ export const FavsPage = () => {
           fetchData({ url, method, headers });
         }, [fetchData]);
         
+        const handleFav = (id) => {
+            const newRecipeState = recipesState.filter(el => el.id !== id)
+            setRecipesState(newRecipeState)
+            console.log("Has hecho clic en el padre FavPage", id);
 
-
-
-
-
-
-
+            const method = 'POST';
+            const headers = { Authorization: `Bearer ${token}` };
+            const body = { idRecipe: id };
+            const url = `${process.env.REACT_APP_BACKEND_URL}/user/delfav`;
+            fetchDataFav({ url, method, headers, body });
+           
+          };
 
 
 
@@ -90,12 +94,13 @@ export const FavsPage = () => {
                 </header>
 
                 <main>
-
-                    <Favs recetas={recipesState}/> 
-                    {/* {logged && fav 
-                    ?  <Favs/> 
+                    <div className='fav__main-container-box'>
+                        <Favs recetas={recipesState} toggleState={handleFav} /> 
+                        {/* {logged && fav 
+                        ?  <Favs/> 
                         :  <EmptyFav cssClass='icon__like-fav' />
                     } */}
+                    </div>
                     
                 </main>
 

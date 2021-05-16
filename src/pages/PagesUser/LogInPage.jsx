@@ -95,7 +95,8 @@ export const LogInPage = () => {
                     text="Email"
                     placeholder='Introduce tu email'
                     inputChange={mailChange}
-                    small='email no válido, prueba otra vez'
+                    small={fetchState.isFailed && fetchState.error.message && 'email no válido, prueba otra vez'}
+                    // small='email no válido, prueba otra vez'
                 />
 
                 <InputMod 
@@ -104,7 +105,7 @@ export const LogInPage = () => {
                     text="Contraseña"
                     placeholder='Introduce tu contraseña'
                     inputChange={passChange}
-                    small='contraseña no válida, prueba otra vez'
+                    small={fetchState.isFailed && fetchState.error.message && 'contraseña no válida, prueba otra vez'}
                 />
 
                 <BtnConfirm 
