@@ -175,25 +175,41 @@ export const Profile = () => {
         <div className="green__img-box">
           <div className="title__box">
             <h1>Tu Perfil</h1>
+
+            <div className="profile__box">
+              <img src={cameraIcon} alt="Icono de cámara" />
+            </div>
+
           </div>
 
           <div className="profile__img-box">
+
             <div className="user__photo">
+              {profile && profile.photo ? 
               <img
+                className="icon__photo-google"
+                src={profile.photo}
+                alt="icono foto"
+              /> 
+              : 
+              <>
+                <img
                 className="elipse__photo"
                 src={elipsePhoto}
                 alt="icono foto"
               />
               <img
                 className="icon__photo"
-                src={profile && profile.photo || iconPhotoUser}
+                src={iconPhotoUser}
                 alt="icono foto"
               />
+              </>  }
+
+              
+              
             </div>
 
-            <div className="profile__box">
-              <img src={cameraIcon} alt="Icono de cámara" />
-            </div>
+            
           </div>
         </div>
       </header>
