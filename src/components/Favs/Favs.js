@@ -53,7 +53,7 @@ export const Favs = (recetas) => {
                         <h2>Precio</h2>
                         <div className="fav__time-right--subox">
                             <img src={iconMoneda} alt="Eurito"/>
-                            <p>FALTA ESTO</p>
+                            <p>{item.prize}</p>
                         </div>
                     </div>
                 </div>
