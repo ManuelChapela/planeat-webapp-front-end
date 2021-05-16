@@ -60,6 +60,10 @@ main {
     align-self: center;
 }
 
+.logo__box {
+    margin-top: 1rem;
+}
+
 /* -------------------------------------------------------INIT PAGE */
 /* INIT PAGE */
 .init__page {

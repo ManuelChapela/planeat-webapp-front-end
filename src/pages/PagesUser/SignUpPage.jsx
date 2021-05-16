@@ -29,7 +29,7 @@ export const SignUpPage = () => {
   // Hook useState
   const [name, setName] = useState();
   const [user, setUser] = useState();
-  const [mail, setMail] = useState();
+  const [mail, setMail] = useState({});
   const [pass, setPass] = useState();
   const url = `${process.env.REACT_APP_BACKEND_URL}/signup`;
   const method = 'POST';
@@ -65,6 +65,7 @@ export const SignUpPage = () => {
   const passChange = (pass) => {
     setPass(pass);
   };
+
 
   const handleClick = () => {
     const body = { name, userName: user, email: mail, pass };
@@ -112,12 +113,12 @@ export const SignUpPage = () => {
 
         <div>
           <InputMod
-            cssClass='input__style'
+            cssClass='input__style testing__in'
             placeholder="Introduce tu email"
             type="text"
             text="Email"
             inputChange={mailChange}
-            small='email no válido, prueba otra vez'
+            small={fetchState.isFailed && fetchState.error.messageUser && 'email no válido, prueba otra vez'}
           />
         </div>
 
@@ -128,7 +129,9 @@ export const SignUpPage = () => {
             type="password"
             text="Contraseña"
             inputChange={passChange}
-            small='contraseña no válida, prueba otra vez'
+            small={fetchState.isFailed && fetchState.error.messagePass && 'contraseña no válida, prueba otra vez'}
+            
+            // small='contraseña no válida, prueba otra vez'
           />
         </div>
 
@@ -144,7 +147,8 @@ export const SignUpPage = () => {
           cssClass='btn__confirm'
           btn={btnSignup} 
           textBtn="Crear cuenta" 
-          action={handleClick} />
+          action={handleClick} 
+        />
 
 
       </main>
