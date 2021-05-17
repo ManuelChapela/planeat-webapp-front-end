@@ -65,6 +65,7 @@ export const FavsPage = () => {
         }, [fetchData]);
         
         const handleFav = (id) => {
+            console.log(9999999);
             const newRecipeState = recipesState.filter(el => el.id !== id)
             setRecipesState(newRecipeState)
             console.log("Has hecho clic en el padre FavPage", id);
