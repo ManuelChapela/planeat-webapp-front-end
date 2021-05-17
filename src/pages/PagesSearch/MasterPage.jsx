@@ -6,12 +6,14 @@ import './Main.css';
 // Assets
 import searchAgain from './../../assets/btn__search-again.svg';
 import emptyPlate from './../../assets/empty__plate.svg';
+import btnBanned from './../../assets/btnBanned.svg';
+import modalBtnCancel from './../../assets/modalBtnCancel.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
 import PrefsContext from './../../context/prefsContext';
 import LoggedContext from './../../context/loggedContext';
-import BannedContext from './../../context/bannedContext';
+import { BannedProvider } from '../../context/bannedContext';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
@@ -30,10 +32,11 @@ import { ModalBanned } from '../../modals/ModalBanned';
 
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
+  const [fetchStateNoFav, fetchDataNoFav] = useFetch();
 
   const { prefs, setPrefs } = useContext(PrefsContext);
   const { logged, setLogged } = useContext(LoggedContext);
-  const { banned, setBanned } = useContext(BannedContext);
+  const [banned, setBanned] = useState({});
 
   const [token, setToken] = useLocalStorage('token', '');
   const [recipes, setRecipes] = useState([]);
@@ -57,12 +60,35 @@ export const MasterPage = () => {
     fetchState.isSuccess && fetchRecipes();
   }, [fetchState]);
 
-  const recetas = true;
+  const delRecipe = (id) => {
+    const newRecipes = recipes.filter((el) => el.id !== id);
+    setBanned({ id: false });
+    setRecipes(newRecipes);
+  };
+
+  useEffect(() => {
+    fetchStateNoFav.isSuccess && fetchStateNoFav.data.OK && delRecipe(banned.id);
+  }, [fetchStateNoFav]);
+
+  //const recetas = true;
 
   const handleBack = () => history.push('/horario');
   const btnSearchAgain = () => history.push('/nevera');
 
   console.log('Recetiñas', recipes);
+
+  const modalBtnClose = () => {
+    setBanned({ id: false });
+  };
+
+  const handleBannedState = () => {
+    const method = 'POST';
+    const headers = { Authorization: `Bearer ${token}` };
+    const body = { idRecipe: banned.id };
+
+    const url = `${process.env.REACT_APP_BACKEND_URL}/user/addnofav`;
+    fetchDataNoFav({ url, method, headers, body });
+  };
 
   return (
     <div className="container">
@@ -75,55 +101,59 @@ export const MasterPage = () => {
           />
         </div>
 
-        <HeaderNoLogo cssClass="master__title" text={fetchState.isLoading ? 'Buscando recetas'  :  "Recetas sugeridas" } />
+        <HeaderNoLogo
+          cssClass="master__title"
+          text={fetchState.isLoading ? 'Buscando recetas' : 'Recetas sugeridas'}
+        />
       </header>
 
+      {recipes.length > 0 ? (
+        <BannedProvider value={{ banned, setBanned }}>
+          <main className="master__page-Carousel">
+            <Carousell state={{ recipes, setRecipes }} />
 
-      { recipes.length > 0 
-
-        ?   <main className='master__page-Carousel'>
-              <Carousell state={ {recipes, setRecipes} } />
-              {/* <Card /> */}
-
-           { banned && banned.id && <ModalBanned
-                  // leftBtn={btnCancel}
-                  // rigthBtn={btnBanned}
-                  secondText="Vetar receta"
-                  mainText="Vetar receta"
-                  // reset={modalBtnClose}
-                  // action1={clicBtnLeft}
-                  // action2={clicBtnRightUser}
-                  />
-           }
-            </main>
-
-        :   <>
-
-        {fetchState.isLoading ? 
-          <div class="loader">Loading...</div>
-        : 
-        <>
-
-          <main className='master__page-main'>
-            <NoSuggest img={emptyPlate} />
+            {banned && banned.id && (
+              <ModalBanned
+                leftBtn={modalBtnCancel}
+                rigthBtn={btnBanned}
+                secondText="Vetar receta"
+                mainText="Vetar receta"
+                reset={modalBtnClose}
+                action1={modalBtnClose}
+                action2={handleBannedState}
+              />
+            )}
           </main>
+        </BannedProvider>
+      ) : (
+        <>
+          {fetchState.isLoading ? (
+            <div class="loader">Loading...</div>
+          ) : (
+            <>
+              <main className="master__page-main">
+                <NoSuggest img={emptyPlate} />
+              </main>
 
-          <div className="master__btn-again">
+              <div className="master__btn-again">
+                <div className="master__text-box">
+                  <p className="master__text">
+                    Lo sentimos, aún no hemos cocinado ese plato, prueba con
+                    otra búsqueda, tenemos recetas muy rápidas y sencillas
+                  </p>
+                </div>
 
-              <div className="master__text-box">
-                  <p className='master__text'>Lo sentimos, aún no hemos cocinado ese plato, prueba con otra búsqueda, tenemos recetas muy rápidas y sencillas</p>
-              </div>
-
-              <BtnNext 
-                  btn={searchAgain} 
+                <BtnNext
+                  btn={searchAgain}
                   textBtn="VOLVER A BUSCAR"
                   action={btnSearchAgain}
-                  />
-          </div>
-        </> }
+                />
+              </div>
             </>
-      }
-   
+          )}
+        </>
+      )}
+
       <footer className="master__bottom-icon--box bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
