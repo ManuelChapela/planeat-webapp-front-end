@@ -632,7 +632,7 @@ main {
     height: 20%;
 }
 .btn__login {
-    width: 18rem;
+    width: 18.5rem;
 }
 .login__footer-box {
     text-align: center;
@@ -673,7 +673,7 @@ main {
     justify-content: space-around;
 }
 .btn__confirm {
-    width: 18rem;
+    width: 18.5rem;
 }
 
 
@@ -908,7 +908,7 @@ text-align: left;
 }
 
 .card__button-box {
-    width: 15rem;
+    width: 15.3rem;
     height: 4rem;
     display: flex;
     justify-content: center;

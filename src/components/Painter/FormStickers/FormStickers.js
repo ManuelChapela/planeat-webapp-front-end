@@ -52,7 +52,6 @@ export const FormStickers = ({ addSticker }) => {
   };
 
   const handleSearchText = (e) => {
-    console.log(e.target.value.length >= 2);
     setSearchText(e.target.value);
   };
 
@@ -75,17 +74,23 @@ export const FormStickers = ({ addSticker }) => {
             style={{
               marginTop: '40px'
           }}
+
           freesolo
           options={ingredientes}
           noOptionsText=""
           getOptionLabel={(options) => options.Ingrediente}
           onChange={handleAutocomplete}
           onInputChange={handleSearchText}
+        
           renderInput={(params) => (
-            <TextField {...params} label="Selecciona..." fullWidth />
+            <TextField {...params} 
+                    label="Selecciona..." 
+                    fullWidth
+                    
+             />
           )}
           autoHighlight={true}
-          fullWidth={true}
+          // fullWidth={true}
           // clearOnEscape={false}
           // disableListWrap={true}
           // autoSelect={true}
