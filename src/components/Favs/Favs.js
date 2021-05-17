@@ -22,6 +22,7 @@ import './Favs.css';
 
 export const Favs = ({recetas, toggleState, idClick}) => {
 
+
     const history = useHistory();
 
     const location = useLocation();
@@ -29,8 +30,6 @@ export const Favs = ({recetas, toggleState, idClick}) => {
     
     const [token, setToken] = useLocalStorage('token', '');
     const [fetchStateFav, fetchDataFav] = useFetch();
-
-   
 
     
     const recetasNombre = recetas.length ? recetas.map((item) =>  {
@@ -40,7 +39,6 @@ export const Favs = ({recetas, toggleState, idClick}) => {
             history.push(`/receta-detalle/${item.id}`)
         }
 
-        
         // Boton de Fav / Quitar de fav
         const handleFav = () => {
             console.log("Has clicado en favorito con id = ", item.id)
@@ -57,21 +55,6 @@ export const Favs = ({recetas, toggleState, idClick}) => {
                 //   fetchDataFav({ url, method, headers, body });
                 // }
               };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -77,7 +77,8 @@ export const FavsPage = () => {
            
           };
 
-
+console.log("recipesState", recipesState.length);
+console.log("fetchState", fetchState);
 
     return (
         <>
