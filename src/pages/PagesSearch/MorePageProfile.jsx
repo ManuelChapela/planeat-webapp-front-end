@@ -1,43 +1,66 @@
-import React, { useContext } from 'react';
-import LoggedContext from './../../context/loggedContext';
-import PrefsContext from './../../context/prefsContext';
+import React, { useContext, useEffect } from 'react';
+import LoggedContext from '../../context/loggedContext';
+import PrefsContext from '../../context/prefsContext';
+import useLocalStorage from '../../Hooks/useLocalStorage';
+import useFetch from '../../Hooks/useFetch';
 
 // Assets
 import btnNext from './../../assets/btnNext.svg';
 import backArrow from './../../assets/back__arrow.svg';
+import btn__save from './../../assets/btn__save.svg';
 
 // Hooks
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 
 // Componentes
-import { HeaderNoLogo } from './../../components/HeaderNoLogo/HeaderNoLogo';
+import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { Painter } from '../../components/Painter/Painter';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
-import { NavBar } from '../../components/NavBar/NavBar';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
-export const MorePage = () => {
+export const MorePageProfile = () => {
   const { logged, setLogged } = useContext(LoggedContext);
   const { prefs, setPrefs } = useContext(PrefsContext);
+  const [fetchSaveState, fetchSave] = useFetch();
+
   const history = useHistory();
-  const location = useLocation();
+
+  const [token, setToken] = useLocalStorage('token', '');
 
   // Si no vienes de /nevera te echa
   Object.keys(prefs).length === 0 && history.push('/nevera');
 
-  const handleClick = () => history.push('/seleccion');
-  const handleBack = () => history.push('/noquiero');
+  const handleClick = () => {
+    const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
+    const method = 'PATCH';
+    const headers = { Authorization: `Bearer ${token}` };
+    const body = {
+      bannedCategories: prefs.bannedCategories
+        .filter((el) => el.value)
+        .map((el) => el.id),
+      bannedIngredients: prefs.bannedIngredients.map((el) => el.idIngredient),
+    };
+    fetchSave({ url, method, headers, body });
+  };
+  const handleBack = () => history.push('/profile-noquiero');
   const handleSkip = () => {
     setPrefs({ ...prefs, bannedIngredients: [] });
     history.push('/seleccion');
   };
 
+  useEffect(() => {
+    const fetchSucess = () => {
+      history.push('/profile');
+    };
+    fetchSaveState.isSuccess && fetchSaveState.data.OK && fetchSucess();
+  }, [fetchSaveState, history]);
+
   return (
     <div className="container">
       <header className="more__page-header">
         <div className="nav__bar-box">
-          <NavBar
+          <NavBar2
             cssClass="back__arrow"
             actionBack={handleBack}
             actionNext={handleSkip}
@@ -47,7 +70,7 @@ export const MorePage = () => {
 
         <HeaderNoLogo
           cssClass="say__not-title"
-          text="¿Qué ingredientes no quieres usar?"
+          text="¿Hay algo que no quieras comer?"
         />
       </header>
 
@@ -65,9 +88,9 @@ export const MorePage = () => {
 
         <div className="btn__next-box">
           <BtnNext
-            btn={btnNext}
+            btn={btn__save}
             action={handleClick}
-            icon={btnNext}
+            icon={btn__save}
             textBtn="Siguiente"
             cssClass="btn__box-next"
           />

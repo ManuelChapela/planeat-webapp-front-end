@@ -24,7 +24,10 @@ export const Painter = () => {
           { idIngredient: id, title, check: false },
         ],
       });
-    } else if (location.pathname === '/more') {
+    } else if (
+      location.pathname === '/more' ||
+      location.pathname === '/more-profile'
+    ) {
       setPrefs({
         ...prefs,
         bannedIngredients: [
@@ -43,7 +46,7 @@ export const Painter = () => {
 
     if (location.pathname === '/nevera') {
       ingredientType = 'ingredients';
-    } else if (location.pathname === '/more') {
+    } else if (location.pathname === '/more' || location.pathname==='/more-profile') {
       ingredientType = 'bannedIngredients';
     } else return false;
 
@@ -69,7 +72,7 @@ export const Painter = () => {
         ? prefs.ingredients.filter((el) => el.idIngredient !== id)
         : [];
       setPrefs({...prefs, ingredients});
-    } else if (location.pathname === '/more') {
+    } else if (location.pathname === '/more' || location.pathname === '/more-profile') {
       const ingredients = prefs
         ? prefs.bannedIngredients.filter((el) => el.idIngredient !== id)
         : [];

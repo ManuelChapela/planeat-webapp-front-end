@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
-import PrefsContext from './../../context/prefsContext';
+import PrefsContext from '../../context/prefsContext';
 
 // Assets
 import iconOtherIngredients from './../../assets/btn__other-ingredients.svg';
@@ -13,11 +13,11 @@ import iconPanBollo from './../../assets/icon__pan-bolleria.svg';
 
 import './BtnMainNot.css';
 
-export const BtnMainNot = () => {
+export const BtnMainNotProfile = () => {
   const { prefs, setPrefs } = useContext(PrefsContext);
 
   let history = useHistory();
-  const handleClick = () => history.push('/more');
+  const handleClick = () => history.push('/more-profile');
 
   const categories = prefs.bannedCategories;
   const defaultClass = 'btn__not';
