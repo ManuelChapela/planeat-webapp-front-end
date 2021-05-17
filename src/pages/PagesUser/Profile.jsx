@@ -50,7 +50,7 @@ export const Profile = () => {
     history.push('/profile');
   };
 
-  const handleClickPrefs = () => setModal('prefs');
+  const handleClickPrefs = () => history.push('/profile-noquiero');
 
   // const handleClickExit = () => {
   //     // setModal("exit")
@@ -276,7 +276,7 @@ export const Profile = () => {
         ) : (
           ''
         )}
-
+{/* 
         {modal === 'prefs' ? (
           <ModalTest
             mainText="Te has ido a preferencias. Estamos trabajando en ello Fernando."
@@ -284,7 +284,7 @@ export const Profile = () => {
           />
         ) : (
           ''
-        )}
+        )} */}
       </div>
     </div>
   );

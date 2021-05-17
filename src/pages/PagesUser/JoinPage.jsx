@@ -26,7 +26,7 @@ export const JoinPage = () => {
   useEffect(() => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/google-link`;
     const method = 'GET';
-    fetchLink({url, method});
+    fetchLink({ url, method });
   }, [fetchLink]);
 
   let url = currentUrl.currentUrl;
@@ -41,7 +41,7 @@ export const JoinPage = () => {
     else history.push('/join');
   };
 
-  const handleBack = () => history.push(`${url}`);
+  const handleBack = () => (url ? history.push(url) : history.push('/nevera'));
 
   return (
     <div className="join__container">

@@ -1,78 +1,107 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import LoggedContext from '../../context/loggedContext';
-import PrefsContext from '../../context/prefsContext';
 
 // HOOKS
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
+import useFetch from '../../Hooks/useFetch';
+import useLocalStorage from '../../Hooks/useLocalStorage';
+import PrefsContext from './../../context/prefsContext';
 
 // COMPONENTES
 import { HeaderNoLogo } from '../../components/HeaderNoLogo/HeaderNoLogo';
 import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
-import { BtnMainNot } from '../../components/BtnMainNot/BtnMainNot';
-import { NavBar2 } from '../../components/NavBar/NavBar';
+import { BtnMainNotProfile } from '../../components/BtnMainNot/BtnMainNotProfile';
+import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 // ASSETS
-import btnNext from './../../assets/btnNext.svg';
+import btn__save from './../../assets/btn__save.svg';
 import backArrow from './../../assets/back__arrow.svg';
 
-export const SayNotPage = (props) => {
+export const SayNotProfilePage = (props) => {
   const { logged, setLogged } = useContext(LoggedContext);
+
+  const [fetchState, fetchData] = useFetch();
+  const [fetchSaveState, fetchSave] = useFetch();
+
   const { prefs, setPrefs } = useContext(PrefsContext);
 
+  const [token, setToken] = useLocalStorage('token', '');
+
   const history = useHistory();
-  const location = useLocation();
 
-  // Si no estás logado te hecha
-  !logged && history.push('/join');
-
-  const handleSkip = () => {
-    if (location.pathname === '/noquiero') {
-      const { bannedCategories } = prefs;
-      bannedCategories.map((el) => (el.value = false));
-      setPrefs({ ...prefs, bannedCategories });
-    } else if (location.pathname === '/more') {
-      const { bannedIngredients } = prefs;
-      bannedIngredients.map((el) => (el.value = false));
-      setPrefs({ ...prefs, bannedIngredients });
-    }
-
-    history.push('/seleccion');
+  const handleClick = () => {
+    const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
+    const method = 'PATCH';
+    const headers = { Authorization: `Bearer ${token}` };
+    const body = {
+      bannedCategories: prefs.bannedCategories.filter(el=>el.value).map(el=>el.id),
+      bannedIngredients: prefs.bannedIngredients.map(el=>el.idIngredient)
+    };
+    fetchSave({url, method, headers, body});
   };
 
-  const handleClick = () => history.push('/seleccion');
+  const handleBack = () => history.push('/profile');
 
-  const handleBack = () => history.push('/nevera');
+  useEffect(() => {
+    // hacemos un fetch para obtener el objeto inicial de búsqueda
+    const url = `${process.env.REACT_APP_BACKEND_URL}/search`;
+    const method = 'GET';
+    const headers = { Authorization: `Bearer ${token}` };
+    console.log("OBJECT KEYS", Object.keys(prefs).length);
+    !Object.keys(prefs).length && fetchData({ url, method, headers });
+  }, [fetchData, token]);
+
+  useEffect(() => {
+    const fetchSucess = () => {
+      setLogged(fetchState.data.logged);
+      setPrefs(fetchState.data.searchPreferences);
+      !logged && history.push('/join');
+    };
+    fetchState.isSuccess && fetchState.data.OK && fetchSucess();
+  }, [fetchState, history, logged, setLogged, setPrefs]);
+
+  useEffect(() => {
+    const fetchSucess = () => {
+      history.push('/profile');
+    };
+    fetchSaveState.isSuccess && fetchSaveState.data.OK && fetchSucess();
+  }, [fetchSaveState, history]);
 
   return (
     <div className="container">
-      <header className='say__not-header'>
-
-        <div className='nav__bar-box'>
-          <NavBar2 cssClass='back__arrow' actionBack={handleBack} backArrow={backArrow} />
+      <header className="say__not-header">
+        <div className="nav__bar-box">
+          <NavBar2
+            cssClass="back__arrow"
+            actionBack={handleBack}
+            backArrow={backArrow}
+          />
         </div>
-        
-        
+
         {/* <div className="btn__box">
           <BtnBack text="Volver" actionBack={handleBack} />
 
           <BtnSkip text="Saltar" actionNext={handleClick} />
         </div> */}
 
-        <HeaderNoLogo cssClass='say__not-title' text="¿Hay algo que no quieras comer?" />
-        
+        <HeaderNoLogo
+          cssClass="say__not-title"
+          text="¿Hay algo que no quieras comer?"
+        />
       </header>
 
       <main>
-        
+        <BtnMainNotProfile />
 
-
-        <BtnMainNot />
-       
         <div className="btn__next-box">
-          <BtnNext btn={btnNext} action={handleClick} icon={btnNext} textBtn="Siguiente" />
+          <BtnNext
+            btn={btn__save}
+            action={handleClick}
+            icon={btn__save}
+            textBtn="Siguiente"
+          />
         </div>
-
       </main>
 
       <footer className="bottom__icon-box">
@@ -81,5 +110,3 @@ export const SayNotPage = (props) => {
     </div>
   );
 };
-        
-
