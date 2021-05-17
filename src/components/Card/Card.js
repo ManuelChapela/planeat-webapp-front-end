@@ -27,7 +27,6 @@ export const Card = ({ item, action, recipesState }) => {
   const { recipes, setRecipes } = recipesState;
 
   const handleFav = () => {
-    const logged = true;
     return logged ? handleLikeState() : handleClickJoin();
   };
   // const handleBan = () => {

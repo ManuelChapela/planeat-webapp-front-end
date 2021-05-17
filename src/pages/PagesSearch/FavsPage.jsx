@@ -16,10 +16,6 @@ import backArrow from './../../assets/back__arrow.svg';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
-// Assets
-import spinner from './../../assets/mainIcon__small.svg';
-
-
 import useFetch from './../../Hooks/useFetch';
 import useLocalStorage from './../../Hooks/useLocalStorage';
 import { useParams } from 'react-router-dom';
@@ -34,6 +30,8 @@ export const FavsPage = () => {
     
     let history = useHistory();
     const handleClick = () => history.push("/recetas");
+
+   
 
     useEffect(() => {
         !logged && history.push('/join');
@@ -65,7 +63,6 @@ export const FavsPage = () => {
         }, [fetchData]);
         
         const handleFav = (id) => {
-            console.log(9999999);
             const newRecipeState = recipesState.filter(el => el.id !== id)
             setRecipesState(newRecipeState)
             console.log("Has hecho clic en el padre FavPage", id);
@@ -90,7 +87,6 @@ export const FavsPage = () => {
                     <div className="nav__bar-box--favs nav__bar-box">
 
                     <NavBar2 
-
                         cssClass='back__arrow' 
                         actionBack={handleClick} 
                         backArrow={backArrow} 
@@ -104,25 +100,10 @@ export const FavsPage = () => {
 
                 <section className='fav__main-container-box'>
                     
-                        {fetchState.isLoading 
-                            ? 
-                            // <div class="loader">Loading...</div>
-                            <img 
-                                className='spinner__favs animate__animated animate__heartBeat animate__rotateIn' 
-                                src={spinner} 
-                                alt="spinner" 
-                            />
-
-                            : 
-
-                            logged && recipesState.length
-
-                            ?  <Favs recetas={recipesState} toggleState={handleFav} /> 
-                            :  <EmptyFav cssClass='icon__like-fav' />
-
-                        }
-
-                        
+                        {logged && recipesState .length
+                        ? <Favs recetas={recipesState} toggleState={handleFav} /> 
+                        :  <EmptyFav cssClass='icon__like-fav' />
+                    }
                     
                     
                 </section>
