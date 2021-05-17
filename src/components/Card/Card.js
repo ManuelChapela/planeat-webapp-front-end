@@ -17,7 +17,7 @@ import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
 // Context
 import LoggedContext from './../../context/loggedContext';
 import HistoryContext from './../../context/historyContext';
-// import BannedContext from './../../context/bannedContext';
+import BannedContext from './../../context/bannedContext';
 
 // Hook
 import useLocalStorage from './../../Hooks/useLocalStorage';
@@ -44,7 +44,7 @@ export const Card = ({ item, action, recipesState }) => {
   const [fetchStateNoFav, fetchDataNoFav] = useFetch();
 
   const { logged, setLogged } = useContext(LoggedContext);
-  // const { banned, setBanned } = useContext(BannedContext);
+  const { banned, setBanned } = useContext(BannedContext);
 
   
 
@@ -98,9 +98,9 @@ export const Card = ({ item, action, recipesState }) => {
 
   const handleBannedPrev = () => {
     console.log("clic en banned");
-    // setBanned({id: item.id})
+    setBanned({id: item.id})
 
-    handleBannedState()
+   //handleBannedState()
   }
 
   const handleBannedState = () => {
