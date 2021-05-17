@@ -16,6 +16,10 @@ import backArrow from './../../assets/back__arrow.svg';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
+// Assets
+// import spinner from './../../assets/mainIcon__small.svg';
+
+
 import useFetch from './../../Hooks/useFetch';
 import useLocalStorage from './../../Hooks/useLocalStorage';
 import { useParams } from 'react-router-dom';
@@ -30,8 +34,6 @@ export const FavsPage = () => {
     
     let history = useHistory();
     const handleClick = () => history.push("/recetas");
-
-    const fav = false;
 
     useEffect(() => {
         !logged && history.push('/join');
@@ -101,11 +103,25 @@ export const FavsPage = () => {
 
                 <section className='fav__main-container-box'>
                     
-                        <Favs recetas={recipesState} toggleState={handleFav} /> 
-                        {/* {logged && fav 
-                        ?  <Favs/> 
-                        :  <EmptyFav cssClass='icon__like-fav' />
-                    } */}
+                        {/* {fetchState.isLoading 
+                            ? 
+                            // <div class="loader">Loading...</div>
+                            <img 
+                                className='spinner__favs animate__animated animate__heartBeat animate__rotateIn' 
+                                src={spinner} 
+                                alt="spinner" 
+                            />
+
+                            :  */}
+
+                            {logged && recipesState.length
+
+                            ?  <Favs recetas={recipesState} toggleState={handleFav} /> 
+                            :  <EmptyFav cssClass='icon__like-fav' />
+
+                        }
+
+                        
                     
                     
                 </section>
