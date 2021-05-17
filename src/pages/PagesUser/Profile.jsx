@@ -137,7 +137,7 @@ export const Profile = () => {
   }, [fetchStateLogout]);
 
   const logOut = () => {
-    history.push('/nevera');
+    history.push('/');
     setLogged(false);
   };
 

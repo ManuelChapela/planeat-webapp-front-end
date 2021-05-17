@@ -858,6 +858,7 @@ text-align: left;
 }
 .card__title-des--box h2 {
     text-align: left;
+    font-size: 1.1rem;
 }
 
 .card__preferences {
@@ -1124,7 +1125,7 @@ width: 190px;
 
 .fav__price p {
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 700;
     line-height: 20px;
@@ -1250,7 +1251,23 @@ width: 190px;
     left: 35%;
     transform: translate(-50%, -50%); */
 }
+.spinner__fav {
+    
+    width: 8rem;
+    display: flex;
+    margin: auto;
+    position: absolute;
+    top: 20rem;
+    left: 10rem;
 
+    animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+    /* position:absolute;
+    top: 35%;
+    left: 35%;
+    transform: translate(-50%, -50%); */
+    
+}
 /* 
 .loader {
     font-size: 10px;
@@ -1327,10 +1344,10 @@ width: 190px;
 
 
   .fav__main-container-box {
-    height: 30rem;
+    /* height: 30rem; */
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .empty__fav-box {
@@ -1338,6 +1355,7 @@ width: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 7rem
 }
 .empty__fav-box p {
     margin-bottom: 2rem;

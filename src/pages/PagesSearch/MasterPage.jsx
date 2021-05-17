@@ -109,7 +109,11 @@ export const MasterPage = () => {
         />
       </header>
 
-      {recipes.length > 0 ? (
+      {  fetchState.isLoading ? (
+          <img className='spinner animate__animated animate__heartBeat animate__rotateIn' src={spinner} alt="spinner" />
+        ) 
+          
+          : recipes.length > 0 ? (
         <BannedProvider value={{ banned, setBanned }}>
           <main className="master__page-Carousel">
             <Carousell state={{ recipes, setRecipes }} />
@@ -128,13 +132,13 @@ export const MasterPage = () => {
           </main>
         </BannedProvider>
       ) : (
-        <>
-          {fetchState.isLoading ? (
-          <img className='spinner animate__animated animate__heartBeat animate__rotateIn' src={spinner} alt="spinner" />
-          ) : (
+        
             <>
               <main className="master__page-main">
-                <NoSuggest img={emptyPlate} />
+                {setTimeout(() => {
+                  <NoSuggest img={emptyPlate} />
+                  
+                }, 3000)}
               </main>
 
               <div className="master__btn-again">
@@ -153,8 +157,8 @@ export const MasterPage = () => {
               </div>
             </>
           )}
-        </>
-      )}
+
+
 
       <footer className="master__bottom-icon--box bottom__icon-box">
         <BtnMainIcons context={logged} />

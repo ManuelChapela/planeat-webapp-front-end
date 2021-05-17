@@ -16,6 +16,8 @@ import backArrow from './../../assets/back__arrow.svg';
 import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
+import spinner from './../../assets/mainIcon__small.svg';
+
 import useFetch from './../../Hooks/useFetch';
 import useLocalStorage from './../../Hooks/useLocalStorage';
 import { useParams } from 'react-router-dom';
@@ -99,10 +101,23 @@ export const FavsPage = () => {
                 </header>
 
                 <section className='fav__main-container-box'>
+
+                        {fetchState.isLoading 
+                        ? 
+                        <img className='spinner__fav animate__animated animate__heartBeat animate__rotateIn' src={spinner} alt="spinner" />
+                        :
+                         
                     
-                        {logged && recipesState .length
+                        logged && recipesState.length
                         ? <Favs recetas={recipesState} toggleState={handleFav} /> 
-                        :  <EmptyFav cssClass='icon__like-fav' />
+                        : 
+                       
+                      
+                        
+                        <EmptyFav cssClass='icon__like-fav' /> 
+                        // setTimeout(() => {
+                            
+                        // }, 3000) : null
                     }
                     
                     
