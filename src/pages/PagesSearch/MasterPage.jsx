@@ -12,6 +12,7 @@ import { useHistory } from 'react-router';
 import PrefsContext from './../../context/prefsContext';
 import LoggedContext from './../../context/loggedContext';
 import BannedContext from './../../context/bannedContext';
+
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
@@ -33,6 +34,7 @@ export const MasterPage = () => {
 
   const { prefs, setPrefs } = useContext(PrefsContext);
   const { logged, setLogged } = useContext(LoggedContext);
+  
   const { banned, setBanned } = useContext(BannedContext);
 
   const [token, setToken] = useLocalStorage('token', '');
