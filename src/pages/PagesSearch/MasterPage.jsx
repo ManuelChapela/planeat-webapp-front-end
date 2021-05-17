@@ -6,6 +6,7 @@ import './Main.css';
 // Assets
 import searchAgain from './../../assets/btn__search-again.svg';
 import emptyPlate from './../../assets/empty__plate.svg';
+import spinner from './../../assets/mainIcon__small.svg';
 
 // Hooks
 import { useHistory } from 'react-router';
@@ -100,7 +101,8 @@ export const MasterPage = () => {
         :   <>
 
         {fetchState.isLoading ? 
-          <div class="loader">Loading...</div>
+          // <div class="loader">Loading...</div>
+          <img className='spinner animate__animated animate__heartBeat animate__rotateIn' src={spinner} alt="spinner" />
         : 
         <>
 
