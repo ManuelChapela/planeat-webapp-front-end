@@ -101,7 +101,6 @@ export const MasterPage = () => {
         :   <>
 
         {fetchState.isLoading ? 
-          // <div class="loader">Loading...</div>
           <img 
             className='spinner animate__animated animate__heartBeat animate__rotateIn' 
             src={spinner} 
