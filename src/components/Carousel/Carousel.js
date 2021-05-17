@@ -24,13 +24,10 @@ import LoggedContext from './../../context/loggedContext';
 import btnReceta from './../../assets/btnReceta.svg';
 import btnSearchRecipe from './../../assets/icon__ver-receta.svg';
 
-
-
 // MAIN FUNCTION
 const Carousell = ({state}) => {
   
     const {recipes: data, setRecipes} = state;
-
 
     let history = useHistory();
     
@@ -59,7 +56,6 @@ const Carousell = ({state}) => {
     // const printRecetas = () => data.map( item =>  drawRecetas(item))
     const printRecetas = () => data.map( item => <Card action={handleClickDetail} recipesState={ {recipes: data, setRecipes} } item={item} /> )
     
-
 
     const drawRecetas = (item) => {
 
@@ -94,10 +90,8 @@ const Carousell = ({state}) => {
                     </div>
                 </div>
 
-
                 <img className='btn__see-recipe' onClick={handleClickkk} src={btnSearchRecipe} alt="Botón ver receta" /> */}
                 {/* <BtnNext textBtn="VER RECETA" icon={btnReceta} action={handleClickkk}/> */}
-
             </>
         ) 
     }
@@ -112,25 +106,20 @@ const Carousell = ({state}) => {
                 centerMode={true}
                 showArrows={true}  
                 dynamicHeight={false}
-                // onClickItem={handleClickDetail}
+                    // onClickItem={handleClickDetail}
                 showThumbs={false}      
                 showIndicators={false}
                 showStatus={false}
-                  
-                // width={100}
+                    // width={100}
                 >
                     
-
                 {printRecetas()}
 
                 {/* {recetas ? <Suggest data={data}/> : <NoSuggest />}  */}
 
             </Carousel >
-
         </>
-
     )
-
 }
 
 export default Carousell
