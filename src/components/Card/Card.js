@@ -17,6 +17,7 @@ import { BtnBanned } from '../../components/BtnLikeDislike/BtnBanned';
 // Context
 import LoggedContext from './../../context/loggedContext';
 import HistoryContext from './../../context/historyContext';
+// import BannedContext from './../../context/bannedContext';
 
 // Hook
 import useLocalStorage from './../../Hooks/useLocalStorage';
@@ -29,9 +30,9 @@ export const Card = ({ item, action, recipesState }) => {
     const logged = true;
     return logged ? handleLikeState() : handleClickJoin();
   };
-  const handleBan = () => {
-    return logged ? handleBannedState() : handleClickJoin();
-  };
+  // const handleBan = () => {
+  //   return logged ? handleBannedState() : handleClickJoin();
+  // };
 
   let history = useHistory();
   let location = useLocation();
@@ -43,6 +44,12 @@ export const Card = ({ item, action, recipesState }) => {
   const [fetchStateNoFav, fetchDataNoFav] = useFetch();
 
   const { logged, setLogged } = useContext(LoggedContext);
+  // const { banned, setBanned } = useContext(BannedContext);
+
+  
+
+  // const [bannedState, setBannedState] = useState({id: false})
+
   const [token, setToken] = useLocalStorage('token', '');
   const { currentUrl, setCurrentUrl } = useContext(HistoryContext);
 
@@ -88,6 +95,13 @@ export const Card = ({ item, action, recipesState }) => {
     setCurrentUrl({ currentUrl: '/nevera' });
     history.push('/join');
   };
+
+  const handleBannedPrev = () => {
+    console.log("clic en banned");
+    // setBanned({id: item.id})
+
+    handleBannedState()
+  }
 
   const handleBannedState = () => {
     const method = 'POST';
@@ -140,9 +154,9 @@ export const Card = ({ item, action, recipesState }) => {
             />
           </div>
 
-          <div onClick={handleBan} className="testing">
+          <div onClick={logged ? handleBannedPrev : handleClickJoin} className="testing">
             <BtnBanned
-              // action={logged ? handleBannedState : handleClickJoin}
+              // action={logged ? handleBannedPrev : handleClickJoin}
               stateBanned={recipe.ban}
               iconHandUp={iconHand}
               className="icon__down-hand"

@@ -11,6 +11,7 @@ import emptyPlate from './../../assets/empty__plate.svg';
 import { useHistory } from 'react-router';
 import PrefsContext from './../../context/prefsContext';
 import LoggedContext from './../../context/loggedContext';
+import BannedContext from './../../context/bannedContext';
 import useFetch from '../../Hooks/useFetch';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 
@@ -25,11 +26,15 @@ import backArrow from './../../assets/back__arrow.svg';
 import { NoSuggest } from '../../components/NoSuggest/NoSuggest';
 import { BtnNext } from '../../components/BtnNext/BtnNext';
 import { Card } from '../../components/Card/Card';
+import { ModalBanned } from '../../modals/ModalBanned';
 
 export const MasterPage = () => {
   const [fetchState, fetchData] = useFetch();
+
   const { prefs, setPrefs } = useContext(PrefsContext);
   const { logged, setLogged } = useContext(LoggedContext);
+  const { banned, setBanned } = useContext(BannedContext);
+
   const [token, setToken] = useLocalStorage('token', '');
   const [recipes, setRecipes] = useState([]);
 
@@ -52,50 +57,7 @@ export const MasterPage = () => {
     fetchState.isSuccess && fetchRecipes();
   }, [fetchState]);
 
-  // const hardcodedItems = [
-  //   {
-  //     mainTitle: 'comida',
-  //     title: 'Espagueti Boloñesa',
-  //     type: 'Pasta',
-  //     ingredients: ['tomate', 'aceite', 'ajo', 'espaguetis', 'albahaca'],
-  //     price: 'Barato',
-  //     time: '15 minutos',
-  //     img:
-  //       'https://www.laespanolaaceites.com/wp-content/uploads/2019/05/espaguetis-a-la-bolonesa-1080x671.jpg',
-  //   },
-  //   {
-  //     mainTitle: 'comida',
-  //     title: 'Pasta con atún',
-  //     type: 'Pasta',
-  //     ingredients: [
-  //       'tomate',
-  //       'pimiento',
-  //       'aceite',
-  //       'ajo',
-  //       'espirales',
-  //       'albahaca',
-  //     ],
-  //     price: 'Barato / 15 minutos',
-  //     time: '15 minutos',
-  //     img:
-  //       'https://dam.cocinafacil.com.mx/wp-content/uploads/2013/03/Ensalada-de-Pasta-con-At%C3%BAn.jpg',
-  //   },
-  //   {
-  //     mainTitle: 'comida',
-  //     title: 'Alubias con choco y jengibre',
-  //     type: 'Inventada',
-  //     ingredients: [
-  //       'alubias',
-  //       'aceite',
-  //       'ajo',
-  //       'chocos en su tinta',
-  //       'jengibre polvo',
-  //     ],
-  //     price: 'Barato / 10 minutos',
-  //     img:
-  //       'https://www.chefcaprabo.com/export/shared/.galleries/recetas/4201323CAS_682x433.png_908605617.png',
-  //   },
-  // ];
+
 
   const recetas = true;
 
@@ -126,7 +88,20 @@ export const MasterPage = () => {
               {/* <Card /> */}
               
 
+
+           { banned && banned.id && <ModalBanned
+                  // leftBtn={btnCancel}
+                  // rigthBtn={btnBanned}
+                  secondText="Vetar receta"
+                  mainText="Vetar receta"
+                  // reset={modalBtnClose}
+                  // action1={clicBtnLeft}
+                  // action2={clicBtnRightUser}
+                  />
+           }
+            
             </main>
+
 
         :   <>
               <main className='master__page-main'>
@@ -150,6 +125,7 @@ export const MasterPage = () => {
             </>
 
       }
+   
        
 
       <footer className="bottom__icon-box">
