@@ -823,6 +823,7 @@ text-align: left;
     position: relative;
 }
 .card__img {
+    
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -834,6 +835,10 @@ text-align: left;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.card__title-box h3 {
+    color: var(--white);
+    text-shadow: 0 0 4px #777;
 }
 .card__icon-box {
     width: 8rem;
@@ -1081,6 +1086,12 @@ width: 190px;
     z-index: -1;
     
 }
+.fav__main-container-box {
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 /* .fav__main-box{
     display: flex;
     width: 80vw;
@@ -1092,6 +1103,15 @@ width: 190px;
      border: solid 1px black;
 
 } */
+.empty__fav-box {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.empty__fav-box p {
+    margin-bottom: 2rem;
+}
 
 .fav__img-box {
     display: flex;
@@ -1194,6 +1214,11 @@ width: 190px;
     background-color: var(--white);
 
 }
+.final__container-fav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .final__container-fav:last-child {
     margin-bottom: 8rem;
@@ -1227,6 +1252,16 @@ width: 190px;
 }
 
 /* SPINNER */
+/* .spinner__favs {
+    width: 8rem;
+    display: flex;
+    margin: auto;
+   
+
+    animation: heartBeat; /* referring directly to the animation's @keyframe declaration 
+    animation-duration: 2s;
+} 
+*/
 .spinner {
     width: 8rem;
     display: flex;
@@ -1310,7 +1345,6 @@ width: 190px;
 
 
 
-  
 /* 
   .MuiFormControl-root {
       margin-top:35px;
