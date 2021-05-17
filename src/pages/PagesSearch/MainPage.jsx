@@ -58,7 +58,7 @@ export const MainPage = () => {
             iconsFoodHours={iconsFoodHours}
           />
 
-          <BtnNext btn={btnNextRec} action={handleClick} textBtn="Buscar" />
+          <BtnNext cssClass='btn__buscar-receta' btn={btnNextRec} action={handleClick} textBtn="Buscar" />
         
         </div>
       </main>
