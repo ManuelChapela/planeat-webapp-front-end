@@ -81,7 +81,10 @@ export const SelectionPage = () => {
 
           <div className="time__selection-box">
               <HeaderNoLogo cssClass="main__title-box" text="¿Cuánto tiempo tienes?" />
-              <Time prefsContext={{ prefs, setPrefs }} iconsTime={iconsTime} />
+              <div className="time__selection">
+                <Time prefsContext={{ prefs, setPrefs }} iconsTime={iconsTime} />
+              </div>
+
           </div>
       </div>
 
