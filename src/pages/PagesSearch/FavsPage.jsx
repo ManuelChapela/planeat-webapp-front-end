@@ -17,7 +17,7 @@ import { NavBar2 } from '../../components/NavBar2/NavBar2';
 
 
 // Assets
-// import spinner from './../../assets/mainIcon__small.svg';
+import spinner from './../../assets/mainIcon__small.svg';
 
 
 import useFetch from './../../Hooks/useFetch';
@@ -103,7 +103,7 @@ export const FavsPage = () => {
 
                 <section className='fav__main-container-box'>
                     
-                        {/* {fetchState.isLoading 
+                        {fetchState.isLoading 
                             ? 
                             // <div class="loader">Loading...</div>
                             <img 
@@ -112,9 +112,9 @@ export const FavsPage = () => {
                                 alt="spinner" 
                             />
 
-                            :  */}
+                            : 
 
-                            {logged && recipesState.length
+                            logged && recipesState.length
 
                             ?  <Favs recetas={recipesState} toggleState={handleFav} /> 
                             :  <EmptyFav cssClass='icon__like-fav' />

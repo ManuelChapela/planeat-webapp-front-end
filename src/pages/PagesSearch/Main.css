@@ -1087,7 +1087,7 @@ width: 190px;
     
 }
 .fav__main-container-box {
-    height: 30rem;
+    /* height: 30rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
