@@ -108,7 +108,7 @@ export const Favs = ({recetas, toggleState, idClick}) => {
             </div>
 
             {
-        },
+        }
 
 
         </div>
@@ -173,3 +173,9 @@ export const Favs = ({recetas, toggleState, idClick}) => {
 //         </>
 //     )
 // }
+
+
+
+
+
+                        
