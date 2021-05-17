@@ -71,6 +71,9 @@ export const FormStickers = ({ addSticker }) => {
         </form> */}
 
         <Autocomplete
+            style={{
+              marginTop: '40px'
+          }}
           freesolo
           options={ingredientes}
           noOptionsText=""

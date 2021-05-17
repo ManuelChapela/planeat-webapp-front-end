@@ -26,15 +26,11 @@ import { BtnMainIcons } from '../../components/BtnMainIcons/BtnMainIcons';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 
-
-
-
 export const FridgePage = () => {
 
   const { logged, setLogged } = useContext(LoggedContext);
   const {prefs, setPrefs} = useContext(PrefsContext);
   
-
   const [fetchState, fetchData] = useFetch();
 
   const [token, setToken] = useLocalStorage('token', '');
@@ -67,7 +63,6 @@ export const FridgePage = () => {
   const handleClick = () => history.push('/noquiero');
 
   return (
-
 
     <div className="container">
       <header className='fridge__header-box'>

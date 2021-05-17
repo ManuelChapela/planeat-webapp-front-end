@@ -13,6 +13,12 @@ export const Sticker = ({data}) => {
         <>
 
             <Chip
+            style={{
+                backgroundColor: '#EFFFD9',
+                color: '#266A29',
+                border: '1px solid #8BC53F',
+                marginTop: '10px'
+            }}
             className='sticker'
             //   icon={icon}
             label={data.title}

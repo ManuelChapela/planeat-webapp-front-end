@@ -57,8 +57,6 @@ export const MasterPage = () => {
     fetchState.isSuccess && fetchRecipes();
   }, [fetchState]);
 
-
-
   const recetas = true;
 
   const handleBack = () => history.push('/horario');
@@ -86,8 +84,6 @@ export const MasterPage = () => {
         ?   <main className='master__page-Carousel'>
               <Carousell state={ {recipes, setRecipes} } />
               {/* <Card /> */}
-              
-
 
            { banned && banned.id && <ModalBanned
                   // leftBtn={btnCancel}
@@ -99,9 +95,7 @@ export const MasterPage = () => {
                   // action2={clicBtnRightUser}
                   />
            }
-            
             </main>
-
 
         :   <>
 
@@ -126,16 +120,10 @@ export const MasterPage = () => {
                   action={btnSearchAgain}
                   />
           </div>
-
         </> }
-              
-
             </>
-
       }
    
-       
-
       <footer className="master__bottom-icon--box bottom__icon-box">
         <BtnMainIcons context={logged} />
       </footer>
