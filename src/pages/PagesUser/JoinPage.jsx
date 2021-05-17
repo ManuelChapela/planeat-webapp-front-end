@@ -33,7 +33,7 @@ export const JoinPage = () => {
 
   let history = useHistory();
 
-  const handleClickSignUp = () => history.push('/profile');
+  const handleClickSignUp = () => history.push('/signup');
   const handleClickLogIn = () => history.push('/login');
   const handleClickGoogle = () => {
     if (fetchLinkState.isSuccess && fetchLinkState.data.OK)
